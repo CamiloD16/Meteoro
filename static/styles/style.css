@@ -1,0 +1,231 @@
+.row {
+  width: 100%;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+nav {
+  background-color: #0083B0;
+  -webkit-box-shadow: 0px 3px 9px -1px rgba(0, 0, 0, 0.493);
+  box-shadow: 0px 3px 9px -1px rgba(0, 0, 0, 0.39);
+}
+
+nav .container-fluid {
+  padding: 10px 5%;
+}
+
+nav .container-fluid .navbar-toggler .navbar-toggler-icon {
+  background-image: url(/img/menu.png);
+}
+
+nav .container-fluid .navbar-brand {
+  color: white;
+}
+
+nav .container-fluid .navbar-brand:hover {
+  color: rgba(0, 0, 0, 0.97);
+}
+
+nav .container-fluid .collapse ul {
+  margin: 0 0 0 5%;
+}
+
+nav .container-fluid .collapse ul li .nav-link {
+  color: white;
+  padding: 0 20px;
+  float: right;
+}
+
+nav .container-fluid .collapse ul li .nav-link:hover {
+  color: rgba(0, 0, 0, 0.97);
+}
+
+.section-1 {
+  width: 100%;
+  height: auto;
+}
+
+.section-1 .containerSection1 {
+  margin: 50px auto 0 auto;
+  color: white;
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  padding: 25px;
+  border-radius: 9px;
+}
+
+.section-1 .containerSection1 h3 {
+  padding: 10px;
+}
+
+.section-1 .containerSection1 h5 {
+  padding: 10px;
+}
+
+.section-1 .containerSection1 .input-group {
+  border: none;
+}
+
+.section-1 .containerSection1 .input-group .buttonSection1 {
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  color: white;
+  width: 30%;
+  -webkit-transition: background-color 2s, border 2s, -webkit-box-shadow 1s;
+  transition: background-color 2s, border 2s, -webkit-box-shadow 1s;
+  transition: background-color 2s, border 2s, box-shadow 1s;
+  transition: background-color 2s, border 2s, box-shadow 1s, -webkit-box-shadow 1s;
+  border: none;
+  border-radius: 9px;
+}
+
+.section-1 .containerSection1 .input-group .buttonSection1:hover {
+  border: none;
+  -webkit-box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.section-1 .containerImgSection1 {
+  display: inline-block;
+  margin: 50px auto;
+  width: 100%;
+  text-align: center;
+  -webkit-animation: slider 10s infinite linear;
+          animation: slider 10s infinite linear;
+}
+
+.section-1 .containerImgSection1 .imgSection1 {
+  width: 250px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@-webkit-keyframes slider {
+  to {
+    background-position: 2000px;
+  }
+}
+
+@keyframes slider {
+  to {
+    background-position: 2000px;
+  }
+}
+
+main {
+  margin: 0 auto;
+  padding: 0px 0;
+  border-radius: 9px;
+}
+
+main .containerSection2-left {
+  margin: 0 auto;
+  max-height: 450px;
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  padding: 25px;
+  border-radius: 9px;
+  text-align: center;
+}
+
+main .containerSection2-left h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+main .containerSection2-left h4 {
+  color: white;
+}
+
+main .containerSection2-left .containerInformationSection2 {
+  margin: 20px auto 0 auto;
+}
+
+main .containerSection2-left .containerInformationSection2 .informationSection2 {
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  border-radius: 8px;
+  display: inline-block;
+  padding: 20px;
+  text-align: center;
+  width: 30%;
+}
+
+main .containerSection2-left .containerInformationSection2 .informationSection2 h3 {
+  color: white;
+}
+
+main .containerSection2-left .containerInformationSection2 .informationSection2 h2 {
+  color: white;
+}
+
+main .containerSection2-left .containerInformationSection2 .informationSection2 .iconSection2 {
+  width: 30px;
+}
+
+main .containerSection2-left .detalles {
+  margin: 30px 0 0 0;
+}
+
+main .containerSection2-left .detalles .detallesButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  color: #fff;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
+  transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
+}
+
+main .containerSection2-left .detalles .detallesButton:hover {
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+main .containerSection2-right {
+  margin: 0 auto;
+  padding: 25px;
+  max-height: 450px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  border-radius: 9px;
+}
+
+main .containerSection2-right h4 {
+  color: white;
+}
+
+main #myChart {
+  margin: 0;
+  border-radius: 9px;
+  padding: 0 10px 10px 10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+
+.section-3 {
+  margin: 30px auto 0 auto;
+  background-color: rgba(0, 0, 0, 0.97);
+  border-radius: 9px;
+}
+/*# sourceMappingURL=style.css.map */
