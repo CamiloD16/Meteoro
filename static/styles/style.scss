@@ -8,19 +8,19 @@ $color-5:rgba(0, 0, 0, 0.97);
     background: #00B4DB;
     background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
     background: linear-gradient(to bottom, #0083B0, #00B4DB);
-    // background-color: $color-0;
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
     padding: 25px;
     border-radius: 9px;
+    transition: box-shadow 1s;
 }
 
-@mixin fondo {
-    background: #00B4DB;
-    background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
-    background: linear-gradient(to bottom, #0083B0, #00B4DB);
-    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+@mixin fondoHover {
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+    padding: 25px;
+    border-radius: 9px;
+
 }
 
 .row {
@@ -28,11 +28,7 @@ $color-5:rgba(0, 0, 0, 0.97);
 }
 
 body {
-    // background: #00B4DB;
-    // background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
-    // background: linear-gradient(to bottom, #0083B0, #00B4DB);
     background-color: rgb(246, 246, 246);
-    // background-color: $color-5;
 }
 
 
@@ -57,10 +53,6 @@ nav {
             color: $color-0;
         }
 
-        .navbar-brand:hover {
-            color: $color-5;
-        }
-
         .collapse {
 
 
@@ -73,11 +65,7 @@ nav {
                     .nav-link {
                         color: $color-0;
                         padding: 0 20px;
-                        float: right;
-                    }
 
-                    .nav-link:hover {
-                        color: $color-5;
                     }
 
                 }
@@ -113,46 +101,80 @@ nav {
                 background: linear-gradient(to bottom, #0083B0, #00B4DB);
                 color: $color-0;
                 width: 30%;
-                transition: background-color 2s, border 2s, box-shadow 1s;
+                transition: background-color 1s, border 1s, box-shadow 1s;
                 border: none;
                 border-radius: 9px;
+
+                &:hover {
+                    border: none;
+                    -webkit-box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                    box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                }
             }
 
-            .buttonSection1:hover {
-                border: none;
-                -webkit-box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
-                box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
-            }
+        }
+
+
+
+        &:hover {
+            @include fondoHover()
         }
     }
 
     .containerImgSection1 {
-
-        display: inline-block;
         margin: 50px auto;
         width: 100%;
         text-align: center;
-        animation: slider 10s infinite linear;
 
-        .imgSection1 {
-
-            width: 250px;
-            border-radius: 10px;
+        .containerText {
+            display: inline-block;
+            position: relative;
             cursor: pointer;
+
+            &:hover {
+                .textImg {
+                    opacity: 1;
+                    background-color: rgba(0, 0, 0, 0.466);
+                }
+            }
+
+            .imgSection1 {
+                position: relative;
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.267);
+                width: 250px;
+                border-radius: 10px;
+                opacity: 0.9;
+
+
+            }
+
+
+            .textImg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $color-0;
+                opacity: 0.1;
+                z-index: 10;
+                // text-align: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 9px;
+                transition: background-color 1s, opacity 1s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
-    }
-}
 
-@keyframes slider {
-    to {
-        background-position: 2000px;
     }
 }
 
 main {
     margin: 0 auto;
-    // background-color: $color-0;
     padding: 0px 0;
     border-radius: 9px;
 
@@ -172,12 +194,11 @@ main {
         }
 
         .containerInformationSection2 {
-            // background-color: $color-0;
             margin: 20px auto 0 auto;
 
 
             .informationSection2 {
-                @include fondo();
+                @include contenedores();
                 border-radius: 8px;
                 display: inline-block;
                 padding: 20px;
@@ -202,23 +223,26 @@ main {
             margin: 30px 0 0 0;
 
             .detallesButton {
-                padding: 10px 20px;
-                border: none;
-                border-radius: 20px;
-                @include fondo();
+                @include contenedores();
                 color: #fff;
+                padding: 10px 20px;
+                border-radius: 20px;
+                border: none;
                 transition: box-shadow 1s;
-            }
 
-            .detallesButton:hover {
-                -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
-                box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                &:hover {
+                    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                }
             }
+        }
+
+        &:hover {
+            @include fondoHover()
         }
     }
 
     .containerSection2-right {
-        // @include contenedores();
         margin: 0 auto;
         padding: 25px;
         max-height: 450px;
@@ -226,16 +250,19 @@ main {
         -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
         border-radius: 9px;
-        // height: 470px;
+        transition: box-shadow 1s;
 
         h4 {
             color: $color-0;
+        }
+
+        &:hover {
+            @include fondoHover()
         }
     }
 
     #myChart {
         margin: 0;
-        // background-color: rgb(0, 255, 255);
         border-radius: 9px;
         padding: 0 10px 10px 10px;
         width: 20px;
@@ -247,6 +274,7 @@ main {
 
 .section-3 {
     margin: 30px auto 0 auto;
-    background-color: $color-5;
+    background-color: $color-0;
     border-radius: 9px;
+    color: $color-0;
 }
