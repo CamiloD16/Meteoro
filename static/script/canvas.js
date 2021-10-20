@@ -5,30 +5,30 @@ var myChart = new Chart(ctx, {
         labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
         datasets: [{
             label: 'Semana actual',
-            data: [36, 28, 31, 20, 25, 13, 20],
+            data: [32, 28, 31, 15, 24, 16, 27],
             backgroundColor: [
-                'rgba(0, 99, 132, 0.6)',
                 'rgba(30, 99, 132, 0.6)',
-                'rgba(60, 99, 132, 0.6)',
-                'rgba(90, 99, 132, 0.6)',
-                'rgba(120, 99, 132, 0.6)',
-                'rgba(150, 99, 132, 0.6)',
-                'rgba(180, 99, 132, 0.6)'
+                'rgba(30, 99, 132, 0.6)',
+                'rgba(30, 99, 132, 0.6)',
+                'rgba(30, 99, 132, 0.6)',
+                'rgba(30, 99, 132, 0.6)',
+                'rgba(30, 99, 132, 0.6)',
+                'rgba(30, 99, 132, 0.6)'
             ],
             borderWidth: 3,
             hoverBorderWidth: 0,
             borderColor: 'rgba(0, 255, 132, 0.6)',
         }, {
             label: 'Semana pasada',
-            data: [12, 24, 20, 11, 23, 52, 32],
+            data: [27, 23, 22, 13, 24, 10, 19],
             backgroundColor: [
-                'rgba(180, 99, 132, 0.6)',
                 'rgba(150, 99, 132, 0.6)',
-                'rgba(120, 99, 132, 0.6)',
-                'rgba(90, 99, 132, 0.6)',
-                'rgba(60, 99, 132, 0.6)',
-                'rgba(30, 99, 132, 0.6)',
-                'rgba(0, 99, 132, 0.6)'    
+                'rgba(150, 99, 132, 0.6)',
+                'rgba(150, 99, 132, 0.6)',
+                'rgba(150, 99, 132, 0.6)',
+                'rgba(150, 99, 132, 0.6)',
+                'rgba(150, 99, 132, 0.6)',
+                'rgba(150, 99, 132, 0.6)'   
             ],
             borderWidth: 3,
             hoverBorderWidth: 0,

@@ -13,7 +13,7 @@ nav {
 }
 
 nav .container-fluid {
-  padding: 10px 5%;
+  padding: 0px 5%;
 }
 
 nav .container-fluid .navbar-toggler .navbar-toggler-icon {
@@ -21,7 +21,12 @@ nav .container-fluid .navbar-toggler .navbar-toggler-icon {
 }
 
 nav .container-fluid .navbar-brand {
-  color: white;
+  width: 100%;
+}
+
+nav .container-fluid .navbar-brand img {
+  width: 50px;
+  border-radius: 50%;
 }
 
 nav .container-fluid .collapse ul {
@@ -33,6 +38,21 @@ nav .container-fluid .collapse ul li .nav-link {
   padding: 0 20px;
 }
 
+nav .container-fluid .collapse ul li .nav-link img {
+  width: 20px;
+}
+
+nav .container-fluid .collapse ul li ul li a {
+  z-index: 200;
+}
+
+#google_translate_element {
+  background-color: red;
+  text-align: center;
+  color: transparent;
+  width: 50%;
+}
+
 .section-1 {
   width: 100%;
   height: auto;
@@ -41,6 +61,7 @@ nav .container-fluid .collapse ul li .nav-link {
 .section-1 .containerSection1 {
   margin: 50px auto 0 auto;
   color: white;
+  z-index: 50;
   background: #00B4DB;
   background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
   background: linear-gradient(to bottom, #0083B0, #00B4DB);
@@ -133,15 +154,15 @@ nav .container-fluid .collapse ul li .nav-link {
   border-radius: 9px;
   -webkit-transition: background-color 1s, opacity 1s;
   transition: background-color 1s, opacity 1s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 15% 0 0 0;
+}
+
+.section-1 .containerImgSection1 .containerText .textImg h2 {
+  color: white;
+}
+
+.section-1 .containerImgSection1 .containerText .textImg h3 {
+  color: #36c0ee;
 }
 
 main {
@@ -167,13 +188,13 @@ main .containerSection2-left {
   text-align: center;
 }
 
+main .containerSection2-left h4 {
+  color: white;
+}
+
 main .containerSection2-left h1 {
   color: white;
   font-size: 4rem;
-}
-
-main .containerSection2-left h4 {
-  color: white;
 }
 
 main .containerSection2-left .containerInformationSection2 {
@@ -181,34 +202,37 @@ main .containerSection2-left .containerInformationSection2 {
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 {
-  background: #00B4DB;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
-  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  background-color: white;
   -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
-  padding: 25px;
   border-radius: 9px;
   -webkit-transition: -webkit-box-shadow 1s;
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
   transition: box-shadow 1s, -webkit-box-shadow 1s;
-  border-radius: 8px;
   display: inline-block;
-  padding: 20px;
+  padding: 25px 10px;
   text-align: center;
   width: 30%;
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 h3 {
-  color: white;
+  color: rgba(0, 0, 0, 0.97);
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 h2 {
-  color: white;
+  color: #0083B0;
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 .iconSection2 {
   width: 30px;
+}
+
+main .containerSection2-left .containerInformationSection2 .informationSection2:hover {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+  padding: 25px;
+  border-radius: 9px;
 }
 
 main .containerSection2-left .detalles {
@@ -216,27 +240,25 @@ main .containerSection2-left .detalles {
 }
 
 main .containerSection2-left .detalles .detallesButton {
-  background: #00B4DB;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
-  background: linear-gradient(to bottom, #0083B0, #00B4DB);
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
-  padding: 25px;
-  border-radius: 9px;
-  -webkit-transition: -webkit-box-shadow 1s;
-  transition: -webkit-box-shadow 1s;
-  transition: box-shadow 1s;
-  transition: box-shadow 1s, -webkit-box-shadow 1s;
-  color: #fff;
-  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  font-weight: 900;
+  padding: 10px 25px;
   border-radius: 20px;
   border: none;
-  transition: box-shadow 1s;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+  -webkit-transition: background-color 1s, color 1s, -webkit-box-shadow 1s;
+  transition: background-color 1s, color 1s, -webkit-box-shadow 1s;
+  transition: box-shadow 1s, background-color 1s, color 1s;
+  transition: box-shadow 1s, background-color 1s, color 1s, -webkit-box-shadow 1s;
 }
 
 main .containerSection2-left .detalles .detallesButton:hover {
   -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  color: #0083B0;
 }
 
 main .containerSection2-left:hover {

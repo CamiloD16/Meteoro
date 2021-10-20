@@ -1,6 +1,6 @@
 $color-0:rgb(255, 255, 255);
 $color-1:#2193b0;
-$color-2: #3621b0d8;
+$color-2: #36c0ee;
 $color-4:#0083B0;
 $color-5:rgba(0, 0, 0, 0.97);
 
@@ -38,7 +38,7 @@ nav {
     box-shadow: 0px 3px 9px -1px rgba(0, 0, 0, 0.39);
 
     .container-fluid {
-        padding: 10px 5%;
+        padding: 0px 5%;
 
 
         .navbar-toggler {
@@ -50,7 +50,12 @@ nav {
         }
 
         .navbar-brand {
-            color: $color-0;
+            width: 100%;
+
+            img {
+                width: 50px;
+                border-radius: 50%;
+            }
         }
 
         .collapse {
@@ -66,6 +71,19 @@ nav {
                         color: $color-0;
                         padding: 0 20px;
 
+                        img {
+                            width: 20px;
+                        }
+
+                    }
+
+                    ul {
+                        li {
+                            a {
+                                // background-color: red;
+                                z-index: 200;
+                            }
+                        }
                     }
 
                 }
@@ -75,6 +93,15 @@ nav {
     }
 }
 
+#google_translate_element {
+    // display: none;
+    background-color: red;
+    text-align: center;
+    color: transparent;
+    width: 50%;
+}
+
+
 .section-1 {
     width: 100%;
     height: auto;
@@ -82,6 +109,7 @@ nav {
     .containerSection1 {
         margin: 50px auto 0 auto;
         color: $color-0;
+        z-index: 50;
         @include contenedores();
 
         h3 {
@@ -149,7 +177,6 @@ nav {
 
             }
 
-
             .textImg {
                 position: absolute;
                 top: 50%;
@@ -158,14 +185,22 @@ nav {
                 color: $color-0;
                 opacity: 0.1;
                 z-index: 10;
-                // text-align: center;
                 width: 100%;
                 height: 100%;
                 border-radius: 9px;
                 transition: background-color 1s, opacity 1s;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                padding: 15% 0 0 0;
+
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                h2 {
+                    color: $color-0;
+                }
+
+                h3 {
+                    color: $color-2;
+                }
             }
         }
 
@@ -184,37 +219,48 @@ main {
         @include contenedores();
         text-align: center;
 
+        h4 {
+            color: $color-0;
+        }
+
         h1 {
             color: $color-0;
             font-size: 4rem;
         }
 
-        h4 {
-            color: $color-0;
-        }
+
 
         .containerInformationSection2 {
             margin: 20px auto 0 auto;
 
 
             .informationSection2 {
-                @include contenedores();
-                border-radius: 8px;
+                background-color: $color-0;
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+                border-radius: 9px;
+                transition: box-shadow 1s;
+
                 display: inline-block;
-                padding: 20px;
+                padding: 25px 10px;
                 text-align: center;
                 width: 30%;
 
+
                 h3 {
-                    color: $color-0;
+                    color: $color-5;
                 }
 
                 h2 {
-                    color: $color-0;
+                    color: $color-4;
                 }
 
                 .iconSection2 {
                     width: 30px;
+                }
+
+                &:hover {
+                    @include fondoHover()
                 }
             }
         }
@@ -223,16 +269,24 @@ main {
             margin: 30px 0 0 0;
 
             .detallesButton {
-                @include contenedores();
-                color: #fff;
-                padding: 10px 20px;
+                // @include contenedores();
+                background-color: transparent;
+                color: $color-0;
+
+                font-weight: 900;
+                padding: 10px 25px;
                 border-radius: 20px;
                 border: none;
-                transition: box-shadow 1s;
+
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+                transition: box-shadow 1s, background-color 1s, color 1s;
 
                 &:hover {
                     -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
                     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                    background-color: $color-0;
+                    color: $color-4;
                 }
             }
         }
