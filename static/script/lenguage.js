@@ -1,21 +1,26 @@
-let dataReload = document.getElementsByClassName("data-reload")
+// let dataReload = document.getElementsByName("[data-reload]");
 let language = {
-  en: {
-    welcome: "ingles"
-  },
-  es: {
-    welcome: "texto en español"
-  }
+    en: {
+        descubre: "Discover the different types of weather in the city of your choice",
+        inicio: "Home"
+    },
+    es: {
+        descubre: "Descubre los diversos tipos de clima en la ciudad que elijas",
+        inicio: "Inicio"
+    }
 }
+
 if (window.location.hash) {
-  if (window.location.hash === "#en") {
-    discover.textContent = language.en.welcome
-  }
+    if (window.location.hash === "#en") {
+        descubre.textContent = language.en.descubre
+        inicio.textContent = language.en.inicio
+    }
 }
-// for (i = 1; i <= dataReload.length; i++) {
-  dataReload.onclick = function () {
-    alert("#")
-    // location.reload(true);
-    // window.location.reload();
-  // }
+
+for (i = 0; i <= $('.data-reload').length; i++) {
+    $('.data-reload').click(function () {
+        setTimeout(function () {
+            location.reload();
+        }, 100);
+    })
 }
