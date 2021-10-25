@@ -24,7 +24,7 @@ $color-5:rgba(0, 0, 0, 0.97);
 }
 
 .row {
-    width: 100%;
+    width: 101.5%;
 }
 
 body {
@@ -215,24 +215,27 @@ main {
 
     .containerSection2-left {
         margin: 0 auto;
-        max-height: 450px;
+        height: 100%;
         @include contenedores();
-        text-align: center;
+        // text-align: center;
 
         h4 {
             color: $color-0;
+            margin-left: 3%;
         }
 
-        h1 {
+        h5 {
             color: $color-0;
-            font-size: 4rem;
+            opacity: 0.6;
+            margin-left: 3%;
         }
 
 
 
         .containerInformationSection2 {
-            margin: 20px auto 0 auto;
-
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 9px;
 
             .informationSection2 {
                 background-color: $color-0;
@@ -240,15 +243,15 @@ main {
                 box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
                 border-radius: 9px;
                 transition: box-shadow 1s;
-
-                display: inline-block;
-                padding: 25px 10px;
+                padding: 30px 15px;
                 text-align: center;
                 width: 30%;
-
+                margin: 5px;
 
                 h3 {
                     color: $color-5;
+                    font-size: 1.2rem;
+
                 }
 
                 h2 {
@@ -260,7 +263,8 @@ main {
                 }
 
                 &:hover {
-                    @include fondoHover()
+                    @include fondoHover();
+                    padding: 30px 15px;
                 }
             }
         }
@@ -299,7 +303,7 @@ main {
     .containerSection2-right {
         margin: 0 auto;
         padding: 25px;
-        max-height: 450px;
+        height: 100%;
         background-color: $color-0;
         -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
@@ -331,4 +335,96 @@ main {
     background-color: $color-0;
     border-radius: 9px;
     color: $color-0;
+}
+
+
+///////////MEDIAQUERIES///////////
+@media (max-width: 767px) {
+    nav {
+        box-shadow: none;
+        background-color: $color-0;
+
+        .container-fluid {
+            color: $color-5;
+
+            .navbar-brand {
+                width: 50%;
+                box-shadow: none;
+                color: $color-5;
+
+                img {
+                    margin-left: 25px;
+                }
+            }
+
+            .collapse {
+                position: right;
+
+                ul {
+                    li {
+                        .nav-link {
+                            color: $color-5;
+                            padding: 5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    header {
+        .section-1 {
+
+
+            .containerSection1 {
+                margin-top: 0;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .section-2 {
+        width: 100%;
+        padding: 0 0 0 10px;
+
+        .containerSection2-left {
+            margin: 0 auto 50px auto;
+            width: 93%;
+        }
+
+        .containerSection2-right {
+            margin: 0 auto 50px auto;
+            width: 90%;
+        }
+    }
+}
+
+@media (max-width: 499px) {
+    .section-1 {
+        .containerImgSection1 {
+
+            .containerText {
+                display: inline-block;
+                width: 40%;
+
+                .textImg {
+                    padding: 10px 20px 0 20px;
+                    width: 100%;
+                }
+
+                .imgSection1 {
+                    width: 100%;
+
+                }
+            }
+        }
+    }
+
+    .section-2 {
+        .containerSection2-left {
+            padding: 20px 5px;
+        }
+    }
 }

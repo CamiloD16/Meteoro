@@ -17,7 +17,7 @@ ScrollReveal().reveal('.imgSection1', {
 /////SECTION 2/////
 ScrollReveal().reveal('.containerSection2-left', { 
     duration: 2000,
-    origin: 'right',
+    origin: 'left',
     distance: '50%'
 });
 ScrollReveal().reveal('.containerSection2-right', { 

@@ -1,5 +1,5 @@
 .row {
-  width: 100%;
+  width: 101.5%;
 }
 
 body {
@@ -173,7 +173,7 @@ main {
 
 main .containerSection2-left {
   margin: 0 auto;
-  max-height: 450px;
+  height: 100%;
   background: #00B4DB;
   background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
   background: linear-gradient(to bottom, #0083B0, #00B4DB);
@@ -185,20 +185,23 @@ main .containerSection2-left {
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
   transition: box-shadow 1s, -webkit-box-shadow 1s;
-  text-align: center;
 }
 
 main .containerSection2-left h4 {
   color: white;
+  margin-left: 3%;
 }
 
-main .containerSection2-left h1 {
+main .containerSection2-left h5 {
   color: white;
-  font-size: 4rem;
+  opacity: 0.6;
+  margin-left: 3%;
 }
 
 main .containerSection2-left .containerInformationSection2 {
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 9px;
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 {
@@ -210,14 +213,15 @@ main .containerSection2-left .containerInformationSection2 .informationSection2 
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
   transition: box-shadow 1s, -webkit-box-shadow 1s;
-  display: inline-block;
-  padding: 25px 10px;
+  padding: 30px 15px;
   text-align: center;
   width: 30%;
+  margin: 5px;
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 h3 {
   color: rgba(0, 0, 0, 0.97);
+  font-size: 1.2rem;
 }
 
 main .containerSection2-left .containerInformationSection2 .informationSection2 h2 {
@@ -233,6 +237,7 @@ main .containerSection2-left .containerInformationSection2 .informationSection2:
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
   padding: 25px;
   border-radius: 9px;
+  padding: 30px 15px;
 }
 
 main .containerSection2-left .detalles {
@@ -271,7 +276,7 @@ main .containerSection2-left:hover {
 main .containerSection2-right {
   margin: 0 auto;
   padding: 25px;
-  max-height: 450px;
+  height: 100%;
   background-color: white;
   -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
@@ -307,5 +312,68 @@ main #myChart {
   background-color: white;
   border-radius: 9px;
   color: white;
+}
+
+@media (max-width: 767px) {
+  nav {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: white;
+  }
+  nav .container-fluid {
+    color: rgba(0, 0, 0, 0.97);
+  }
+  nav .container-fluid .navbar-brand {
+    width: 50%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    color: rgba(0, 0, 0, 0.97);
+  }
+  nav .container-fluid .navbar-brand img {
+    margin-left: 25px;
+  }
+  nav .container-fluid .collapse {
+    position: right;
+  }
+  nav .container-fluid .collapse ul li .nav-link {
+    color: rgba(0, 0, 0, 0.97);
+    padding: 5px 0;
+  }
+  header .section-1 .containerSection1 {
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .section-2 {
+    width: 100%;
+    padding: 0 0 0 10px;
+  }
+  .section-2 .containerSection2-left {
+    margin: 0 auto 50px auto;
+    width: 93%;
+  }
+  .section-2 .containerSection2-right {
+    margin: 0 auto 50px auto;
+    width: 90%;
+  }
+}
+
+@media (max-width: 499px) {
+  .section-1 .containerImgSection1 .containerText {
+    display: inline-block;
+    width: 40%;
+  }
+  .section-1 .containerImgSection1 .containerText .textImg {
+    padding: 10px 20px 0 20px;
+    width: 100%;
+  }
+  .section-1 .containerImgSection1 .containerText .imgSection1 {
+    width: 100%;
+  }
+  .section-2 .containerSection2-left {
+    padding: 20px 5px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
