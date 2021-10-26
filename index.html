@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#section-2">Pronóstico</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Alertas</a>
+                        <a class="nav-link" href="#map">Mapa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contáctanos</a>
@@ -67,12 +67,17 @@
                 <h3 id="descubre">Descubre los diversos tipos de clima en la ciudad que elijas.
                 </h3>
                 <h5>¡Conoce los cambios climáticos que se aproximan!</h5>
-                <div class="input-group">
-                    <input type="search" class="form-control rounded p-3 mt-3"
-                        placeholder="Busca un país, ciudad o lugar" aria-label="Search"
-                        aria-describedby="search-addon" />
-                    <button type="button" class="buttonSection1 p-3 mt-3">Buscar</button>
-                </div>
+                <form action="/" method="POST" class="form-section-1">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded p-3 mt-3" name="city"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" />
+                        <!-- <input type="search" class="form-control rounded p-3 mt-3" name="country"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" /> -->
+                        <button type="submit" class="buttonSection1 p-3 mt-3">Buscar</button>
+                        </div>
+                </form>
             </div>
             <div class="containerImgSection1 col-4">
                 <div class="containerText">
@@ -88,7 +93,7 @@
                         src="https://cdn.pixabay.com/photo/2020/02/25/11/52/colombia-4878721_960_720.jpg" alt="">
                     <div class="textImg">
                         <h2>Bogotá</h2>
-                        <h3>13°C</h3>
+                        <h3>{{ temp_bogota }}°C</h3>
                     </div>
                 </div>
                 <div class="containerText">
@@ -104,7 +109,7 @@
                         src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg" alt="">
                     <div class="textImg">
                         <h2>Tokyo</h2>
-                        <h3>5°C</h3>
+                        <h3>{{ temp_tokyo }}°C</h3>
                     </div>
                 </div>
 
@@ -115,45 +120,45 @@
     <main class="section-2 col-md-10" id="section-2">
         <div class="row">
             <div class="containerSection2-left col-md-6">
-                <h4>Santa Marta</h4>
+                <h4>{{ city }}</h4>
                 <h5>20/10/2021</h2>
-                <div class="containerInformationSection2 row">
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2"
-                            src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                            alt="">
-                        <h3>
-                            Mañana
-                        </h3>
-                        <h2>
-                            32°
-                            </h1>
-                    </div>
+                    <div class="containerInformationSection2 row">
+                        <div class="informationSection2 col-3">
+                            <img class="iconSection2"
+                                src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
+                                alt="">
+                            <h3>
+                                Mañana
+                            </h3>
+                            <h2>
+                                0°
+                                </h1>
+                        </div>
 
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2"
-                            src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                            alt="">
-                        <h3>
-                            Tarde
-                        </h3>
-                        <h2>
-                            28°
-                        </h2>
+                        <div class="informationSection2 col-3">
+                            <img class="iconSection2"
+                                src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
+                                alt="">
+                            <h3>
+                                Tarde
+                            </h3>
+                            <h2>
+                                0°
+                            </h2>
+                        </div>
+                        <div class="informationSection2 col-3">
+                            <img class="iconSection2"
+                                src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
+                                alt="">
+                            <h3>
+                                Noche
+                            </h3>
+                            <h2>
+                                0°
+                            </h2>
+                        </div>
                     </div>
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2"
-                            src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                            alt="">
-                        <h3>
-                            Noche
-                        </h3>
-                        <h2>
-                            23°
-                        </h2>
-                    </div>
-                </div>
-                <!-- <div class="detalles">
+                    <!-- <div class="detalles">
                     <button class="detallesButton">Ver detalles</button>
                 </div> -->
             </div>
@@ -163,7 +168,9 @@
             </div>
         </div>
     </main>
-    <section class="section-3 col-11 container">SECTION3</section>
+    <section class="section-3 col-11 container">SECTION3
+        <div id="map"></div>
+    </section>
 
 
     <!--Scroll-->
@@ -180,10 +187,14 @@
     <!--JS-->
     <script src="../static/script/scroll.js"></script>
     <script src="../static/script/canvas.js"></script>
+    <script src="../static/script/lenguage.js"></script>
+    <script src="../static/script/maps.js"></script>
     <!--GLIDERJS-->
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
-    <!--TRADUCTORES-->
-    <script src="../static/script/lenguage.js"></script>
+    <!--MAPS-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap">
+    </script>
 </body>
 
 </html>

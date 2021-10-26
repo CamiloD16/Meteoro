@@ -83,11 +83,11 @@ nav .container-fluid .collapse ul li ul li a {
   padding: 10px;
 }
 
-.section-1 .containerSection1 .input-group {
+.section-1 .containerSection1 .form-section-1 .input-group {
   border: none;
 }
 
-.section-1 .containerSection1 .input-group .buttonSection1 {
+.section-1 .containerSection1 .form-section-1 .input-group .buttonSection1 {
   background: #00B4DB;
   background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
   background: linear-gradient(to bottom, #0083B0, #00B4DB);
@@ -101,7 +101,7 @@ nav .container-fluid .collapse ul li ul li a {
   border-radius: 9px;
 }
 
-.section-1 .containerSection1 .input-group .buttonSection1:hover {
+.section-1 .containerSection1 .form-section-1 .input-group .buttonSection1:hover {
   border: none;
   -webkit-box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
@@ -312,6 +312,11 @@ main #myChart {
   background-color: white;
   border-radius: 9px;
   color: white;
+}
+
+.section-3 #map {
+  height: 500px;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
