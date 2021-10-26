@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=["GET", "POST"])
-def registro():
+def inicio():
+
     weather_url_bogota = requests.get(
         f"http://api.openweathermap.org/data/2.5/weather?id=3688689&appid=f62b4de10d24119e0ef2a24f0cea1158"
     )
@@ -32,9 +33,11 @@ def registro():
 
     if request.method == "POST":
         city = request.form["city"]
-
-        # humidity = weather_data["main"]["humidity"]
-        # wind_speed = weather_data["wind"]["speed"]
+        weather_url_city = requests.get(
+            f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
+        )
+        weather_data_city = weather_url_city.json()
+        temp_city = round(weather_data_city["main"]["temp"]) - 273.15
 
         return render_template(
             "index.html",
@@ -43,6 +46,7 @@ def registro():
             temp_tokyo=temp_tokyo,
             temp_paris=temp_paris,
             temp_miami=temp_miami,
+            temp_city=temp_city,
         )
 
     return render_template("index.html")
