@@ -187,7 +187,7 @@ nav {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: $color-0;
-                opacity: 0.1;
+                opacity: 0;
                 z-index: 10;
                 width: 100%;
                 height: 100%;
@@ -212,7 +212,7 @@ nav {
     }
 }
 
-main {
+.section-2 {
     margin: 0 auto;
     padding: 0px 0;
     border-radius: 9px;
@@ -226,6 +226,7 @@ main {
         h4 {
             color: $color-0;
             margin-left: 3%;
+            text-transform: uppercase
         }
 
         h5 {
@@ -241,34 +242,85 @@ main {
             padding: 10px;
             border-radius: 9px;
 
+            h3 {
+                color: $color-0;
+                font-size: 1.2rem;
+
+            }
+
             .informationSection2 {
                 background-color: $color-0;
                 -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
                 box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
                 border-radius: 9px;
                 transition: box-shadow 1s;
-                padding: 30px 15px;
+                padding: 20px 15px;
                 text-align: center;
                 width: 30%;
                 margin: 5px;
 
-                h3 {
-                    color: $color-5;
-                    font-size: 1.2rem;
 
-                }
 
                 h2 {
                     color: $color-4;
                 }
 
+                h4,
+                h5 {
+                    color: $color-5;
+                }
+
                 .iconSection2 {
-                    width: 30px;
+                    width: 80px;
                 }
 
                 &:hover {
                     @include fondoHover();
-                    padding: 30px 15px;
+                    padding: 20px 15px;
+                }
+            }
+        }
+
+        .containerInformationSection2-today {
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 9px;
+
+            h3 {
+                color: $color-0;
+                font-size: 1.2rem;
+            }
+
+            .informationSection2 {
+                background-color: $color-0;
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+                border-radius: 9px;
+                transition: box-shadow 1s;
+                padding: 20px 15px;
+                text-align: center;
+                width: 100%;
+                margin: 5px;
+
+
+
+                h2 {
+                    color: $color-4;
+                }
+
+                h3,
+                h4,
+                h5 {
+                    color: $color-5;
+                }
+
+                .iconSection2 {
+                    width: 80px;
+                }
+
+                &:hover {
+                    @include fondoHover();
+                    padding: 20px 15px;
                 }
             }
         }
@@ -324,13 +376,15 @@ main {
     }
 
     #myChart {
-        margin: 0;
+        margin: 0 0 50px 0;
         border-radius: 9px;
         padding: 0 10px 10px 10px;
         width: auto;
         height: 20px;
-        background-color: $color-0;
     }
+
+
+
 
 }
 
@@ -351,7 +405,7 @@ main {
 @media (max-width: 767px) {
     nav {
         box-shadow: none;
-        background-color: $color-0;
+        // background-color: $color-1;
 
         .container-fluid {
             color: $color-5;
@@ -413,7 +467,6 @@ main {
 @media (max-width: 499px) {
     .section-1 {
         .containerImgSection1 {
-
             .containerText {
                 display: inline-block;
                 width: 40%;
@@ -421,6 +474,10 @@ main {
                 .textImg {
                     padding: 10px 20px 0 20px;
                     width: 100%;
+
+                    .icon4Cities {
+                        width: 100px;
+                    }
                 }
 
                 .imgSection1 {

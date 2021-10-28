@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -15,14 +15,19 @@
         href="https://cdn.pixabay.com/photo/2017/06/14/01/14/storage-in-the-cloud-2400720_960_720.png">
     <!--GLIDERCSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.css">
+    <!--JQuery
+        -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <title>Inicio</title>
 </head>
 
 <body>
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><img
+                    src="https://cdn.pixabay.com/photo/2017/06/14/01/14/storage-in-the-cloud-2400720_960_720.png"
+                    alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,16 +35,26 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#section-1">Inicio</a>
+                        <a class="nav-link " aria-current="page" href="#section-1" id="inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section-2">Pronóstico</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Alertas</a>
+                        <a class="nav-link" href="#map">Mapa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contáctanos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Idiomas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item data-reload" href="#es" data-reload>Español</a></li>
+                            <li><a class="dropdown-item data-reload" href="#en" data-reload>Inglés</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -49,81 +64,164 @@
         <!--SECTION 1-->
         <div class="section-1" id="section-1">
             <div class="containerSection1 col-md-10">
-                <h3>Diferentes tipos de clima en la ciudad que eligas.
+                <h3 id="descubre">Descubre los diversos tipos de clima en la ciudad que elijas.
                 </h3>
-                <h5>¡Conoce los cambios climaticos que se aproximan!</h5>
-                <div class="input-group">
-                    <input type="search" class="form-control rounded p-3 mt-3" placeholder="Busca una ciudad, lugar"
-                        aria-label="Search" aria-describedby="search-addon" />
-                    <button type="button" class="buttonSection1 p-3 mt-3">Buscar</button>
-                </div>
+                <h5>¡Conoce los cambios climáticos que se aproximan!</h5>
+                <form action="/" method="POST" class="form-section-1">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded p-3 mt-3" name="city"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" />
+                        <!-- <input type="search" class="form-control rounded p-3 mt-3" name="country"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" /> -->
+                        <button type="submit" class="buttonSection1 p-3 mt-3">Buscar</button>
+                    </div>
+                </form>
             </div>
             <div class="containerImgSection1 col-4">
-                <img class="imgSection1"
-                    src="https://cdn.pixabay.com/photo/2021/08/12/05/19/cathedral-6539937_960_720.jpg" alt="">
-                <img class="imgSection1"
-                    src="https://cdn.pixabay.com/photo/2020/02/25/11/52/colombia-4878721_960_720.jpg" alt="">
-                <img class="imgSection1" src="https://cdn.pixabay.com/photo/2020/04/21/19/30/rome-5074421_960_720.jpg"
-                    alt="">
-                <img class="imgSection1" src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg"
-                    alt="">
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2014/12/20/18/28/city-574236_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Miami</h2>
+                        <h3>{{ temp_miami }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2020/02/25/11/52/colombia-4878721_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Bogotá</h2>
+                        <h3>{{ temp_bogota }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2015/07/13/14/40/paris-843229_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>París</h2>
+                        <h3>{{ temp_paris }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Tokyo</h2>
+                        <h3>{{ temp_tokyo }}°C</h3>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
     <!--SECTION 2-->
-    <main class="section-2 col-md-10" id="section-2">
+    <main class="section-2 col-md-11" id="section-2">
         <div class="row">
             <div class="containerSection2-left col-md-6">
-                <h4>El tiempo en Santa Marta hoy</h4>
-                <h1>32°</h1>
-                <div class="containerInformationSection2">
-                    <div class="informationSection2">
-                        <h3>
-                            Mañana
-                        </h3>
-                        <h2>
-                            32°
-                            </h1>
-                            <img class="iconSection2"
-                                src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                                alt="">
-                    </div>
+                <h4>{{ city }}</h4>
+                <div class="containerInformationSection2-today row">
+                    <h3>
+                        Hoy: {{ today }}
+                    </h3>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
+                            alt="">
 
-                    <div class="informationSection2">
-                        <h3>
-                            Tarde
-                        </h3>
                         <h2>
-                            32°
+                            {{  temp_city_today }}°C
                         </h2>
-                        <img class="iconSection2"
-                            src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                            alt="">
-                    </div>
-                    <div class="informationSection2">
-                        <h3>
-                            Noche
-                        </h3>
-                        <h2>
-                            32°
-                        </h2>
-                        <img class="iconSection2"
-                            src="https://www.pinclipart.com/picdir/big/139-1394105_rainy-cloud-at-night-comments-clima-simbolo-sin.png"
-                            alt="">
+                        <h3>La sensación térmica actual es de {{feelslike_city_today}}°C</h3>
+                        <h4>{{ main_city_today }}</h4>
+                        <h5>Humedad: {{humidity_city_today}}%</h5>
                     </div>
                 </div>
-                <div class="detalles">
+                <div class="containerInformationSection2 row">
+                    <h3>
+                        Mañana: {{ tomorrow }}
+                    </h3>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_1 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_1 }}°C
+                        </h2>
+                        <h4>{{ main_city_1 }}</h4>
+                        <h5>{{ day_city_1 }}</h5>
+                    </div>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_2 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_2 }}°C
+                        </h2>
+                        <h4>{{ main_city_2 }}</h4>
+                        <h5>{{ day_city_2 }}</h5>
+                    </div>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_3 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_3 }}°C
+                        </h2>
+                        <h4>{{ main_city_3 }}</h4>
+                        <h5>{{ day_city_3 }}</h5>
+                    </div>
+                </div>
+                <div class="containerInformationSection2 row col-5">
+                    <h3>
+                        Pasado mañana: {{ overmorrow }}
+                    </h3>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_4 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_4 }}°C
+                        </h2>
+                        <h4>{{ main_city_4 }}</h4>
+                        <h5>{{ day_city_4 }}</h5>
+                    </div>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_5 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_5 }}°C
+                        </h2>
+                        <h4>{{ main_city_5 }}</h4>
+                        <h5>{{ day_city_5 }}</h5>
+                    </div>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_6 }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city_6 }}°C
+                        </h2>
+                        <h4>{{ main_city_6 }}</h4>
+                        <h5>{{ day_city_6 }}</h5>
+                    </div>
+                </div>
+                <!-- <div class="detalles">
                     <button class="detallesButton">Ver detalles</button>
-                </div>
+                </div> -->
             </div>
+
             <div class="containerSection2-right col-md-5">
                 <!-- <h4>Temperatura semanal</h4> -->
                 <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart2" width="400" height="400"></canvas>
             </div>
         </div>
     </main>
-    <section class="section-3 col-11 container">SECTION3</section>
-
+    <section class="section-3 col-11 container">SECTION3
+        <div id="map"></div>
+    </section>
 
     <!--Scroll-->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -139,8 +237,17 @@
     <!--JS-->
     <script src="../static/script/scroll.js"></script>
     <script src="../static/script/canvas.js"></script>
+    <script src="../static/script/lenguage.js"></script>
+    <script src="../static/script/maps.js"></script>
     <!--GLIDERJS-->
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+    <!--MAPS-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUkzutW72YDYazEbgC7v87xD2zHiewdsE&callback=iniciarMap&v=weekly"
+    async>
+    </script>
+
 </body>
 
 </html>
