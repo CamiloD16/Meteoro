@@ -38,7 +38,7 @@ def inicio():
 
     if request.method == "POST":
         city = request.form["city"]
-        # INFORMACION CLIMATICA ACTUAL
+        # INFORMACION CLIMATICA HOY
         weather_url_city_today = requests.get(
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
         )
@@ -51,50 +51,78 @@ def inicio():
         main_city_today = weather_data_city_today["weather"][0]["main"]
         icon_city_today = weather_data_city_today["weather"][0]["icon"]
 
-        # INFORMACION CLIMATICA GENERAL
+        # INFORMACION CLIMATICA GENERAL Y GRAFICAS CHART JS
         weather_url_city = requests.get(
             f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
         )
-
         weather_data_city = weather_url_city.json()
 
-        # DIA 1 hora 6 am
+        # Sensación términa hoy, mañana y pasado
+        feels_like_day_1 = int(
+            round(weather_data_city_today["main"]["feels_like"]) - 273.15
+        )
+        feels_like_day_2 = int(
+            round(weather_data_city["list"][2]["main"]["feels_like"]) - 273.15
+        )
+        feels_like_day_3 = int(
+            round(weather_data_city["list"][10]["main"]["feels_like"]) - 273.15
+        )
+        # temperatura minima hoy, mañana y pasado
+        temp_min_day_1 = int(
+            round(weather_data_city_today["main"]["temp_min"]) - 273.15
+        )
+        temp_min_day_2 = int(
+            round(weather_data_city["list"][2]["main"]["temp_min"]) - 273.15
+        )
+        temp_min_day_3 = int(
+            round(weather_data_city["list"][10]["main"]["temp_min"]) - 273.15
+        )
+        # temperatura maxima hoy, mañana y pasado
+        temp_max_day_1 = int(
+            round(weather_data_city_today["main"]["temp_max"]) - 273.15
+        )
+        temp_max_day_2 = int(
+            round(weather_data_city["list"][2]["main"]["temp_max"]) - 273.15
+        )
+        temp_max_day_3 = int(
+            round(weather_data_city["list"][10]["main"]["temp_max"]) - 273.15
+        )
+        # Mañana hora 6 am
         temp_city_1 = int(
             (round(weather_data_city["list"][2]["main"]["temp"]) - 273.15)
         )
         main_city_1 = weather_data_city["list"][2]["weather"][0]["main"]
         icon_city_1 = weather_data_city["list"][2]["weather"][0]["icon"]
         day_city_1 = weather_data_city["list"][2]["dt_txt"]
-        # DIA 1 hora 12 pm
+        # Mañana hora 12 pm
         temp_city_2 = int(
             (round(weather_data_city["list"][4]["main"]["temp"]) - 273.15)
         )
         main_city_2 = weather_data_city["list"][4]["weather"][0]["main"]
         icon_city_2 = weather_data_city["list"][4]["weather"][0]["icon"]
         day_city_2 = weather_data_city["list"][4]["dt_txt"]
-        # DIA 1 hora 6pm
+        # Mañana hora 6pm
         temp_city_3 = int(
             (round(weather_data_city["list"][6]["main"]["temp"]) - 273.15)
         )
         main_city_3 = weather_data_city["list"][6]["weather"][0]["main"]
         icon_city_3 = weather_data_city["list"][6]["weather"][0]["icon"]
         day_city_3 = weather_data_city["list"][6]["dt_txt"]
-
-        # DIA 2 hora 6 am
+        # Pasado hora 6 am
         temp_city_4 = int(
             (round(weather_data_city["list"][10]["main"]["temp"]) - 273.15)
         )
         main_city_4 = weather_data_city["list"][10]["weather"][0]["main"]
         icon_city_4 = weather_data_city["list"][10]["weather"][0]["icon"]
         day_city_4 = weather_data_city["list"][10]["dt_txt"]
-        # DIA 2 hora 12 pm
+        # Pasado hora 12 pm
         temp_city_5 = int(
             (round(weather_data_city["list"][12]["main"]["temp"]) - 273.15)
         )
         main_city_5 = weather_data_city["list"][12]["weather"][0]["main"]
         icon_city_5 = weather_data_city["list"][12]["weather"][0]["icon"]
         day_city_5 = weather_data_city["list"][12]["dt_txt"]
-        # DIA 2 hora 6pm
+        # Pasado hora 6pm
         temp_city_6 = int(
             (round(weather_data_city["list"][14]["main"]["temp"]) - 273.15)
         )
@@ -141,6 +169,15 @@ def inicio():
             main_city_6=main_city_6,
             icon_city_6=icon_city_6,
             day_city_6=day_city_6,
+            feels_like_day_1=feels_like_day_1,
+            feels_like_day_2=feels_like_day_2,
+            feels_like_day_3=feels_like_day_3,
+            temp_min_day_1=temp_min_day_1,
+            temp_min_day_2=temp_min_day_2,
+            temp_min_day_3=temp_min_day_3,
+            temp_max_day_1=temp_max_day_1,
+            temp_max_day_2=temp_max_day_2,
+            temp_max_day_3=temp_max_day_3,
         )
 
     return render_template("index.html")

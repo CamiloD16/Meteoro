@@ -4,6 +4,7 @@ $color-2: #36c0ee;
 $color-4:#0083B0;
 $color-5:rgba(0, 0, 0, 0.97);
 
+//AJUSTE DE CONTAINERS
 @mixin contenedores {
     background: #00B4DB;
     background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
@@ -28,7 +29,7 @@ $color-5:rgba(0, 0, 0, 0.97);
 }
 
 body {
-    background-color: rgb(246, 246, 246);
+    background-color: $color-0;
 }
 
 
@@ -40,14 +41,6 @@ nav {
     .container-fluid {
         padding: 0px 5%;
 
-
-        .navbar-toggler {
-
-
-            .navbar-toggler-icon {
-                background-image: url(/img/menu.png);
-            }
-        }
 
         .navbar-brand {
             width: 100%;
@@ -407,8 +400,17 @@ nav {
         box-shadow: none;
         // background-color: $color-1;
 
+
+
         .container-fluid {
             color: $color-5;
+
+            .navbar-toggler {
+
+                .navbar-toggler-icon {
+                    background-image: url(/img/menu.png);
+                }
+            }
 
             .navbar-brand {
                 width: 50%;

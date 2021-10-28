@@ -18,7 +18,9 @@
     <!--JQuery
         -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <title>Inicio</title>
+    <!--CHART JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Clima</title>
 </head>
 
 <body>
@@ -207,15 +209,67 @@
                         <h5>{{ day_city_6 }}</h5>
                     </div>
                 </div>
-                <!-- <div class="detalles">
-                    <button class="detallesButton">Ver detalles</button>
-                </div> -->
             </div>
 
             <div class="containerSection2-right col-md-5">
                 <!-- <h4>Temperatura semanal</h4> -->
                 <canvas id="myChart" width="400" height="400"></canvas>
                 <canvas id="myChart2" width="400" height="400"></canvas>
+                <script>
+                    var ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const data2 = {
+                        labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
+                        datasets: [{
+                            label: '{{today}}',
+                            data: ['{{temp_city_today}}', '{{temp_max_day_1}}', '{{feels_like_day_1}}',
+                                '{{temp_min_day_1}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 99, 132)'
+                        }, {
+                            label: '{{tomorrow}}',
+                            data: ['{{ temp_city_2}}', '{{temp_max_day_2}}', '{{feels_like_day_2}}',
+                                '{{temp_min_day_2}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgb(54, 162, 235)',
+                            pointBackgroundColor: 'rgb(54, 162, 235)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(54, 162, 235)'
+                        }, {
+                            label: '{{overmorrow}}',
+                            data: ['{{ temp_city_4}}', '{{temp_max_day_3}}', '{{feels_like_day_3}}',
+                                '{{temp_min_day_3}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(65, 231, 36,0.2)',
+                            borderColor: 'rgb(65, 231, 36)',
+                            pointBackgroundColor: 'rgb(65, 231, 36)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(65, 231, 36)',
+                        }],
+                    }
+
+                    var myChart2 = new Chart(ctx2, {
+                        type: 'radar',
+                        data: data2,
+                        options: {
+                            elements: {
+                                line: {
+                                    borderWidth: 3
+                                }
+                            }
+                        },
+                    });
+                </script>
             </div>
         </div>
     </main>
@@ -232,8 +286,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
-    <!--CHART JS-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
     <!--JS-->
     <script src="../static/script/scroll.js"></script>
     <script src="../static/script/canvas.js"></script>
@@ -244,8 +298,8 @@
     <!--MAPS-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUkzutW72YDYazEbgC7v87xD2zHiewdsE&callback=iniciarMap&v=weekly"
-    async>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUkzutW72YDYazEbgC7v87xD2zHiewdsE&callback=iniciarMap&v=weekly"
+        async>
     </script>
 
 </body>

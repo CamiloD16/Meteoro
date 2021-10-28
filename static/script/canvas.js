@@ -1,3 +1,15 @@
+// var xmlhttp = new XMLHttpRequest();
+// var url = "http://api.openweathermap.org/data/2.5/forecast?q=bogota&appid=f62b4de10d24119e0ef2a24f0cea1158";
+// xmlhttp.open("GET", url, true);
+// xmlhttp.send();
+// xmlhttp.onreadystatechange = function(){
+//     if(this.readyState == 4 && this.status==200){
+//         var data= JSON.parse(this.responseText);
+//         console.log(data)
+//     }
+// }
+
+//GRAFICA 1//
 var ctx1 = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx1, {
     type: 'bar',
@@ -51,53 +63,4 @@ var myChart = new Chart(ctx1, {
 
         responsive: true,
     }
-});
-
-//GRAFICA 2//
-var ctx2 = document.getElementById('myChart2').getContext('2d');
-const data2 = {
-    labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
-    datasets: [{
-        label: 'Temperatura hoy',
-        data: [28, 27, 28, 28],
-        fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)'
-    }, {
-        label: 'Temperatura mañana',
-        data: [26, 29, 30, 27],
-        fill: true,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgb(54, 162, 235)',
-        pointBackgroundColor: 'rgb(54, 162, 235)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(54, 162, 235)'
-    }, {
-        label: 'Temperatura pasado mañana',
-        data: [27, 28, 29, 30],
-        fill: true,
-        backgroundColor: 'rgb(65, 231, 36,0.2)',
-        borderColor: 'rgb(65, 231, 36)',
-        pointBackgroundColor: 'rgb(65, 231, 36)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(65, 231, 36)',
-    }],
-}
-
-var myChart2 = new Chart(ctx2, {
-    type: 'radar',
-    data: data2,
-    options: {
-        elements: {
-            line: {
-                borderWidth: 3
-            }
-        }
-    },
 });
