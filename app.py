@@ -43,9 +43,16 @@ def inicio():
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
         )
         weather_data_city_today = weather_url_city_today.json()
+
         temp_city_today = int((round(weather_data_city_today["main"]["temp"]) - 273.15))
         feelslike_city_today = int(
             (round(weather_data_city_today["main"]["feels_like"]) - 273.15)
+        )
+        temp_max_city_today = int(
+            round(weather_data_city_today["main"]["temp_max"]) - 273.15
+        )
+        temp_min_city_today = int(
+            round(weather_data_city_today["main"]["temp_min"]) - 273.15
         )
         humidity_city_today = int((round(weather_data_city_today["main"]["humidity"])))
         main_city_today = weather_data_city_today["weather"][0]["main"]
@@ -57,78 +64,32 @@ def inicio():
         )
         weather_data_city = weather_url_city.json()
 
-        # Sensación términa hoy, mañana y pasado
-        feels_like_day_1 = int(
-            round(weather_data_city_today["main"]["feels_like"]) - 273.15
-        )
-        feels_like_day_2 = int(
-            round(weather_data_city["list"][2]["main"]["feels_like"]) - 273.15
-        )
-        feels_like_day_3 = int(
-            round(weather_data_city["list"][10]["main"]["feels_like"]) - 273.15
-        )
-        # temperatura minima hoy, mañana y pasado
-        temp_min_day_1 = int(
-            round(weather_data_city_today["main"]["temp_min"]) - 273.15
-        )
-        temp_min_day_2 = int(
-            round(weather_data_city["list"][2]["main"]["temp_min"]) - 273.15
-        )
-        temp_min_day_3 = int(
-            round(weather_data_city["list"][10]["main"]["temp_min"]) - 273.15
-        )
-        # temperatura maxima hoy, mañana y pasado
-        temp_max_day_1 = int(
-            round(weather_data_city_today["main"]["temp_max"]) - 273.15
-        )
-        temp_max_day_2 = int(
-            round(weather_data_city["list"][2]["main"]["temp_max"]) - 273.15
-        )
-        temp_max_day_3 = int(
-            round(weather_data_city["list"][10]["main"]["temp_max"]) - 273.15
-        )
-        # Mañana hora 6 am
-        temp_city_1 = int(
-            (round(weather_data_city["list"][2]["main"]["temp"]) - 273.15)
-        )
-        main_city_1 = weather_data_city["list"][2]["weather"][0]["main"]
-        icon_city_1 = weather_data_city["list"][2]["weather"][0]["icon"]
-        day_city_1 = weather_data_city["list"][2]["dt_txt"]
-        # Mañana hora 12 pm
-        temp_city_2 = int(
-            (round(weather_data_city["list"][4]["main"]["temp"]) - 273.15)
-        )
-        main_city_2 = weather_data_city["list"][4]["weather"][0]["main"]
-        icon_city_2 = weather_data_city["list"][4]["weather"][0]["icon"]
-        day_city_2 = weather_data_city["list"][4]["dt_txt"]
-        # Mañana hora 6pm
-        temp_city_3 = int(
-            (round(weather_data_city["list"][6]["main"]["temp"]) - 273.15)
-        )
-        main_city_3 = weather_data_city["list"][6]["weather"][0]["main"]
-        icon_city_3 = weather_data_city["list"][6]["weather"][0]["icon"]
-        day_city_3 = weather_data_city["list"][6]["dt_txt"]
-        # Pasado hora 6 am
-        temp_city_4 = int(
-            (round(weather_data_city["list"][10]["main"]["temp"]) - 273.15)
-        )
-        main_city_4 = weather_data_city["list"][10]["weather"][0]["main"]
-        icon_city_4 = weather_data_city["list"][10]["weather"][0]["icon"]
-        day_city_4 = weather_data_city["list"][10]["dt_txt"]
-        # Pasado hora 12 pm
-        temp_city_5 = int(
-            (round(weather_data_city["list"][12]["main"]["temp"]) - 273.15)
-        )
-        main_city_5 = weather_data_city["list"][12]["weather"][0]["main"]
-        icon_city_5 = weather_data_city["list"][12]["weather"][0]["icon"]
-        day_city_5 = weather_data_city["list"][12]["dt_txt"]
-        # Pasado hora 6pm
-        temp_city_6 = int(
-            (round(weather_data_city["list"][14]["main"]["temp"]) - 273.15)
-        )
-        main_city_6 = weather_data_city["list"][14]["weather"][0]["main"]
-        icon_city_6 = weather_data_city["list"][14]["weather"][0]["icon"]
-        day_city_6 = weather_data_city["list"][14]["dt_txt"]
+        temp_min_day = []
+        temp_max_day = []
+        feels_like_day = []
+        for j in range(2, 11, 8):
+            temp_min_day.append(
+                int(round(weather_data_city["list"][j]["main"]["temp_min"]) - 273.15)
+            )
+            temp_max_day.append(
+                int(round(weather_data_city["list"][j]["main"]["temp_max"]) - 273.15)
+            )
+            feels_like_day.append(
+                int(round(weather_data_city["list"][j]["main"]["feels_like"]) - 273.15)
+            )
+
+        main_city = []
+        icon_city = []
+        day_city = []
+        temp_city = []
+        for j in range(2, 15, 2):
+            if j <= 7 or j >= 9:
+                main_city.append(weather_data_city["list"][j]["weather"][0]["main"])
+                icon_city.append(weather_data_city["list"][j]["weather"][0]["icon"])
+                day_city.append(weather_data_city["list"][j]["dt_txt"])
+                temp_city.append(
+                    int((round(weather_data_city["list"][j]["main"]["temp"]) - 273.15))
+                )
 
         return render_template(
             "index.html",
@@ -142,42 +103,18 @@ def inicio():
             overmorrow=overmorrow,
             temp_city_today=temp_city_today,
             feelslike_city_today=feelslike_city_today,
+            temp_max_city_today=temp_max_city_today,
             main_city_today=main_city_today,
             icon_city_today=icon_city_today,
             humidity_city_today=humidity_city_today,
-            temp_city_1=temp_city_1,
-            main_city_1=main_city_1,
-            icon_city_1=icon_city_1,
-            day_city_1=day_city_1,
-            temp_city_2=temp_city_2,
-            main_city_2=main_city_2,
-            icon_city_2=icon_city_2,
-            day_city_2=day_city_2,
-            temp_city_3=temp_city_3,
-            main_city_3=main_city_3,
-            icon_city_3=icon_city_3,
-            day_city_3=day_city_3,
-            temp_city_4=temp_city_4,
-            main_city_4=main_city_4,
-            icon_city_4=icon_city_4,
-            day_city_4=day_city_4,
-            temp_city_5=temp_city_5,
-            main_city_5=main_city_5,
-            icon_city_5=icon_city_5,
-            day_city_5=day_city_5,
-            temp_city_6=temp_city_6,
-            main_city_6=main_city_6,
-            icon_city_6=icon_city_6,
-            day_city_6=day_city_6,
-            feels_like_day_1=feels_like_day_1,
-            feels_like_day_2=feels_like_day_2,
-            feels_like_day_3=feels_like_day_3,
-            temp_min_day_1=temp_min_day_1,
-            temp_min_day_2=temp_min_day_2,
-            temp_min_day_3=temp_min_day_3,
-            temp_max_day_1=temp_max_day_1,
-            temp_max_day_2=temp_max_day_2,
-            temp_max_day_3=temp_max_day_3,
+            temp_city=temp_city,
+            main_city=main_city,
+            icon_city=icon_city,
+            day_city=day_city,
+            feels_like_day=feels_like_day,
+            temp_min_city_today=temp_min_city_today,
+            temp_min_day=temp_min_day,
+            temp_max_day=temp_max_day,
         )
 
     return render_template("index.html")

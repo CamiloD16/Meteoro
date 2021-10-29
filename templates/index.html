@@ -143,36 +143,17 @@
                     <h3>
                         Mañana: {{ tomorrow }}
                     </h3>
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_1 }}@2x.png"
-                            alt="">
 
-                        <h2>
-                            {{ temp_city_1 }}°C
-                        </h2>
-                        <h4>{{ main_city_1 }}</h4>
-                        <h5>{{ day_city_1 }}</h5>
-                    </div>
                     <div class="informationSection2 col-3">
-                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_2 }}@2x.png"
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city }}@2x.png"
                             alt="">
-
                         <h2>
-                            {{ temp_city_2 }}°C
+                            {{ temp_city }}°C
                         </h2>
-                        <h4>{{ main_city_2 }}</h4>
-                        <h5>{{ day_city_2 }}</h5>
+                        <h4>{{ main_city }}</h4>
+                        <h5>{{ day_city }}</h5>
                     </div>
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_3 }}@2x.png"
-                            alt="">
 
-                        <h2>
-                            {{ temp_city_3 }}°C
-                        </h2>
-                        <h4>{{ main_city_3 }}</h4>
-                        <h5>{{ day_city_3 }}</h5>
-                    </div>
                 </div>
                 <div class="containerInformationSection2 row col-5">
                     <h3>
@@ -183,30 +164,10 @@
                             alt="">
 
                         <h2>
-                            {{ temp_city_4 }}°C
+                            {{ temp_city }}°C
                         </h2>
-                        <h4>{{ main_city_4 }}</h4>
-                        <h5>{{ day_city_4 }}</h5>
-                    </div>
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_5 }}@2x.png"
-                            alt="">
-
-                        <h2>
-                            {{ temp_city_5 }}°C
-                        </h2>
-                        <h4>{{ main_city_5 }}</h4>
-                        <h5>{{ day_city_5 }}</h5>
-                    </div>
-                    <div class="informationSection2 col-3">
-                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_6 }}@2x.png"
-                            alt="">
-
-                        <h2>
-                            {{ temp_city_6 }}°C
-                        </h2>
-                        <h4>{{ main_city_6 }}</h4>
-                        <h5>{{ day_city_6 }}</h5>
+                        <h4>{{ main_city }}</h4>
+                        <h5>{{ day_city }}</h5>
                     </div>
                 </div>
             </div>
@@ -221,9 +182,7 @@
                         labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
                         datasets: [{
                             label: '{{today}}',
-                            data: ['{{temp_city_today}}', '{{temp_max_day_1}}', '{{feels_like_day_1}}',
-                                '{{temp_min_day_1}}'
-                            ],
+                            data: ['1', '2', '3', '4'],
                             fill: true,
                             backgroundColor: 'rgba(255, 99, 132, 0.2)',
                             borderColor: 'rgb(255, 99, 132)',
@@ -233,9 +192,7 @@
                             pointHoverBorderColor: 'rgb(255, 99, 132)'
                         }, {
                             label: '{{tomorrow}}',
-                            data: ['{{ temp_city_2}}', '{{temp_max_day_2}}', '{{feels_like_day_2}}',
-                                '{{temp_min_day_2}}'
-                            ],
+                            data: ['1', '2', '3', '4'],
                             fill: true,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgb(54, 162, 235)',
@@ -245,9 +202,7 @@
                             pointHoverBorderColor: 'rgb(54, 162, 235)'
                         }, {
                             label: '{{overmorrow}}',
-                            data: ['{{ temp_city_4}}', '{{temp_max_day_3}}', '{{feels_like_day_3}}',
-                                '{{temp_min_day_3}}'
-                            ],
+                            data: ['1', '2', '3', '4'],
                             fill: true,
                             backgroundColor: 'rgb(65, 231, 36,0.2)',
                             borderColor: 'rgb(65, 231, 36)',
