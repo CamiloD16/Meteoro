@@ -16,10 +16,6 @@ nav .container-fluid {
   padding: 0px 5%;
 }
 
-nav .container-fluid .navbar-toggler .navbar-toggler-icon {
-  background-image: url(/img/menu.png);
-}
-
 nav .container-fluid .navbar-brand {
   width: 100%;
 }
@@ -46,13 +42,6 @@ nav .container-fluid .collapse ul li ul li a {
   z-index: 200;
 }
 
-#google_translate_element {
-  background-color: red;
-  text-align: center;
-  color: transparent;
-  width: 50%;
-}
-
 .section-1 {
   width: 100%;
   height: auto;
@@ -65,8 +54,6 @@ nav .container-fluid .collapse ul li ul li a {
   background: #00B4DB;
   background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
   background: linear-gradient(to bottom, #0083B0, #00B4DB);
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
   padding: 25px;
   border-radius: 9px;
   -webkit-transition: -webkit-box-shadow 1s;
@@ -177,8 +164,6 @@ nav .container-fluid .collapse ul li ul li a {
   background: #00B4DB;
   background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
   background: linear-gradient(to bottom, #0083B0, #00B4DB);
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
   padding: 25px;
   border-radius: 9px;
   -webkit-transition: -webkit-box-shadow 1s;
@@ -332,8 +317,6 @@ nav .container-fluid .collapse ul li ul li a {
   padding: 25px;
   height: 100%;
   background-color: white;
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
   border-radius: 9px;
   -webkit-transition: -webkit-box-shadow 1s;
   transition: -webkit-box-shadow 1s;
@@ -379,6 +362,9 @@ nav .container-fluid .collapse ul li ul li a {
   }
   nav .container-fluid {
     color: rgba(0, 0, 0, 0.97);
+  }
+  nav .container-fluid .navbar-toggler .navbar-toggler-icon {
+    background-image: url(/img/menu.png);
   }
   nav .container-fluid .navbar-brand {
     width: 50%;

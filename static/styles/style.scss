@@ -9,8 +9,8 @@ $color-5:rgba(0, 0, 0, 0.97);
     background: #00B4DB;
     background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
     background: linear-gradient(to bottom, #0083B0, #00B4DB);
-    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+    // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+    // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
     padding: 25px;
     border-radius: 9px;
     transition: box-shadow 1s;
@@ -84,14 +84,6 @@ nav {
             }
         }
     }
-}
-
-#google_translate_element {
-    // display: none;
-    background-color: red;
-    text-align: center;
-    color: transparent;
-    width: 50%;
 }
 
 
@@ -354,8 +346,8 @@ nav {
         padding: 25px;
         height: 100%;
         background-color: $color-0;
-        -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
+        // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
+        // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
         border-radius: 9px;
         transition: box-shadow 1s;
 
@@ -393,14 +385,10 @@ nav {
     }
 }
 
-
-///////////MEDIAQUERIES///////////
+// ///////////MEDIAQUERIES///////////
 @media (max-width: 767px) {
     nav {
         box-shadow: none;
-        // background-color: $color-1;
-
-
 
         .container-fluid {
             color: $color-5;
