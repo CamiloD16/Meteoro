@@ -3,6 +3,20 @@ import requests
 import json
 from datetime import date, timedelta
 from flaskext.mysql import MySQL
+from cities4 import temp_bogota, temp_tokyo, temp_paris, temp_miami
+from infSection2 import (
+    main_city_init,
+    icon_city_init,
+    day_city_init,
+    temp_city_init,
+    city_init,
+    temp_city_today_init,
+    temp_max_city_today_init,
+    temp_min_city_today_init,
+    humidity_city_today_init,
+    main_city_today_init,
+    icon_city_today_init
+)
 
 app = Flask(__name__)
 
@@ -21,32 +35,9 @@ def inicio():
     tomorrow = today + timedelta(days=1)
     overmorrow = tomorrow + timedelta(days=1)
 
-    weather_url_bogota = requests.get(
-        f"http://api.openweathermap.org/data/2.5/weather?id=3688689&appid=f62b4de10d24119e0ef2a24f0cea1158"
-    )
-    weather_url_tokyo = requests.get(
-        f"http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=f62b4de10d24119e0ef2a24f0cea1158"
-    )
-    weather_url_paris = requests.get(
-        f"http://api.openweathermap.org/data/2.5/weather?id=2968815&appid=f62b4de10d24119e0ef2a24f0cea1158"
-    )
-    weather_url_miami = requests.get(
-        f"http://api.openweathermap.org/data/2.5/weather?id=4164138&appid=f62b4de10d24119e0ef2a24f0cea1158"
-    )
-
-    weather_data_bogota = weather_url_bogota.json()
-    weather_data_tokyo = weather_url_tokyo.json()
-    weather_data_paris = weather_url_paris.json()
-    weather_data_miami = weather_url_miami.json()
-
-    temp_bogota = int(round(weather_data_bogota["main"]["temp"]) - 273.15)
-    temp_tokyo = int(round(weather_data_tokyo["main"]["temp"]) - 273.15)
-    temp_paris = int(round(weather_data_paris["main"]["temp"]) - 273.15)
-    temp_miami = int(round(weather_data_miami["main"]["temp"]) - 273.15)
-
     if request.method == "POST":
         city = request.form["city"]
-        # INFORMACION CLIMATICA HOY
+        # # INFORMACION CLIMATICA HOY
         weather_url_city_today = requests.get(
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
         )
@@ -151,7 +142,24 @@ def inicio():
             temp_max_day=temp_max_day,
         )
 
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        city=city_init,
+        main_city=main_city_init,
+        icon_city=icon_city_init,
+        day_city=day_city_init,
+        temp_city=temp_city_init,
+        temp_bogota=temp_bogota,
+        temp_tokyo=temp_tokyo,
+        temp_paris=temp_paris,
+        temp_miami=temp_miami,
+        temp_city_today=temp_city_today_init,
+        temp_max_city_today=temp_max_city_today_init,
+        temp_min_city_today=temp_min_city_today_init,
+        humidity_city_today=humidity_city_today_init,
+        main_city_today=main_city_today_init,
+        icon_city_today=icon_city_today_init
+    )
 
 
 if __name__ == "__main__":
