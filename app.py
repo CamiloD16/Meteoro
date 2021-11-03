@@ -1,14 +1,22 @@
 from flask import Flask, render_template, request
 import requests
 import json
-from datetime import date
-from datetime import timedelta
+from datetime import date, timedelta
+from flaskext.mysql import MySQL
 
 app = Flask(__name__)
+
+mysql = MySQL()
+app.config["MYSQL_DATABASE_HOST"] = "localhost"
+app.config["MYSQL_DATABASE_USER"] = "root"
+app.config["MYSQL_DATABASE_PASSWORD"] = "123"
+app.config["MYSQL_DATABASE_DB"] = "climadb"
+mysql.init_app(app)
 
 
 @app.route("/", methods=["GET", "POST"])
 def inicio():
+
     today = date.today()
     tomorrow = today + timedelta(days=1)
     overmorrow = tomorrow + timedelta(days=1)
@@ -64,25 +72,15 @@ def inicio():
         )
         weather_data_city = weather_url_city.json()
 
-        temp_min_day = []
-        temp_max_day = []
-        feels_like_day = []
-        for j in range(2, 11, 8):
-            temp_min_day.append(
-                int(round(weather_data_city["list"][j]["main"]["temp_min"]) - 273.15)
-            )
-            temp_max_day.append(
-                int(round(weather_data_city["list"][j]["main"]["temp_max"]) - 273.15)
-            )
-            feels_like_day.append(
-                int(round(weather_data_city["list"][j]["main"]["feels_like"]) - 273.15)
-            )
-
         main_city = []
         icon_city = []
         day_city = []
         temp_city = []
-        for j in range(2, 15, 2):
+        temp_min_day = []
+        temp_max_day = []
+        feels_like_day = []
+
+        for j in range(2, 40, 2):
             if j <= 7 or j >= 9:
                 main_city.append(weather_data_city["list"][j]["weather"][0]["main"])
                 icon_city.append(weather_data_city["list"][j]["weather"][0]["icon"])
@@ -90,6 +88,42 @@ def inicio():
                 temp_city.append(
                     int((round(weather_data_city["list"][j]["main"]["temp"]) - 273.15))
                 )
+                temp_min_day.append(
+                    int(
+                        round(weather_data_city["list"][j]["main"]["temp_min"]) - 273.15
+                    )
+                )
+                temp_max_day.append(
+                    int(
+                        round(weather_data_city["list"][j]["main"]["temp_max"]) - 273.15
+                    )
+                )
+                feels_like_day.append(
+                    int(
+                        round(weather_data_city["list"][j]["main"]["feels_like"])
+                        - 273.15
+                    )
+                )
+
+        cur1 = mysql.connect().cursor()
+        cur1.execute("DELETE FROM tabla_temp")
+
+        cur2 = mysql.connect().cursor()
+        for i in range(len(temp_city)):
+            cur2.execute(
+                "INSERT INTO tabla_temp"
+                "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
+                "VALUES (%s,%s,%s,%s,%s)",
+                (
+                    day_city[i],
+                    temp_city[i],
+                    temp_min_day[i],
+                    temp_max_day[i],
+                    feels_like_day[i],
+                ),
+            )
+        cur3 = mysql.connect().cursor()
+        cur3.execute("SELECT * FROM tabla_temp")
 
         return render_template(
             "index.html",
