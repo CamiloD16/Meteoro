@@ -15,8 +15,12 @@ from infSection2 import (
     temp_min_city_today_init,
     humidity_city_today_init,
     main_city_today_init,
-    icon_city_today_init
+    icon_city_today_init,
 )
+
+# from decouple import config
+# import mysql.connector
+
 
 app = Flask(__name__)
 
@@ -25,6 +29,13 @@ app.config["MYSQL_DATABASE_HOST"] = "localhost"
 app.config["MYSQL_DATABASE_USER"] = "root"
 app.config["MYSQL_DATABASE_PASSWORD"] = "123"
 app.config["MYSQL_DATABASE_DB"] = "climadb"
+
+# mysql.connector.connect(
+#     host=config("HOST_DB"),
+#     user=config("USER_DB"),
+#     password=config("PASSWORD_DB"),
+#     database=config("DATABASE"),
+# )
 mysql.init_app(app)
 
 
@@ -57,6 +68,22 @@ def inicio():
         main_city_today = weather_data_city_today["weather"][0]["main"]
         icon_city_today = weather_data_city_today["weather"][0]["icon"]
 
+        # INFORMACION GENERAL SOBRE LA CONTAMINACION DEL AIRE
+
+        latitud = float(weather_data_city_today["coord"]["lat"])
+        longitud = float(weather_data_city_today["coord"]["lon"])
+        inf_url_city_air = requests.get(
+            f"http://api.openweathermap.org/data/2.5/air_pollution?lat={latitud}&lon={longitud}&appid=f62b4de10d24119e0ef2a24f0cea1158"
+        )
+        inf_city_air = inf_url_city_air.json()
+        co = inf_city_air["list"][0]["components"]["co"]
+        no = inf_city_air["list"][0]["components"]["no"]
+        no2 = inf_city_air["list"][0]["components"]["no2"]
+        o3 = inf_city_air["list"][0]["components"]["o3"]
+        so2 = inf_city_air["list"][0]["components"]["so2"]
+        pm2_5 = inf_city_air["list"][0]["components"]["pm2_5"]
+        pm10 = inf_city_air["list"][0]["components"]["pm10"]
+        nh3 = inf_city_air["list"][0]["components"]["nh3"]
         # INFORMACION CLIMATICA GENERAL Y GRAFICAS CHART JS
         weather_url_city = requests.get(
             f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
@@ -72,7 +99,7 @@ def inicio():
         feels_like_day = []
 
         for j in range(2, 40, 2):
-            if j <= 7 or j >= 9:
+            if j != 8 and j != 16 and j != 24 and j != 32:
                 main_city.append(weather_data_city["list"][j]["weather"][0]["main"])
                 icon_city.append(weather_data_city["list"][j]["weather"][0]["icon"])
                 day_city.append(weather_data_city["list"][j]["dt_txt"])
@@ -95,7 +122,7 @@ def inicio():
                         - 273.15
                     )
                 )
-
+        print(temp_city)
         cur1 = mysql.connect().cursor()
         cur1.execute("DELETE FROM tabla_temp")
 
@@ -140,6 +167,14 @@ def inicio():
             temp_min_city_today=temp_min_city_today,
             temp_min_day=temp_min_day,
             temp_max_day=temp_max_day,
+            co=co,
+            no=no,
+            no2=no2,
+            o3=o3,
+            so2=so2,
+            pm2_5=pm2_5,
+            pm10=pm10,
+            nh3=nh3,
         )
 
     return render_template(
@@ -158,7 +193,7 @@ def inicio():
         temp_min_city_today=temp_min_city_today_init,
         humidity_city_today=humidity_city_today_init,
         main_city_today=main_city_today_init,
-        icon_city_today=icon_city_today_init
+        icon_city_today=icon_city_today_init,
     )
 
 
