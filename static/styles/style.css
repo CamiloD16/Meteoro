@@ -347,12 +347,17 @@ nav .container-fluid .collapse ul li ul li a {
   margin: 30px auto 0 auto;
   background-color: white;
   border-radius: 9px;
-  color: white;
+  color: rgba(0, 0, 0, 0.97);
 }
 
-.section-3 #map {
-  height: 500px;
-  width: 100%;
+.section-3 h4 {
+  color: rgba(0, 0, 0, 0.97);
+  text-transform: uppercase;
+}
+
+.section-3 h4 h5 {
+  color: #2193b0;
+  opacity: 0.8;
 }
 
 @media (max-width: 767px) {
