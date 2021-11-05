@@ -3,7 +3,8 @@ $color-1:#2193b0;
 $color-2: #36c0ee;
 $color-4:#0083B0;
 $color-5:rgba(0, 0, 0, 0.97);
-$color-6:rgb(255, 187, 0);
+// $color-6:rgb(255, 187, 0);
+$color-6:rgb(229, 255, 0);
 
 //AJUSTE DE CONTAINERS
 @mixin contenedores {
@@ -36,8 +37,6 @@ body {
 
 nav {
     background-color: $color-4;
-    -webkit-box-shadow: 0px 3px 9px -1px rgba(0, 0, 0, 0.493);
-    box-shadow: 0px 3px 9px -1px rgba(0, 0, 0, 0.39);
 
     .container-fluid {
         padding: 0px 5%;
@@ -93,10 +92,12 @@ nav {
     height: auto;
 
     .containerSection1 {
-        margin: 50px auto 0 auto;
+        margin: 0 auto;
         color: $color-0;
         z-index: 50;
         @include contenedores();
+        border-radius: 0;
+        padding: 80px 80px 40px 80px;
 
         h3 {
             padding: 10px;
@@ -132,10 +133,6 @@ nav {
                 }
 
             }
-        }
-
-        &:hover {
-            @include fondoHover()
         }
     }
 
@@ -386,7 +383,7 @@ nav {
         color: $color-0;
 
         p {
-            color: rgb(255, 187, 0);
+            color: $color-6;
             text-transform: uppercase;
             font-size: 0.5;
         }
@@ -418,6 +415,30 @@ nav {
         opacity: 0.9;
         text-align: center;
         font-weight: 900;
+    }
+
+    .containerChartContamination {
+        padding: 10px;
+        width: 100%;
+
+        td {
+            color: $color-0;
+        }
+
+        #myChart3 {
+            // background-color: $color-0;
+            border-radius: 3px;
+            padding: 10px;
+        }
+    }
+
+    .tableContamination {
+        // background-color: blue;
+        padding-top: 50px;
+
+        .calidadText {
+            color: $color-6;
+        }
     }
 }
 
