@@ -130,7 +130,6 @@ def inicio():
                         - 273.15
                     )
                 )
-        print(temp_city)
         cur1 = mysql.connect().cursor()
         cur1.execute("DELETE FROM tabla_temp")
 
@@ -193,6 +192,9 @@ def inicio():
         today=today,
         tomorrow=tomorrow,
         overmorrow=overmorrow,
+        day3=day3,
+        day4=day4,
+        day5=day5,
         city=city_init,
         main_city=main_city_init,
         icon_city=icon_city_init,

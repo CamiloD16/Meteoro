@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <!--ICON-->
+    <link rel="shortcut icon"
+        href="https://cdn.pixabay.com/photo/2017/06/14/01/14/storage-in-the-cloud-2400720_960_720.png">
+    <!--GLIDERCSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.css">
+    <!--JQuery
+        -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--CHART JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Clima</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img
+                    src="https://cdn.pixabay.com/photo/2017/06/14/01/14/storage-in-the-cloud-2400720_960_720.png"
+                    alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#section-1" id="inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section-2">Pronóstico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contaminacion">Contaminación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contáctanos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Idiomas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item data-reload" href="#es" data-reload>Español</a></li>
+                            <li><a class="dropdown-item data-reload" href="#en" data-reload>Inglés</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!--SECTION 1-->
+        <div class="section-1" id="section-1">
+            <div class="containerSection1 col-md-10">
+                <h3 id="descubre">Descubre los diversos tipos de clima en la ciudad que elijas.
+                </h3>
+                <h5>¡Conoce los cambios climáticos que se aproximan!</h5>
+                <form action="/" method="POST" class="form-section-1">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded p-3 mt-3" name="city"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" />
+                        <!-- <input type="search" class="form-control rounded p-3 mt-3" name="country"
+                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
+                            aria-describedby="search-addon" /> -->
+                        <button type="submit" class="buttonSection1 p-3 mt-3">Buscar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="containerImgSection1 col-4">
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2014/12/20/18/28/city-574236_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Miami</h2>
+                        <h3>{{ temp_miami }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2020/02/25/11/52/colombia-4878721_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Bogotá</h2>
+                        <h3>{{ temp_bogota }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2015/07/13/14/40/paris-843229_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>París</h2>
+                        <h3>{{ temp_paris }}°C</h3>
+                    </div>
+                </div>
+                <div class="containerText">
+                    <img class="imgSection1"
+                        src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg" alt="">
+                    <div class="textImg">
+                        <h2>Tokyo</h2>
+                        <h3>{{ temp_tokyo }}°C</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--SECTION 2-->
+    <main class="section-2 col-md-11" id="section-2">
+        <div class="row">
+            <div class="containerSection2-left col-md-6">
+                <h4>{{ city }}</h4>
+                <div class="containerInformationSection2-today row">
+                    <h3>
+                        Hoy: {{ today }}
+                    </h3>
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{  temp_city_today }}°C
+                        </h2>
+                        <h3>La sensación térmica actual es de {{feelslike_city_today}}°C</h3>
+                        <h4>{{ main_city_today }}</h4>
+                        <h5>Humedad: {{humidity_city_today}}%</h5>
+                    </div>
+                </div>
+                <div class="containerInformationSection2 row">
+                    <h3>
+                        Mañana: {{ tomorrow }}
+                    </h3>
+                    {% for i in [0,1,2] %}
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png"
+                            alt="">
+                        <h2>
+                            {{ temp_city[i] }}°C
+                        </h2>
+                        <h4>{{ main_city[i] }}</h4>
+                        <h5>{{ day_city[i] }}</h5>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div class="containerInformationSection2 row col-5">
+                    <h3>
+                        Pasado mañana: {{ overmorrow }}
+                    </h3>
+                    {% for i in [3,4,5]%}
+                    <div class="informationSection2 col-3">
+                        <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png"
+                            alt="">
+
+                        <h2>
+                            {{ temp_city[i] }}°C
+                        </h2>
+                        <h4>{{ main_city[i] }}</h4>
+                        <h5>{{ day_city[i] }}</h5>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="containerSection2-right col-md-5">
+                <!-- <h4>Temperatura semanal</h4> -->
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart2" width="400" height="400"></canvas>
+                <script>
+                    var ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const data2 = {
+                        labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
+                        datasets: [{
+                            label: '{{today}}',
+                            data: ['{{temp_city_today}}', '{{temp_max_city_today}}',
+                                '{{feelslike_city_today}}', '{{temp_min_city_today}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(0, 180, 219)',
+                            pointBackgroundColor: 'rgb(0, 180, 219)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(0, 180, 219)'
+                        }, {
+                            label: '{{tomorrow}}',
+                            data: ['{{temp_city[1]}}', '{{temp_max_day[1]}}', '{{feels_like_day[1]}}',
+                                '{{temp_min_day[1]}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(255, 0, 0)',
+                            pointBackgroundColor: 'rgb(255, 0, 0)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 140, 0 )'
+                        }, {
+                            label: '{{overmorrow}}',
+                            //data: ['7', '2', '3', '4'],
+                            data: ['{{temp_city[4]}}', '{{temp_max_day[4]}}', '{{feels_like_day[4]}}',
+                                '{{temp_min_day[4]}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(65, 231, 36)',
+                            pointBackgroundColor: 'rgb(65, 231, 36)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(65, 231, 36)',
+                        }, {
+                            label: '{{day3}}',
+                            //data: ['7', '2', '3', '4'],
+                            data: ['{{temp_city[7]}}', '{{temp_max_day[7]}}', '{{feels_like_day[7]}}',
+                                '{{temp_min_day[7]}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(139, 0, 0)',
+                            pointBackgroundColor: 'rgb(139, 0, 0)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(139, 0, 0)',
+                        }, {
+                            label: '{{day4}}',
+                            //data: ['7', '2', '3', '4'],
+                            data: ['{{temp_city[10]}}', '{{temp_max_day[10]}}', '{{feels_like_day[10]}}',
+                                '{{temp_min_day[10]}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(255, 0, 255)',
+                            pointBackgroundColor: 'rgb(255, 0, 255)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 0, 255)',
+                        }, {
+                            label: '{{day5}}',
+                            //data: ['7', '2', '3', '4'],
+                            data: ['{{temp_city[13]}}', '{{temp_max_day[13]}}', '{{feels_like_day[13]}}',
+                                '{{temp_min_day[13]}}'
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgb(245, 245, 245,0.1)',
+                            borderColor: 'rgb(0, 0, 255)',
+                            pointBackgroundColor: 'rgb(0, 0, 255)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(0, 0, 255)',
+                        }],
+                    }
+
+                    var myChart2 = new Chart(ctx2, {
+                        type: 'radar',
+                        data: data2,
+
+                        options: {
+                            scale: {
+                                min: 0,
+                                ticks: {
+                                    stepSize: 5
+                                }
+
+                            },
+                            elements: {
+                                line: {
+                                    borderWidth: 3
+                                }
+                            }
+                        },
+                    });
+                </script>
+                <script>
+                    var ctx1 = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx1, {
+                        type: 'bar',
+                        data: {
+                            labels: ['{{tomorrow}}', '{{overmorrow}}', '{{day3}}', '{{day4}}', '{{day5}}'],
+                            datasets: [{
+                                label: 'Mañana',
+                                data: ['{{temp_city[0]}}', '{{temp_city[3]}}', '{{temp_city[6]}}',
+                                    '{{temp_city[9]}}', '{{temp_city[12]}}'
+                                ],
+                                backgroundColor: [
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)',
+                                    'rgba(0, 180, 219)'
+                                ],
+                                // borderWidth: 3,
+                                // hoverBorderWidth: 0,
+                                // borderColor: 'rgba(0, 255, 132, 0.6)',
+                            }, {
+                                label: 'Tarde',
+                                data: ['{{temp_city[1]}}', '{{temp_city[4]}}', '{{temp_city[7]}}',
+                                    '{{temp_city[10]}}', '{{temp_city[13]}}'
+                                ],
+                                backgroundColor: [
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)',
+                                    'rgba(255, 0, 0, 0.8)'
+                                ],
+                                // borderWidth: 3,
+                                // hoverBorderWidth: 0,
+                                // borderColor: 'rgba(180, 255, 132, 0.6)',
+                            }, {
+                                label: 'Noche',
+                                data: ['{{temp_city[2]}}', '{{temp_city[5]}}', '{{temp_city[8]}}',
+                                    '{{temp_city[11]}}', '{{temp_city[14]}}'
+                                ],
+                                backgroundColor: [
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)',
+                                    'rgba(65, 231, 36,0.8)'
+                                ],
+                                // borderWidth: 3,
+                                // hoverBorderWidth: 0,
+                                // borderColor: 'rgba(180, 255, 132, 0.6)',
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                },
+                                xAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'aaaaaxx'
+                                    }
+                                }]
+
+                            },
+
+                            responsive: true,
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </main>
+
+    <section class="section-3 col-12" id="contaminacion">
+
+        <h4>Contaminación del aire<p>{{ city }}</p>
+        </h4>
+        <h5>{{ today }}</h5>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Monóxido de carbono <div class="lex">(CO)</div>
+                    </th>
+                    <th scope="col">Monóxido de nitrógeno <div class="lex">(NO)</div>
+                    </th>
+                    <th scope="col">Dióxido de nitrógeno <div class="lex">(NO2)</div>
+                    </th>
+                    <th scope="col">Сoncentración de ozono <div class="lex">(O3)</div>
+                    </th>
+                    <th scope="col">Dióxido de azufre <div class="lex">(SO2)</div>
+                    </th>
+                    <th scope="col">Materia de partículas finas <div class="lex">(PM2.5)</div>
+                    </th>
+                    <th scope="col">Partículas gruesas <div class="lex">(PM10)</div>
+                    </th>
+                    <th scope="col">Сoncentración de amoníaco <div class="lex">(NH3)</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ co }}</td>
+                    <td>{{ no }}</td>
+                    <td>{{ no2 }}</td>
+                    <td>{{ o3 }}</td>
+                    <td>{{ so2 }}</td>
+                    <td>{{ pm2_5 }}</td>
+                    <td>{{ pm10 }}</td>
+                    <td>{{ nh3 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!--Scroll-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--BOOTSTRAP JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
+
+    <!--JS-->
+    <script src="../static/script/scroll.js"></script>
+    <script src="../static/script/lenguage.js"></script>
+
+    <!--GLIDERJS-->
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+
+</body>
+
+</html>

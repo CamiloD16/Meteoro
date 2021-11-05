@@ -344,20 +344,48 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-3 {
-  margin: 30px auto 0 auto;
-  background-color: white;
-  border-radius: 9px;
-  color: rgba(0, 0, 0, 0.97);
+  margin: 30px 0 0 0;
+  background: #00B4DB;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0083B0), to(#00B4DB));
+  background: linear-gradient(to bottom, #0083B0, #00B4DB);
+  border-radius: 0;
+  padding: 40px 80px;
 }
 
 .section-3 h4 {
-  color: rgba(0, 0, 0, 0.97);
-  text-transform: uppercase;
+  color: white;
 }
 
-.section-3 h4 h5 {
-  color: #2193b0;
+.section-3 h4 p {
+  color: #ffbb00;
+  text-transform: uppercase;
+  font-size: 0.5;
+}
+
+.section-3 h5 {
+  color: white;
   opacity: 0.8;
+}
+
+.section-3 th {
+  color: white;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.section-3 th .lex {
+  color: #ffbb00;
+}
+
+.section-3 th::first-letter {
+  color: #ffbb00;
+}
+
+.section-3 td {
+  color: #ffbb00;
+  opacity: 0.9;
+  text-align: center;
+  font-weight: 900;
 }
 
 @media (max-width: 767px) {
