@@ -14,6 +14,7 @@ from infSection2 import (
     temp_max_city_today_init,
     temp_min_city_today_init,
     humidity_city_today_init,
+    feelslike_city_today_init,
     main_city_today_init,
     icon_city_today_init,
     temp_city_init,
@@ -189,6 +190,9 @@ def inicio():
 
     return render_template(
         "index.html",
+        today=today,
+        tomorrow=tomorrow,
+        overmorrow=overmorrow,
         city=city_init,
         main_city=main_city_init,
         icon_city=icon_city_init,
@@ -199,6 +203,7 @@ def inicio():
         temp_paris=temp_paris,
         temp_miami=temp_miami,
         temp_city_today=temp_city_today_init,
+        feelslike_city_today=feelslike_city_today_init,
         temp_max_city_today=temp_max_city_today_init,
         temp_min_city_today=temp_min_city_today_init,
         humidity_city_today=humidity_city_today_init,
