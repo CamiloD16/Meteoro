@@ -37,3 +37,21 @@ temp_min_city_today_init = int(
 humidity_city_today_init = int((round(weather_data_city_today["main"]["humidity"])))
 main_city_today_init = weather_data_city_today["weather"][0]["main"]
 icon_city_today_init = weather_data_city_today["weather"][0]["icon"]
+
+
+##SECTION 04/11/2012
+temp_min_day_init = []
+temp_max_day_init = []
+feels_like_day_init = []
+
+for j in range(2, 40, 2):
+    if j != 8 and j != 16 and j != 24 and j != 32:
+        temp_min_day_init.append(
+            int(round(weather_data_city["list"][j]["main"]["temp_min"]) - 273.15)
+        )
+        temp_max_day_init.append(
+            int(round(weather_data_city["list"][j]["main"]["temp_max"]) - 273.15)
+        )
+        feels_like_day_init.append(
+            int(round(weather_data_city["list"][j]["main"]["feels_like"]) - 273.15)
+        )

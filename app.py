@@ -16,6 +16,10 @@ from infSection2 import (
     humidity_city_today_init,
     main_city_today_init,
     icon_city_today_init,
+    temp_city_init,
+    temp_min_day_init,
+    temp_max_day_init,
+    feels_like_day_init,
 )
 
 # from decouple import config
@@ -25,10 +29,10 @@ from infSection2 import (
 app = Flask(__name__)
 
 mysql = MySQL()
-# app.config["MYSQL_DATABASE_HOST"] = "localhost"
-# app.config["MYSQL_DATABASE_USER"] = "root"
-# app.config["MYSQL_DATABASE_PASSWORD"] = "123"
-# app.config["MYSQL_DATABASE_DB"] = "climadb"
+app.config["MYSQL_DATABASE_HOST"] = "localhost"
+app.config["MYSQL_DATABASE_USER"] = "root"
+app.config["MYSQL_DATABASE_PASSWORD"] = "123"
+app.config["MYSQL_DATABASE_DB"] = "climadb"
 
 # mysql.connector.connect(
 #     host=config("HOST_DB"),
@@ -48,7 +52,7 @@ def inicio():
     day3 = overmorrow + timedelta(days=1)
     day4 = day3 + timedelta(days=1)
     day5 = day4 + timedelta(days=1)
- 
+
     if request.method == "POST":
         city = request.form["city"]
         # # INFORMACION CLIMATICA HOY
@@ -126,25 +130,25 @@ def inicio():
                     )
                 )
         print(temp_city)
-        # cur1 = mysql.connect().cursor()
-        # cur1.execute("DELETE FROM tabla_temp")
+        cur1 = mysql.connect().cursor()
+        cur1.execute("DELETE FROM tabla_temp")
 
-        # cur2 = mysql.connect().cursor()
-        # for i in range(len(temp_city)):
-        #     cur2.execute(
-        #         "INSERT INTO tabla_temp"
-        #         "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
-        #         "VALUES (%s,%s,%s,%s,%s)",
-        #         (
-        #             day_city[i],
-        #             temp_city[i],
-        #             temp_min_day[i],
-        #             temp_max_day[i],
-        #             feels_like_day[i],
-        #         ),
-        #     )
-        # cur3 = mysql.connect().cursor()
-        # cur3.execute("SELECT * FROM tabla_temp")
+        cur2 = mysql.connect().cursor()
+        for i in range(len(temp_city)):
+            cur2.execute(
+                "INSERT INTO tabla_temp"
+                "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
+                "VALUES (%s,%s,%s,%s,%s)",
+                (
+                    day_city[i],
+                    temp_city[i],
+                    temp_min_day[i],
+                    temp_max_day[i],
+                    feels_like_day[i],
+                ),
+            )
+        cur3 = mysql.connect().cursor()
+        cur3.execute("SELECT * FROM tabla_temp")
 
         return render_template(
             "index.html",
@@ -180,7 +184,7 @@ def inicio():
             nh3=nh3,
             day3=day3,
             day4=day4,
-            day5=day5
+            day5=day5,
         )
 
     return render_template(
@@ -200,6 +204,9 @@ def inicio():
         humidity_city_today=humidity_city_today_init,
         main_city_today=main_city_today_init,
         icon_city_today=icon_city_today_init,
+        temp_min_day=temp_min_day_init,
+        temp_max_day=temp_max_day_init,
+        feels_like_day=feels_like_day_init,
     )
 
 
