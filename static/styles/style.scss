@@ -432,15 +432,93 @@ nav {
         }
     }
 
-    .tableContamination {
+    .tableContamination-2 {
         // background-color: blue;
-        padding-top: 50px;
+        padding-top: 25px;
 
         .calidadText {
             color: $color-6;
         }
     }
 }
+
+.section-4 {
+
+    .contact-form {
+        background: #fff;
+        width: 70%;
+
+
+        .form-control {
+            border-radius: 1rem;
+            padding: 10px;
+            margin: 3px 0 3px 0;
+        }
+
+        form {
+            padding: 14%;
+
+
+            .row {
+                margin-bottom: -7%;
+
+            }
+        }
+
+        h3 {
+            margin-bottom: 8%;
+            margin-top: -10%;
+            text-align: center;
+            color: $color-1;
+        }
+
+        .btnContact {
+            width: 60%;
+            border: 1px solid $color-1;
+            border-radius: 1rem;
+            padding: 3% 8%;
+            background: $color-1;
+            font-weight: 600;
+            color: $color-0;
+            cursor: pointer;
+            margin: 5% auto 0 auto;
+            transition: color 1s, background-color 1s;
+
+            &:hover {
+                background-color: $color-0;
+                color: $color-1;
+            }
+        }
+    }
+
+    .contact-image {
+        text-align: center;
+
+        img {
+            border-radius: 6rem;
+            width: 11%;
+            margin-top: -5%;
+            transform: rotate(29deg);
+        }
+    }
+
+
+    .btnContactSubmit {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        color: #fff;
+        background-color: #0062cc;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
 
 // ///////////MEDIAQUERIES///////////
 @media (max-width: 767px) {
@@ -509,6 +587,33 @@ nav {
             width: 90%;
         }
     }
+
+    .section-3 {
+        padding: 0;
+
+        h4 {
+            padding: 20px 0 0 20px;
+        }
+
+        h5 {
+            padding: 0 0 5px 20px;
+        }
+
+        .tableContamination-1 {
+            width: 20px;
+            padding: 0;
+            margin: 0 auto;
+
+            th {
+                font-size: 12px;
+            }
+
+            td {
+                font-size: 10px;
+            }
+
+        }
+    }
 }
 
 @media (max-width: 499px) {
@@ -538,6 +643,35 @@ nav {
     .section-2 {
         .containerSection2-left {
             padding: 20px 5px;
+        }
+    }
+
+    .section-3 {
+        padding: 0;
+
+        h4 {
+            padding: 20px 0 0 20px;
+        }
+
+        h5 {
+            padding: 0 0 5px 20px;
+        }
+
+        .tableContamination-1 {
+            width: 20px;
+            padding: 0;
+            margin: 0 auto;
+
+            .lex-1 {
+                color: red;
+                display: none;
+            }
+
+            th,
+            td {
+                font-size: 0.8rem;
+            }
+
         }
     }
 }
