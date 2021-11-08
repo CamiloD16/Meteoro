@@ -8,9 +8,6 @@ $color-6:rgb(229, 255, 0);
 
 //AJUSTE DE CONTAINERS
 @mixin contenedores {
-    background: #00B4DB;
-    background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
-    background: linear-gradient(to bottom, #0083B0, #00B4DB);
     // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
     // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
     padding: 25px;
@@ -32,6 +29,8 @@ $color-6:rgb(229, 255, 0);
 
 body {
     background-color: $color-0;
+    background-image: url(https://image.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg);
+    background-size: 100% 100%;
 }
 
 
@@ -93,7 +92,7 @@ nav {
 
     .containerSection1 {
         margin: 0 auto;
-        color: $color-0;
+        color: $color-5;
         z-index: 50;
         @include contenedores();
         border-radius: 0;
@@ -110,7 +109,6 @@ nav {
 
 
         .form-section-1 {
-
 
             .input-group {
                 border: none;
@@ -207,14 +205,16 @@ nav {
         // text-align: center;
 
         h4 {
-            color: $color-0;
+            color: $color-1;
             margin-left: 3%;
             text-transform: uppercase
         }
 
+
+
         h5 {
-            color: $color-0;
-            opacity: 0.6;
+            color: $color-5;
+            opacity: 0.9;
             margin-left: 3%;
         }
 
@@ -226,9 +226,9 @@ nav {
             border-radius: 9px;
 
             h3 {
-                color: $color-0;
+                color: $color-5;
                 font-size: 1.2rem;
-
+                opacity: 0.9;
             }
 
             .informationSection2 {
@@ -270,8 +270,9 @@ nav {
             border-radius: 9px;
 
             h3 {
-                color: $color-0;
+                color: $color-5;
                 font-size: 1.2rem;
+                opacity: 0.9;
             }
 
             .informationSection2 {
@@ -333,17 +334,13 @@ nav {
                 }
             }
         }
-
-        &:hover {
-            @include fondoHover()
-        }
     }
 
     .containerSection2-right {
         margin: 0 auto;
         padding: 25px;
         height: 100%;
-        background-color: $color-0;
+        // background-color: $color-0;
         // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
         // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
         border-radius: 9px;
@@ -351,10 +348,6 @@ nav {
 
         h4 {
             color: $color-0;
-        }
-
-        &:hover {
-            @include fondoHover()
         }
     }
 
@@ -364,6 +357,23 @@ nav {
         padding: 0 10px 10px 10px;
         width: auto;
         height: 20px;
+        transition: box-shadow 1s;
+
+        &:hover {
+            @include fondoHover();
+            padding: 0 10px 10px 10px;
+
+        }
+    }
+
+    #myChart2 {
+        transition: box-shadow 1s;
+        padding: 0 10px 10px 10px;
+
+        &:hover {
+            @include fondoHover();
+            padding: 0 10px 10px 10px;
+        }
     }
 
 
@@ -372,46 +382,54 @@ nav {
 }
 
 .section-3 {
-    margin: 30px 0 0 0;
-    background: #00B4DB;
-    background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
-    background: linear-gradient(to bottom, #0083B0, #00B4DB);
+    margin: 0 0 0 0;
+    // background: #00B4DB;
+    // background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
+    // background: linear-gradient(to bottom, #0083B0, #00B4DB);
+    // background-image: url(https://image.freepik.com/vector-gratis/vector-diseno-minimalista-fondo-escritorio-blanco_53876-140224.jpg);
+    background-size: 100%;
+    // background-color: $color-0;
     border-radius: 0;
-    padding: 40px 80px;
+    padding: 0px 80px;
 
     h4 {
-        color: $color-0;
+        color: $color-1;
+        font-weight: 700;
 
         p {
-            color: $color-6;
+            color: $color-5;
             text-transform: uppercase;
-            font-size: 0.5;
+            font-size: 20px;
+            font-weight: 600;
         }
 
 
     }
 
     h5 {
-        color: $color-0;
+        color: $color-5;
         opacity: 0.8;
     }
 
+
+
     th {
-        color: $color-0;
+        color: $color-5;
         opacity: 0.9;
         text-align: center;
 
+
         .lex {
-            color: $color-6;
+            color: $color-5;
         }
     }
 
     th::first-letter {
-        color: $color-6;
+        color: $color-4;
     }
 
     td {
-        color: $color-6;
+        color: $color-4;
         opacity: 0.9;
         text-align: center;
         font-weight: 900;
@@ -422,30 +440,48 @@ nav {
         width: 100%;
 
         td {
-            color: $color-0;
+            color: $color-5;
         }
 
         #myChart3 {
-            // background-color: $color-0;
             border-radius: 3px;
             padding: 10px;
+            opacity: 0.9;
         }
     }
 
     .tableContamination-2 {
-        // background-color: blue;
         padding-top: 25px;
+        height: 50%;
 
         .calidadText {
-            color: $color-6;
+            color: $color-4;
         }
     }
 }
 
 .section-4 {
+    // background-color: $color-0;
+    min-height: 100vh;
+    padding: 0 80px;
+
+    .container {
+        .imgSection4 {
+            width: 100%;
+            border-radius: 5%;
+        }
+
+        .textSection4 {
+            color: $color-5;
+            margin-left: 10px;
+        }
+    }
+}
+
+.section-5 {
 
     .contact-form {
-        background: #fff;
+        // background: #fff;
         width: 70%;
 
 

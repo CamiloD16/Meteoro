@@ -55,3 +55,18 @@ for j in range(2, 40, 2):
         feels_like_day_init.append(
             int(round(weather_data_city["list"][j]["main"]["feels_like"]) - 273.15)
         )
+##CALIDAD DE AIRE
+latitud = float(weather_data_city_today["coord"]["lat"])
+longitud = float(weather_data_city_today["coord"]["lon"])
+inf_url_city_air = requests.get(
+    f"http://api.openweathermap.org/data/2.5/air_pollution?lat={latitud}&lon={longitud}&appid=f62b4de10d24119e0ef2a24f0cea1158"
+)
+inf_city_air = inf_url_city_air.json()
+co_init = inf_city_air["list"][0]["components"]["co"]
+no_init = inf_city_air["list"][0]["components"]["no"]
+no2_init = inf_city_air["list"][0]["components"]["no2"]
+o3_init = inf_city_air["list"][0]["components"]["o3"]
+so2_init = inf_city_air["list"][0]["components"]["so2"]
+pm2_5_init = inf_city_air["list"][0]["components"]["pm2_5"]
+pm10_init = inf_city_air["list"][0]["components"]["pm10"]
+nh3_init = inf_city_air["list"][0]["components"]["nh3"]

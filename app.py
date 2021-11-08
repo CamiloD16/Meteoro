@@ -21,6 +21,14 @@ from infSection2 import (
     temp_min_day_init,
     temp_max_day_init,
     feels_like_day_init,
+    co_init,
+    no_init,
+    no2_init,
+    o3_init,
+    so2_init,
+    pm2_5_init,
+    pm10_init,
+    nh3_init,
 )
 
 ##NUEVO CODIGO
@@ -47,6 +55,11 @@ app.config["MYSQL_DATABASE_DB"] = "climadb"
 #     database=config("DATABASE"),
 # )
 mysql.init_app(app)
+
+
+@app.route("/project-1", methods=["GET"])
+def layout():
+    return render_template("project-1.html")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -218,7 +231,7 @@ def inicio():
             server.starttls()
             server.login("meteoroweather@gmail.com", "meteoro123")
             server.sendmail(
-                "meteoroweather@gmail.com", "juliomurillo.rodriguez@gmail.com", message
+                "meteoroweather@gmail.com", "meteoroweather@gmail.com", message
             )
             server.quit()
             print("mensaje enviado")
@@ -250,6 +263,14 @@ def inicio():
         temp_min_day=temp_min_day_init,
         temp_max_day=temp_max_day_init,
         feels_like_day=feels_like_day_init,
+        co=co_init,
+        no=no_init,
+        no2=no2_init,
+        o3=o3_init,
+        so2=so2_init,
+        pm2_5=pm2_5_init,
+        pm10=pm10_init,
+        nh3=nh3_init,
     )
 
 
