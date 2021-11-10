@@ -95,7 +95,9 @@ nav {
         color: $color-5;
         z-index: 50;
         @include contenedores();
-        border-radius: 0;
+        // border-bottom: 1px solid $color-5;
+        // border-bottom-left-radius: 15px;
+        // border-bottom-right-radius: 15px;
         padding: 80px 80px 40px 80px;
 
         h3 {
@@ -202,6 +204,7 @@ nav {
         margin: 0 auto;
         height: 100%;
         @include contenedores();
+
         // text-align: center;
 
         h4 {
@@ -462,19 +465,37 @@ nav {
 
 .section-4 {
     // background-color: $color-0;
-    min-height: 100vh;
+    // min-height: 100vh;
     padding: 0 80px;
 
     .container {
         .imgSection4 {
             width: 100%;
             border-radius: 5%;
+            transition: box-shadow 2s;
+
+            &:hover {
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+            }
         }
 
         .textSection4 {
             color: $color-5;
             margin-left: 10px;
         }
+    }
+
+    .displayTemp {
+        padding: 10px;
+        color: $color-5;
+        margin: 5% auto 0 auto;
+        width: 20%;
+        text-align: center;
+        border-bottom: 1px solid $color-4;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        // background-color: red;
     }
 }
 
@@ -492,7 +513,7 @@ nav {
         }
 
         form {
-            padding: 14%;
+            padding: 10%;
 
 
             .row {
@@ -533,8 +554,14 @@ nav {
         img {
             border-radius: 6rem;
             width: 11%;
-            margin-top: -5%;
+            margin-top: 5%;
             transform: rotate(29deg);
+            transition: box-shadow 2s;
+
+            &:hover {
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+            }
         }
     }
 

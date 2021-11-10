@@ -234,7 +234,6 @@ def inicio():
                 "meteoroweather@gmail.com", "meteoroweather@gmail.com", message
             )
             server.quit()
-            print("mensaje enviado")
 
     return render_template(
         "index.html",

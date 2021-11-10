@@ -57,7 +57,6 @@ nav .container-fluid .collapse ul li ul li a {
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
   transition: box-shadow 1s, -webkit-box-shadow 1s;
-  border-radius: 0;
   padding: 80px 80px 40px 80px;
 }
 
@@ -417,18 +416,37 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-4 {
-  min-height: 100vh;
   padding: 0 80px;
 }
 
 .section-4 .container .imgSection4 {
   width: 100%;
   border-radius: 5%;
+  -webkit-transition: -webkit-box-shadow 2s;
+  transition: -webkit-box-shadow 2s;
+  transition: box-shadow 2s;
+  transition: box-shadow 2s, -webkit-box-shadow 2s;
+}
+
+.section-4 .container .imgSection4:hover {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
 }
 
 .section-4 .container .textSection4 {
   color: rgba(0, 0, 0, 0.97);
   margin-left: 10px;
+}
+
+.section-4 .displayTemp {
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.97);
+  margin: 5% auto 0 auto;
+  width: 20%;
+  text-align: center;
+  border-bottom: 1px solid #0083B0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .section-5 .contact-form {
@@ -442,7 +460,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-5 .contact-form form {
-  padding: 14%;
+  padding: 10%;
 }
 
 .section-5 .contact-form form .row {
@@ -482,9 +500,18 @@ nav .container-fluid .collapse ul li ul li a {
 .section-5 .contact-image img {
   border-radius: 6rem;
   width: 11%;
-  margin-top: -5%;
+  margin-top: 5%;
   -webkit-transform: rotate(29deg);
           transform: rotate(29deg);
+  -webkit-transition: -webkit-box-shadow 2s;
+  transition: -webkit-box-shadow 2s;
+  transition: box-shadow 2s;
+  transition: box-shadow 2s, -webkit-box-shadow 2s;
+}
+
+.section-5 .contact-image img:hover {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
 }
 
 .section-5 .btnContactSubmit {
