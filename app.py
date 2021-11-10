@@ -43,10 +43,10 @@ from decouple import Config
 app = Flask(__name__)
 
 mysql = MySQL()
-app.config["MYSQL_DATABASE_HOST"] = "localhost"
-app.config["MYSQL_DATABASE_USER"] = "root"
-app.config["MYSQL_DATABASE_PASSWORD"] = "123"
-app.config["MYSQL_DATABASE_DB"] = "climadb"
+# app.config["MYSQL_DATABASE_HOST"] = "localhost"
+# app.config["MYSQL_DATABASE_USER"] = "root"
+# app.config["MYSQL_DATABASE_PASSWORD"] = "123"
+# app.config["MYSQL_DATABASE_DB"] = "climadb"
 
 # mysql.connector.connect(
 #     host=config("HOST_DB"),
@@ -160,25 +160,25 @@ def inicio():
                             - 273.15
                         )
                     )
-            cur1 = mysql.connect().cursor()
-            cur1.execute("DELETE FROM tabla_temp")
+#             cur1 = mysql.connect().cursor()
+#             cur1.execute("DELETE FROM tabla_temp")
 
-            cur2 = mysql.connect().cursor()
-            for i in range(len(temp_city)):
-                cur2.execute(
-                    "INSERT INTO tabla_temp"
-                    "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
-                    "VALUES (%s,%s,%s,%s,%s)",
-                    (
-                        day_city[i],
-                        temp_city[i],
-                        temp_min_day[i],
-                        temp_max_day[i],
-                        feels_like_day[i],
-                    ),
-                )
-            cur3 = mysql.connect().cursor()
-            cur3.execute("SELECT * FROM tabla_temp")
+#             cur2 = mysql.connect().cursor()
+#             for i in range(len(temp_city)):
+#                 cur2.execute(
+#                     "INSERT INTO tabla_temp"
+#                     "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
+#                     "VALUES (%s,%s,%s,%s,%s)",
+#                     (
+#                         day_city[i],
+#                         temp_city[i],
+#                         temp_min_day[i],
+#                         temp_max_day[i],
+#                         feels_like_day[i],
+#                     ),
+#                 )
+#             cur3 = mysql.connect().cursor()
+#             cur3.execute("SELECT * FROM tabla_temp")
 
             return render_template(
                 "index.html",
