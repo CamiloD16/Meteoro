@@ -6,7 +6,7 @@
         <div class="containerSection1 col-md-10">
             <h3 id="descubre">Descubre los diversos tipos de clima en la ciudad que elijas.
             </h3>
-            <h5>¡Conoce los cambios climáticos que se aproximan!</h5>
+            <h5 id="conocambi">¡Conoce los cambios climáticos que se aproximan!</h5>
             <form action="/" method="POST" class="form-section-1 col-md-11">
                 <div class="input-group ">
                     <input type="search" class="form-control rounded p-3 mt-3" name="city"
@@ -15,7 +15,7 @@
                     <!-- <input type="search" class="form-control rounded p-3 mt-3" name="country"
                             placeholder="Busca un país, ciudad o lugar" aria-label="Search"
                             aria-describedby="search-addon" /> -->
-                    <button type="submit" name="submit_button_1" class="buttonSection1 p-3 mt-3">Buscar</button>
+                    <button type="submit" name="submit_button_1" class="buttonSection1 p-3 mt-3" id="Busca">Buscar</button>
                 </div>
             </form>
         </div>
@@ -62,8 +62,7 @@
         <div class="containerSection2-left col-md-6">
             <h4>{{ city }}</h4>
             <div class="containerInformationSection2-today row">
-                <h3>
-                    Hoy: {{ today }}
+                <h3 id=hoyx> Hoy: </h3> <h3>{{ today }} </h3>
                 </h3>
                 <div class="informationSection2 col-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
@@ -72,13 +71,13 @@
                     <h2>
                         {{  temp_city_today }}°C
                     </h2>
-                    <h3>La sensación térmica actual es de {{feelslike_city_today}}°C</h3>
+                    <h3 id="sensatermica">La sensación térmica actual es de</h3> <h3>{{feelslike_city_today}}°C </h3>
                     <h4>{{ main_city_today }}</h4>
-                    <h5>Humedad: {{humidity_city_today}}%</h5>
+                    <h5 id=humedad>Humedad:</h5> <h5>{{humidity_city_today}}%</h5>
                 </div>
             </div>
             <div class="containerInformationSection2 row">
-                <h3>
+                <h3 id="maña">
                     Mañana: {{ tomorrow }}
                 </h3>
                 {% for i in [0,1,2] %}
@@ -94,9 +93,8 @@
 
             </div>
             <div class="containerInformationSection2 row col-5">
-                <h3>
-                    Pasado mañana: {{ overmorrow }}
-                </h3>
+                <h3 id=pasmaña> Pasado mañana:</h3> <h3>{{ overmorrow }}</h3>
+                
                 {% for i in [3,4,5]%}
                 <div class="informationSection2 col-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
@@ -301,28 +299,27 @@
 
 <section class="section-3 col-12">
 
-    <h4 id="contaminacion">Contaminación del aire<p>{{ city }}</p>
-    </h4>
+    <h4 id="contaminacion">Contaminación del aire </h4> <p>{{ city }}</p>
     <h5>{{ today }}</h5>
 
     <table class="table tableContamination-1">
         <thead>
             <tr>
-                <th scope="col">Monóxido de carbono <div class="lex">(CO)</div>
+                <th scope="col" id=monocar>Monóxido de carbono <div class="lex">(CO)</div>
                 </th>
-                <th scope="col">Monóxido de nitrógeno <div class="lex">(NO)</div>
+                <th scope="col" id=mononitro>Monóxido de nitrógeno <div class="lex">(NO)</div>
                 </th>
-                <th scope="col">Dióxido de nitrógeno <div class="lex">(NO2)</div>
+                <th scope="col" id=dionitro>Dióxido de nitrógeno <div class="lex">(NO2)</div>
                 </th>
-                <th scope="col" class="lex-1">Сoncentración de ozono <div class="lex lex-1">(O3)</div>
+                <th scope="col" class="lex-1" id=concenozo>Сoncentración de ozono <div class="lex lex-1">(O3)</div>
                 </th>
-                <th scope="col" class="lex-1">Dióxido de azufre <div class="lex lex-1">(SO2)</div>
+                <th scope="col" class="lex-1" id=dioazu>Dióxido de azufre <div class="lex lex-1">(SO2)</div>
                 </th>
-                <th scope="col">Materia de partículas finas <div class="lex">(PM2.5)</div>
+                <th scope="col" id=mateparti>Materia de partículas finas <div class="lex">(PM2.5)</div>
                 </th>
-                <th scope="col">Partículas gruesas <div class="lex ">(PM10)</div>
+                <th scope="col" id=partigru>Partículas gruesas <div class="lex ">(PM10)</div>
                 </th>
-                <th scope="col" class="lex-1">Сoncentración de amoníaco <div class="lex lex-1">(NH3)</div>
+                <th scope="col" class="lex-1" id=concenamo>Сoncentración de amoníaco <div class="lex lex-1">(NH3)</div>
                 </th>
             </tr>
         </thead>
@@ -347,7 +344,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" class="calidadText">Calidad de aire</th>
+                        <th scope="col" class="calidadText" id=calidair>Calidad de aire</th>
                         <th scope="col">NO2</th>
                         <th scope="col">PM10</th>
                         <th scope="col">O3</th>
@@ -356,35 +353,35 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">Bueno</th>
+                        <th scope="row" id=buen>Bueno</th>
                         <td>0-50</td>
                         <td>0-25</td>
                         <td>0-60</td>
                         <td>0-15</td>
                     </tr>
                     <tr>
-                        <th scope="row">Regular</th>
+                        <th scope="row" id=regu>Regular</th>
                         <td>50-100</td>
                         <td>25-50</td>
                         <td>60-120</td>
                         <td>15-30</td>
                     </tr>
                     <tr>
-                        <th scope="row">Moderado</th>
+                        <th scope="row" id=mode>Moderado</th>
                         <td>100-200</td>
                         <td>50-90</td>
                         <td>120-80</td>
                         <td>30-55</td>
                     </tr>
                     <tr>
-                        <th scope="row">Malo</th>
+                        <th scope="row" id=malo>Malo</th>
                         <td>200-400</td>
                         <td>90-180</td>
                         <td>180-240</td>
                         <td>55-110</td>
                     </tr>
                     <tr>
-                        <th scope="row">Pésimo</th>
+                        <th scope="row" id=pesi>Pésimo</th>
                         <td>>400</td>
                         <td>>180</td>
                         <td>>240</td>
@@ -438,7 +435,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae similique aliquam voluptatum aut sed consectetur vitae mollitia esse, qui quod. Asperiores sapiente ab iusto et explicabo quis nobis dolore voluptatem?</p>
         </div>
     </div>
-    <div class="displayTemp">Temperatura: 0°C</div>
+    <div class="displayTemp" id=temtura>Temperatura: 0°C</div>
 </section>
 
 <section class="section-5" id="section-5">
@@ -448,7 +445,7 @@
                 alt="rocket_contact" />
         </div>
         <form method="post" action="/">
-            <h3>Contáctanos</h3>
+            <h3 id=conta>Contáctanos</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
