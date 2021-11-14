@@ -6,11 +6,11 @@ let language = {
         pronostico: "Forecast" ,
         contam: "Pollution" ,
         proyecto: "Draft" , 
-        contactanos: "Contact us" ,
+        contactanos: "Contact Us" ,
         conocambi: "Know the climate changes that are coming!" , 
         Busca: "Search" ,
         contaminacion: "Air pollution",
-        monocar: "Carbon monoxide (CO)",
+        monocar: "Carbon monoxide(CO)",
         mononitro: "Nitrogen monoxide (NO)",
         dionitro: "Nitrogen dioxide (NO2)",
         concenozo: "Ozone concentration (O3)",
@@ -27,10 +27,11 @@ let language = {
         hoyx:"Today:",
         sensatermica:"The current wind chill is",
         humedad:"Humidity:",
-        pasmaña:"Day after tomorrow:", 
+        mana:"Tomorrow",
+        pasmana:"Day after tomorrow:", 
         temtura:"Temperature: 0°C",
-        conta:"Contact us"
-
+        conta:"Contact us",
+        navbarDropdown: "Languages",
        
         
 
@@ -45,7 +46,7 @@ let language = {
         conocambi: "Conoce los cambios climáticos que se aproximan!" , 
         Busca: "Buscar" ,
         contaminacion: "Contaminación del aire",
-        monocar: "Monóxido de carbono (CO)",
+        monocar: "Monóxido de carbono",
         mononitro: "Monóxido de nitrógeno (NO)",
         dionitro: "Dióxido de nitrógeno (NO2)",
         concenozo:"Сoncentración de ozono (O3)",
@@ -60,12 +61,13 @@ let language = {
         pesi:"Pésimo",
         calidair:"Calidad del aire",
         hoyx:"Hoy:",
+        mana:"Mañana",
         sensatermica:"La sensación térmica actual es de", 
         humedad:"Humedad:",
-        pasmaña:"Pasado mañana:", 
+        pasmana:"Pasado mañana:", 
         temtura:"Temperatura: 0°C",
-        conta:"Contáctanos"
-        
+        conta:"Contáctanos",
+        navbarDropdown: "Idiomas",
         
     }
 }
@@ -80,7 +82,6 @@ if (window.location.hash) {
         contactanos.textContent = language.en.contactanos
         conocambi.textContent = language.en.conocambi
         Busca.textContent = language.en.Busca
-        maña.textContent = language.en.maña
         contaminacion.textContent = language.en.contaminacion
         monocar.textContent = language.en.monocar
         mononitro.textContent = language.en.mononitro
@@ -99,13 +100,11 @@ if (window.location.hash) {
         hoyx.textContent = language.en.hoyx
         sensatermica.textContent = language.en.sensatermica
         humedad.textContent = language.en.humedad
-        pasmaña.textContent = language.en.pasmaña
+        pasmana.textContent = language.en.pasmana
         temtura.textContent = language.en.temtura
         conta.textContent = language.en.conta
-    
-     
-
-    
+        mana.textContent = language.en.mana
+        navbarDropdown.textContent=language.en.navbarDropdown
     }
 }
 

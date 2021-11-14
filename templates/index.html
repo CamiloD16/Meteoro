@@ -62,8 +62,8 @@
         <div class="containerSection2-left col-md-6">
             <h4>{{ city }}</h4>
             <div class="containerInformationSection2-today row">
-                <h3 id=hoyx> Hoy: </h3> <h3>{{ today }} </h3>
-                </h3>
+                <h3 id=hoyx> Hoy: </h3>
+                 <!-- <h3>{{ today }} </h3> -->
                 <div class="informationSection2 col-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
                         alt="">
@@ -77,9 +77,10 @@
                 </div>
             </div>
             <div class="containerInformationSection2 row">
-                <h3 id="maña">
-                    Mañana: {{ tomorrow }}
+                <h3 id="mana">
+                    Mañana: 
                 </h3>
+                <!-- <h3>{{ tomorrow }}</h3> -->
                 {% for i in [0,1,2] %}
                 <div class="informationSection2 col-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
@@ -93,7 +94,8 @@
 
             </div>
             <div class="containerInformationSection2 row col-5">
-                <h3 id=pasmaña> Pasado mañana:</h3> <h3>{{ overmorrow }}</h3>
+                <h3 id=pasmana> Pasado mañana:</h3> 
+                <!-- <h3>{{ overmorrow }}</h3> -->
                 
                 {% for i in [3,4,5]%}
                 <div class="informationSection2 col-3">
@@ -228,13 +230,13 @@
                                 '{{temp_city[9]}}', '{{temp_city[12]}}'
                             ],
                             backgroundColor: [
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)',
-                                'rgba(0, 180, 219)'
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)',
+                                'rgb(75, 192, 192)'
                             ],
                             // borderWidth: 3,
                             // hoverBorderWidth: 0,
@@ -245,13 +247,13 @@
                                 '{{temp_city[10]}}', '{{temp_city[13]}}'
                             ],
                             backgroundColor: [
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)',
-                                'rgba(255, 0, 0, 0.8)'
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 205, 86)'
                             ],
                             // borderWidth: 3,
                             // hoverBorderWidth: 0,
@@ -262,13 +264,13 @@
                                 '{{temp_city[11]}}', '{{temp_city[14]}}'
                             ],
                             backgroundColor: [
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)',
-                                'rgba(65, 231, 36,0.8)'
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)',
+                                'rgb(201, 155, 207)'
                             ],
                             // borderWidth: 3,
                             // hoverBorderWidth: 0,
@@ -296,7 +298,7 @@
         </div>
     </div>
 </main>
-
+<!--SECTION 3-->
 <section class="section-3 col-12">
 
     <h4 id="contaminacion">Contaminación del aire </h4> <p>{{ city }}</p>
@@ -458,15 +460,18 @@
                         <input type="text" name="txtPhone" class="form-control" placeholder="Número de teléfono *"
                             value="" />
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <input type="submit" name="submit_button_2" class="btnContact" value="Enviar mensaje" />
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <textarea name="txtMsg" class="form-control" placeholder="Mensaje*"
                             style="width: 100%; height: 150px;"></textarea>
                     </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit_button_2" class="btnContact" value="Enviar mensaje" />
                 </div>
             </div>
         </form>
