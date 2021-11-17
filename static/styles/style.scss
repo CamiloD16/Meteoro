@@ -726,37 +726,45 @@ nav {
 }
 
 @media (max-width: 499px) {
-    .section-1 {
-        .containerImgSection1 {
-            .containerText {
-                display: inline-block;
-                width: 40%;
+    header {
+        .section-1 {
+            .containerSection1 {
+                padding: 20px 10px;
+            }
 
-                .textImg {
-                    padding: 10px 20px 0 20px;
-                    width: 100%;
 
-                    .icon4Cities {
-                        width: 100px;
+            .containerImgSection1 {
+                .containerText {
+                    display: inline-block;
+                    width: 40%;
+
+                    .textImg {
+                        padding: 10px 20px 0 20px;
+                        width: 100%;
+
+                        .icon4Cities {
+                            width: 100px;
+                        }
                     }
-                }
 
-                .imgSection1 {
-                    width: 100%;
+                    .imgSection1 {
+                        width: 100%;
 
+                    }
                 }
             }
         }
-    }
 
-    .section-2 {
-        .containerSection2-left {
-            padding: 20px 5px;
-        }
 
-        .containerSection2-right {
-            padding: 20px 5px;
-            margin: 0 auto -25px auto;
+        .section-2 {
+            .containerSection2-left {
+                padding: 20px 5px;
+            }
+
+            .containerSection2-right {
+                padding: 20px 5px;
+                margin: 0 auto -25px auto;
+            }
         }
     }
 

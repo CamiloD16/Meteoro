@@ -617,24 +617,27 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 @media (max-width: 499px) {
-  .section-1 .containerImgSection1 .containerText {
+  header .section-1 .containerSection1 {
+    padding: 20px 10px;
+  }
+  header .section-1 .containerImgSection1 .containerText {
     display: inline-block;
     width: 40%;
   }
-  .section-1 .containerImgSection1 .containerText .textImg {
+  header .section-1 .containerImgSection1 .containerText .textImg {
     padding: 10px 20px 0 20px;
     width: 100%;
   }
-  .section-1 .containerImgSection1 .containerText .textImg .icon4Cities {
+  header .section-1 .containerImgSection1 .containerText .textImg .icon4Cities {
     width: 100px;
   }
-  .section-1 .containerImgSection1 .containerText .imgSection1 {
+  header .section-1 .containerImgSection1 .containerText .imgSection1 {
     width: 100%;
   }
-  .section-2 .containerSection2-left {
+  header .section-2 .containerSection2-left {
     padding: 20px 5px;
   }
-  .section-2 .containerSection2-right {
+  header .section-2 .containerSection2-right {
     padding: 20px 5px;
     margin: 0 auto -25px auto;
   }
