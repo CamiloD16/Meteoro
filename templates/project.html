@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+<section class="section-4" id="section-4">
+    <div class="container row">
+        <div class="col-md-5"><img class="imgSection4"
+                src="https://cdn.pixabay.com/photo/2019/05/17/04/58/agriculture-4208863_960_720.jpg" alt=""></div>
+        <div class="col-md-7 textSection4">
+            <h3>Recolector de temperatura</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quaerat harum dolor ducimus quisquam
+                molestias soluta fuga architecto adipisci laudantium. Quod hic repellat harum sed aliquid recusandae
+                fuga cum nesciunt.</p>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae similique aliquam voluptatum aut sed
+                consectetur vitae mollitia esse, qui quod. Asperiores sapiente ab iusto et explicabo quis nobis dolore
+                voluptatem?</p>
+        </div>
+    </div>
+    <div class="row ESP32">
+        <div class="col-md-6 inf-1">
+            <h5>Información 1</h5>
+            <div class="displayTemp " id=temtura>Temperatura: 0°C</div>
+            <div class="displayCont">Contaminación: 0 μg/m3</div>
+        </div> 
+        <div class="col-md-6 inf-2">
+            <h5>Información 2</h5>
+            <div class="displayTemp" id=temtura>Temperatura: 0°C</div>
+            <div class="displayCont">Contaminación: 0 μg/m3</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -43,10 +43,10 @@ from decouple import Config
 app = Flask(__name__)
 
 mysql = MySQL()
-# app.config["MYSQL_DATABASE_HOST"] = "localhost"
-# app.config["MYSQL_DATABASE_USER"] = "root"
-# app.config["MYSQL_DATABASE_PASSWORD"] = "123"
-# app.config["MYSQL_DATABASE_DB"] = "climadb"
+app.config["MYSQL_DATABASE_HOST"] = "localhost"
+app.config["MYSQL_DATABASE_USER"] = "root"
+app.config["MYSQL_DATABASE_PASSWORD"] = "123"
+app.config["MYSQL_DATABASE_DB"] = "climadb"
 
 # mysql.connector.connect(
 #     host=config("HOST_DB"),
@@ -160,25 +160,25 @@ def inicio():
                             - 273.15
                         )
                     )
-#             cur1 = mysql.connect().cursor()
-#             cur1.execute("DELETE FROM tabla_temp")
+            cur1 = mysql.connect().cursor()
+            cur1.execute("DELETE FROM tabla_temp")
 
-#             cur2 = mysql.connect().cursor()
-#             for i in range(len(temp_city)):
-#                 cur2.execute(
-#                     "INSERT INTO tabla_temp"
-#                     "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
-#                     "VALUES (%s,%s,%s,%s,%s)",
-#                     (
-#                         day_city[i],
-#                         temp_city[i],
-#                         temp_min_day[i],
-#                         temp_max_day[i],
-#                         feels_like_day[i],
-#                     ),
-#                 )
-#             cur3 = mysql.connect().cursor()
-#             cur3.execute("SELECT * FROM tabla_temp")
+            cur2 = mysql.connect().cursor()
+            for i in range(len(temp_city)):
+                cur2.execute(
+                    "INSERT INTO tabla_temp"
+                    "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
+                    "VALUES (%s,%s,%s,%s,%s)",
+                    (
+                        day_city[i],
+                        temp_city[i],
+                        temp_min_day[i],
+                        temp_max_day[i],
+                        feels_like_day[i],
+                    ),
+                )
+            cur3 = mysql.connect().cursor()
+            cur3.execute("SELECT * FROM tabla_temp")
 
             return render_template(
                 "index.html",
@@ -216,24 +216,6 @@ def inicio():
                 day4=day4,
                 day5=day5,
             )
-        elif "submit_button_2" in request.form:
-            # ENVIO DE CORREO
-            txtName = request.form["txtName"]
-            txtEmail = request.form["txtEmail"]
-            txtPhone = request.form["txtPhone"]
-            txtMsg = request.form["txtMsg"]
-
-            message = f"Correo: {txtEmail} \nCelular: {txtPhone} \nMensaje: {txtMsg}"
-            subject = "Mensaje de " + txtName
-            message = "Subject: {}\n\n{}".format(subject, message)
-
-            server = smtplib.SMTP("smtp.gmail.com", 587)
-            server.starttls()
-            server.login("meteoroweather@gmail.com", "meteoro123")
-            server.sendmail(
-                "meteoroweather@gmail.com", "meteoroweather@gmail.com", message
-            )
-            server.quit()
 
     return render_template(
         "index.html",
@@ -271,6 +253,35 @@ def inicio():
         pm10=pm10_init,
         nh3=nh3_init,
     )
+
+
+@app.route("/projecto", methods=["GET"])
+def project():
+    return render_template("project.html")
+
+
+@app.route("/contactanos", methods=["GET", "POST"])
+def contactUs():
+    if request.method == "POST":
+        if "submit_button_2" in request.form:
+            txtName = request.form["txtName"]
+            txtEmail = request.form["txtEmail"]
+            txtPhone = request.form["txtPhone"]
+            txtMsg = request.form["txtMsg"]
+
+            message = f"Correo: {txtEmail} \nCelular: {txtPhone} \nMensaje: {txtMsg}"
+            subject = "Mensaje de " + txtName
+            message = "Subject: {}\n\n{}".format(subject, message)
+
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server.starttls()
+            server.login("meteoroweather@gmail.com", "meteoro123")
+            server.sendmail(
+                "meteoroweather@gmail.com", "meteoroweather@gmail.com", message
+            )
+            server.quit()
+        return render_template("contactUs.html")
+    return render_template("contactUs.html")
 
 
 if __name__ == "__main__":

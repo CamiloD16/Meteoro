@@ -421,6 +421,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-4 {
+  margin: 80px;
   padding: 0 80px;
 }
 
@@ -440,18 +441,29 @@ nav .container-fluid .collapse ul li ul li a {
 
 .section-4 .container .textSection4 {
   color: rgba(0, 0, 0, 0.97);
-  margin-left: 10px;
+  padding: 0 50px;
 }
 
-.section-4 .displayTemp {
+.section-4 .ESP32 h5 {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.section-4 .ESP32 .displayTemp,
+.section-4 .ESP32 .displayCont {
   padding: 10px;
   color: rgba(0, 0, 0, 0.97);
   margin: 5% auto 0 auto;
-  width: 20%;
+  width: 90%;
   text-align: center;
   border-bottom: 1px solid #0083B0;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 50px;
+}
+
+.section-5 {
+  padding: 25px 0 100px 0;
 }
 
 .section-5 .contact-form {
@@ -529,6 +541,12 @@ nav .container-fluid .collapse ul li ul li a {
   cursor: pointer;
 }
 
+footer {
+  background-color: rgba(0, 0, 0, 0.97);
+  width: 100%;
+  margin: 0;
+}
+
 @media (max-width: 767px) {
   nav {
     -webkit-box-shadow: none;
@@ -598,11 +616,28 @@ nav .container-fluid .collapse ul li ul li a {
   .section-3 .tableContamination-1 td {
     font-size: 10px;
   }
+  .section-4 {
+    padding: 0 10px;
+    margin: 60px auto 0 auto;
+    width: 99%;
+  }
+  .section-4 .container {
+    margin: 0 auto;
+  }
   .section-4 .container .imgSection4 {
     margin: 25px auto 50px auto;
   }
+  .section-4 .container .textSection4 {
+    padding: 10px;
+  }
+  .section-4 .inf-1,
+  .section-4 .inf-2 {
+    margin-bottom: 40px;
+  }
   .section-4 .displayTemp {
-    margin-top: -10px;
+    margin-bottom: 50px;
+  }
+  .section-4 .displayCont {
     margin-bottom: 50px;
   }
   .section-5 .container .contact-image {
@@ -664,7 +699,37 @@ nav .container-fluid .collapse ul li ul li a {
     font-size: 0.8rem;
   }
   .section-4 {
+    width: 100%;
+    margin: 0 auto;
+    background-color: bluered;
+  }
+  .section-4 .container .imgSection4 {
+    margin: 30px auto;
+    width: 100%;
+  }
+  .section-4 .container .textSection4 {
     padding: 5px;
+    margin: 0 auto;
+  }
+  .section-4 .inf-1,
+  .section-4 .inf-2 {
+    width: 100%;
+    margin: 0 auto 40px auto;
+  }
+  .section-4 h5 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .section-4 .displayTemp {
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 0;
+  }
+  .section-4 .displayCont {
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 0;
   }
   .section-5 .container {
     margin: 0;

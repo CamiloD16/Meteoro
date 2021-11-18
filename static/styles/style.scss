@@ -471,6 +471,7 @@ nav {
 .section-4 {
     // background-color: $color-0;
     // min-height: 100vh;
+    margin: 80px;
     padding: 0 80px;
 
     .container {
@@ -487,24 +488,35 @@ nav {
 
         .textSection4 {
             color: $color-5;
-            margin-left: 10px;
+
+            padding: 0 50px;
         }
     }
 
-    .displayTemp {
-        padding: 10px;
-        color: $color-5;
-        margin: 5% auto 0 auto;
-        width: 20%;
-        text-align: center;
-        border-bottom: 1px solid $color-4;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        // background-color: red;
+
+    .ESP32 {
+        h5 {
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+
+        .displayTemp,
+        .displayCont {
+            padding: 10px;
+            color: $color-5;
+            margin: 5% auto 0 auto;
+            width: 90%;
+            text-align: center;
+            border-bottom: 1px solid $color-4;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 50px;
+        }
     }
 }
 
 .section-5 {
+    padding: 25px 0 100px 0;
 
     .contact-form {
         // background: #fff;
@@ -584,6 +596,11 @@ nav {
     }
 }
 
+footer {
+    background-color: $color-5;
+    width: 100%;
+    margin: 0;
+}
 
 
 
@@ -690,19 +707,39 @@ nav {
     }
 
     .section-4 {
+        padding: 0 10px;
+        margin: 60px auto 0 auto;
+        width: 99%;
+
         .container {
+            margin: 0 auto;
+
             .imgSection4 {
                 margin: 25px auto 50px auto;
             }
+
+            .textSection4 {
+                padding: 10px;
+            }
+        }
+
+        .inf-1,
+        .inf-2 {
+            margin-bottom: 40px;
         }
 
         .displayTemp {
-            margin-top: -10px;
+            margin-bottom: 50px;
+        }
+
+        .displayCont {
             margin-bottom: 50px;
         }
     }
 
     .section-5 {
+
+
         .container {
 
             .contact-image {
@@ -798,7 +835,46 @@ nav {
     }
 
     .section-4 {
-        padding: 5px;
+        // padding: 5px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: bluered;
+
+        .container {
+            .imgSection4 {
+                margin: 30px auto;
+                width: 100%;
+            }
+
+            .textSection4 {
+                padding: 5px;
+                margin: 0 auto;
+            }
+        }
+
+        .inf-1,
+        .inf-2 {
+            width: 100%;
+            margin: 0 auto 40px auto;
+        }
+
+        h5 {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .displayTemp {
+            margin-bottom: 50px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .displayCont {
+            margin-bottom: 50px;
+            width: 100%;
+            padding: 0;
+        }
     }
 
     .section-5 {
