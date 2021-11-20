@@ -18,13 +18,31 @@
     <div class="row ESP32">
         <div class="col-md-6 inf-1">
             <h5>Información 1</h5>
-            <div class="displayTemp " id=temtura>Temperatura: 0°C</div>
-            <div class="displayCont">Contaminación: 0 μg/m3</div>
-        </div> 
+            <div class="row">
+                {% for i in temperatura %}
+                <div class="displayTemp col-6" id=temtura>
+                    Temperatura: {{ i }}°C
+                </div>
+                {% endfor %}
+                {% for i in humedad %}
+                <div class="displayCont col-6">
+                    Humedad: {{ i }}%
+                </div>
+                {% endfor %}
+            </div>
+        </div>
         <div class="col-md-6 inf-2">
             <h5>Información 2</h5>
-            <div class="displayTemp" id=temtura>Temperatura: 0°C</div>
-            <div class="displayCont">Contaminación: 0 μg/m3</div>
+            {% for i in temperatura1 %}
+            <div class="displayTemp " id=temtura>
+                Temperatura: {{ i }}°C
+            </div>
+            {% endfor %}
+            {% for i in humedad1 %}
+            <div class="displayCont">
+                Humedad: {{ i }}%
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

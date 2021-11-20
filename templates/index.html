@@ -82,7 +82,7 @@
                 </h3>
                 <!-- <h3>{{ tomorrow }}</h3> -->
                 {% for i in [0,1,2] %}
-                <div class="informationSection2 col-3">
+                <div class="informationSection2 col-md-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
                     <h2>
                         {{ temp_city[i] }}°C
@@ -93,12 +93,12 @@
                 {% endfor %}
 
             </div>
-            <div class="containerInformationSection2 row col-5">
+            <div class="containerInformationSection2 row">
                 <h3 id=pasmana> Pasado mañana:</h3> 
                 <!-- <h3>{{ overmorrow }}</h3> -->
                 
                 {% for i in [3,4,5]%}
-                <div class="informationSection2 col-3">
+                <div class="informationSection2 col-md-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
 
                     <h2>

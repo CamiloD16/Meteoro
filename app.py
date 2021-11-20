@@ -46,7 +46,7 @@ mysql = MySQL()
 app.config["MYSQL_DATABASE_HOST"] = "localhost"
 app.config["MYSQL_DATABASE_USER"] = "root"
 app.config["MYSQL_DATABASE_PASSWORD"] = "123"
-app.config["MYSQL_DATABASE_DB"] = "climadb"
+app.config["MYSQL_DATABASE_DB"] = "climas"
 
 # mysql.connector.connect(
 #     host=config("HOST_DB"),
@@ -160,25 +160,25 @@ def inicio():
                             - 273.15
                         )
                     )
-            cur1 = mysql.connect().cursor()
-            cur1.execute("DELETE FROM tabla_temp")
+            # cur1 = mysql.connect().cursor()
+            # cur1.execute("DELETE FROM tabla_temp")
 
-            cur2 = mysql.connect().cursor()
-            for i in range(len(temp_city)):
-                cur2.execute(
-                    "INSERT INTO tabla_temp"
-                    "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
-                    "VALUES (%s,%s,%s,%s,%s)",
-                    (
-                        day_city[i],
-                        temp_city[i],
-                        temp_min_day[i],
-                        temp_max_day[i],
-                        feels_like_day[i],
-                    ),
-                )
-            cur3 = mysql.connect().cursor()
-            cur3.execute("SELECT * FROM tabla_temp")
+            # cur2 = mysql.connect().cursor()
+            # for i in range(len(temp_city)):
+            #     cur2.execute(
+            #         "INSERT INTO tabla_temp"
+            #         "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
+            #         "VALUES (%s,%s,%s,%s,%s)",
+            #         (
+            #             day_city[i],
+            #             temp_city[i],
+            #             temp_min_day[i],
+            #             temp_max_day[i],
+            #             feels_like_day[i],
+            #         ),
+            #     )
+            # cur3 = mysql.connect().cursor()
+            # cur3.execute("SELECT * FROM tabla_temp")
 
             return render_template(
                 "index.html",
@@ -255,9 +255,35 @@ def inicio():
     )
 
 
-@app.route("/projecto", methods=["GET"])
+@app.route("/proyecto", methods=["GET"])
 def project():
-    return render_template("project.html")
+    cur1 = mysql.connect().cursor()
+
+    cur3 = mysql.connect().cursor()
+    cur3.execute("SELECT * FROM datos")
+
+    dataProject = [
+        dict(temperatura=row[0], temperatura1=row[1], humedad=row[2], humedad1=row[3])
+        for row in cur3.fetchall()
+    ]
+    temperatura = []
+    temperatura1 = []
+    humedad = []
+    humedad1 = []
+
+    for i in range(0, len(dataProject)):
+        temperatura.append(dataProject[i]["temperatura"])
+        temperatura1.append(dataProject[i]["temperatura1"])
+        humedad.append(dataProject[i]["humedad"])
+        humedad1.append(dataProject[i]["humedad1"])
+    
+    return render_template(
+        "project.html",
+        temperatura=temperatura,
+        temperatura1=temperatura1,
+        humedad=humedad,
+        humedad1=humedad1,
+    )
 
 
 @app.route("/contactanos", methods=["GET", "POST"])

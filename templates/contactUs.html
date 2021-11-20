@@ -1,40 +1,132 @@
 {% extends 'layout.html' %}
 {% block body %}
 <section class="section-5" id="section-5">
-    <div class="container contact-form">
-        <div class="contact-image">
-            <img src="https://cdn.pixabay.com/photo/2017/06/14/01/14/storage-in-the-cloud-2400720_960_720.png"
-                alt="rocket_contact" />
-        </div>
-        <form method="post" action="/contactanos">
-            <h3 id=conta>Contáctanos</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Nombre *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="txtEmail" class="form-control" placeholder="Correo *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="txtPhone" class="form-control" placeholder="Número de teléfono *"
-                            value="" />
-                    </div>
-                    <!-- <div class="form-group">
-                        <input type="submit" name="submit_button_2" class="btnContact" value="Enviar mensaje" />
-                    </div> -->
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <textarea name="txtMsg" class="form-control" placeholder="Mensaje*"
-                            style="width: 100%; height: 150px;"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="submit_button_2" class="btnContact" value="Enviar mensaje" />
-                </div>
-            </div>
-        </form>
+  <div class="container contact-form">
+    <div class="contact-image">
+      <img
+        src="https://cdn-icons.flaticon.com/png/512/3562/premium/3562110.png?token=exp=1637429785~hmac=b59f8a85dfd88816189b76651e83188c"
+        alt="rocket_contact" />
     </div>
+    <form method="post" action="/contactanos">
+      <h3 id=conta>Contáctanos</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" name="txtName" class="form-control" placeholder="Nombre *" value="" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="txtEmail" class="form-control" placeholder="Correo *" value="" />
+          </div>
+          <div class="form-group">
+            <input type="text" name="txtPhone" class="form-control" placeholder="Número de teléfono *" value="" />
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea name="txtMsg" class="form-control" placeholder="Mensaje*"
+              style="width: 100%; height: 150px;"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="submit_button_2" class="btnContact" value="Enviar mensaje" />
+        </div>
+      </div>
+    </form>
+  </div>
 </section>
+<footer class="bg-dark text-center text-white">
+
+  <div class="container p-4">
+    <section class="">
+      <form action="">
+
+        <div class="row d-flex justify-content-center">
+
+          <div class="col-auto">
+            <p class="pt-2">
+              <h4>Meteoro</h4>
+            </p>
+          </div>
+        </div>
+
+      </form>
+    </section>
+
+    <section class="mb-4">
+      <p>
+        Meteoro es un proyecto desarrollado por un grupo de estudiantes de la Universidad del Magdalena, el cual uno de
+        sus objetivos principales es brindar información al usuario sobre la calidad climática y meteorológica de la
+        ciudad que el usuario desee. Además, buscamos ofrecer la oportunidad a estudiantes que estén interesados en
+        publicar proyectos relacionados al medio ambiente.
+      </p>
+    </section>
+    <section class="text-justify equipoDesarrollo">
+      <h5>Desarrolladores</h5>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h6 class="text-uppercase"><img src="https://img.icons8.com/ios-filled/50/000000/github.png"></h6>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://github.com/sebastianflorez0701" class="text-white">Florez De la Peña Sebastian</a>
+            </li>
+            <li>
+              <a href="https://github.com/camflo" class="text-white">Florez Calvo Camilo</a>
+            </li>
+            <li>
+              <a href="https://github.com/CamiloD17" class="text-white">Hernández Dodino Camilo</a>
+            </li>
+            <li>
+              <a href="https://github.com/juliomr1" class="text-white">Murillo Rodriguez Julio</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h6 class="text-uppercase"><img src="https://img.icons8.com/color/48/000000/ms-outlook.png" /></h6>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="text-white">sebastianflorezda@unimagdalena.edu.co</a>
+            </li>
+            <li>
+              <a class="text-white">camiloflorezac@unimagdalena.edu.co</a>
+            </li>
+            <li>
+              <a class="text-white">camilohernandezad@unimagdalena.edu.co</a>
+            </li>
+            <li>
+              <a class="text-white">juliomurillomr@unimagdalena.edu.co</a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h6 class="text-uppercase"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/></h6>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://www.instagram.com/sebasflorez222/" class="text-white">
+                Sebasflorez222</a>
+            </li>
+            <li>
+              <a href=https://www.instagram.com/camiloflorez15/" class="text-white">Camiloflorez15</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/camilod17/" class="text-white">Camilod17</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/julio.mr1/" class="text-white">Julio.mr1</a>
+            </li>
+          </ul>
+
+
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Copyright -->
+
+  <!-- Copyright -->
+</footer>
 {% endblock %}
