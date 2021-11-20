@@ -1,10 +1,7 @@
-// let dataReload = document.getElementsByName("[data-reload]");
 let language = {
     en: {
         descubre: "Discover the different types of weather in the city of your choice",
         inicio: "Home" , 
-        pronostico: "Forecast" ,
-        contam: "Pollution" ,
         proyecto: "Draft" , 
         contactanos: "Contact Us" ,
         conocambi: "Know the climate changes that are coming!" , 
@@ -28,9 +25,7 @@ let language = {
         sensatermica:"The current wind chill is",
         humedad:"Humidity:",
         mana:"Tomorrow",
-        pasmana:"Day after tomorrow:", 
-        temtura:"Temperature: 0°C",
-        conta:"Contact us",
+        pasmana:"Day after tomorrow", 
         navbarDropdown: "Languages",
        
         
@@ -39,8 +34,6 @@ let language = {
     es: {
         descubre: "Descubre los diversos tipos de clima en la ciudad que elijas",
         inicio: "Inicio" , 
-        pronostico: "Pronostico" ,
-        contam: "Contaminacion", 
         proyecto: "Proyecto" , 
         contactanos: "Contáctanos" ,
         conocambi: "Conoce los cambios climáticos que se aproximan!" , 
@@ -64,9 +57,7 @@ let language = {
         mana:"Mañana",
         sensatermica:"La sensación térmica actual es de", 
         humedad:"Humedad:",
-        pasmana:"Pasado mañana:", 
-        temtura:"Temperatura: 0°C",
-        conta:"Contáctanos",
+        pasmana:"Pasado mañana", 
         navbarDropdown: "Idiomas",
         
     }
@@ -76,8 +67,6 @@ if (window.location.hash) {
     if (window.location.hash === "#en") {
         descubre.textContent = language.en.descubre
         inicio.textContent = language.en.inicio
-        pronostico.textContent = language.en.pronostico
-        contam.textContent = language.en.contam
         proyecto.textContent = language.en.proyecto
         contactanos.textContent = language.en.contactanos
         conocambi.textContent = language.en.conocambi
@@ -101,8 +90,6 @@ if (window.location.hash) {
         sensatermica.textContent = language.en.sensatermica
         humedad.textContent = language.en.humedad
         pasmana.textContent = language.en.pasmana
-        temtura.textContent = language.en.temtura
-        conta.textContent = language.en.conta
         mana.textContent = language.en.mana
         navbarDropdown.textContent=language.en.navbarDropdown
     }

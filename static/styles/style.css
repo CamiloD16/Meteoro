@@ -4,7 +4,7 @@
 
 body {
   background-color: white;
-  background-image: url(https://image.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg);
+  background-image: url(https://i.pinimg.com/564x/3a/d3/e8/3ad3e8cfa9a0b87227cf461f5c232f85.jpg);
   background-size: 100% 100%;
 }
 
@@ -24,7 +24,7 @@ nav .container-fluid .navbar-brand img {
   width: 50px;
   border-radius: 50%;
   background-color: white;
-  padding: 2px;
+  padding: 5px;
   -webkit-transition: -webkit-box-shadow 1s;
   transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
@@ -363,7 +363,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-3 {
-  margin: 0 0 0 0;
+  margin: 0;
   background-size: 100%;
   border-radius: 0;
   padding: 0px 80px;
@@ -437,6 +437,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-4 .container .imgSection4 {
+  margin-top: 10px;
   width: 100%;
   border-radius: 5%;
   -webkit-transition: -webkit-box-shadow 2s;
@@ -453,6 +454,10 @@ nav .container-fluid .collapse ul li ul li a {
 .section-4 .container .textSection4 {
   color: rgba(0, 0, 0, 0.97);
   padding: 0 50px;
+}
+
+.section-4 .ESP32 {
+  margin-top: 50px;
 }
 
 .section-4 .ESP32 h5 {
@@ -559,6 +564,18 @@ footer {
   margin: 0;
 }
 
+footer li a {
+  text-decoration: none;
+}
+
+footer .textWhite-B {
+  color: white;
+}
+
+footer .textWhite-B::first-letter {
+  color: #2193b0;
+}
+
 .copyr {
   color: #2193b0;
 }
@@ -569,10 +586,19 @@ footer {
             box-shadow: none;
   }
   nav .container-fluid {
-    color: rgba(0, 0, 0, 0.97);
+    color: white;
+  }
+  nav .container-fluid .navbar-toggler {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: white;
+    margin-right: 3%;
   }
   nav .container-fluid .navbar-toggler .navbar-toggler-icon {
-    background-image: url(/img/menu.png);
+    padding: 0;
+    width: 100%;
+    background-image: url(http://assets.stickpng.com/thumbs/588a64c6d06f6719692a2d0c.png);
   }
   nav .container-fluid .navbar-brand {
     width: 50%;
@@ -585,10 +611,25 @@ footer {
   }
   nav .container-fluid .collapse {
     position: right;
+    text-align: center;
+  }
+  nav .container-fluid .collapse .navbar-nav {
+    margin-left: 0;
+    text-align: center;
+  }
+  nav .container-fluid .collapse .navbar-nav li {
+    text-align: center;
+  }
+  nav .container-fluid .collapse .navbar-nav li a {
+    text-align: center;
+    margin: 0 auto;
   }
   nav .container-fluid .collapse ul li .nav-link {
-    color: rgba(0, 0, 0, 0.97);
+    color: white;
     padding: 5px 0;
+  }
+  nav .container-fluid .collapse .dropdown .dropdown-menu {
+    margin-left: 0;
   }
   header .section-1 .containerSection1 {
     margin-top: 0;
@@ -656,6 +697,9 @@ footer {
   .section-4 .displayCont {
     margin-bottom: 50px;
   }
+  .section-5 {
+    margin-top: 50px;
+  }
   .section-5 .container .contact-image {
     display: none;
   }
@@ -668,6 +712,22 @@ footer {
 }
 
 @media (max-width: 499px) {
+  nav .container-fluid {
+    padding: 0;
+  }
+  nav .container-fluid .navbar-brand {
+    width: 70%;
+  }
+  nav .container-fluid .navbar-brand img {
+    width: 50px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 0;
+    -webkit-transition: -webkit-box-shadow 1s;
+    transition: -webkit-box-shadow 1s;
+    transition: box-shadow 1s;
+    transition: box-shadow 1s, -webkit-box-shadow 1s;
+  }
   header .section-1 .containerSection1 {
     padding: 20px 10px;
   }
