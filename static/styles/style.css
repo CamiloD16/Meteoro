@@ -714,8 +714,6 @@ footer .textWhite-B::first-letter {
   }
   nav .container-fluid .navbar-brand img {
     width: 50px;
-    border-radius: 50%;
-    background-color: white;
     padding: 0;
     -webkit-transition: -webkit-box-shadow 1s;
     transition: -webkit-box-shadow 1s;
