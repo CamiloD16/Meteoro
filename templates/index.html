@@ -4,7 +4,7 @@
     <!--SECTION 1-->
     <div class="section-1" id="section-1">
         <div class="containerSection1 col-md-10">
-            <h3 id="descubre">Descubre los diversos tipos de clima en la ciudad que elijas.
+            <h3 id="descubre">Buscamos la información meteorológica en la ciudad que elijas.
             </h3>
             <h5 id="conocambi">¡Conoce los cambios climáticos que se aproximan!</h5>
             <form action="/" method="POST" class="form-section-1 col-md-11">
@@ -12,9 +12,6 @@
                     <input type="search" class="form-control rounded p-3 mt-3" name="city"
                         placeholder="Santa Marta..." aria-label="Search"
                         aria-describedby="search-addon" />
-                    <!-- <input type="search" class="form-control rounded p-3 mt-3" name="country"
-                            placeholder="Busca un país, ciudad o lugar" aria-label="Search"
-                            aria-describedby="search-addon" /> -->
                     <button type="submit" name="submit_button_1" class="buttonSection1 p-3 mt-3" id="Busca">Buscar</button>
                 </div>
             </form>
@@ -62,7 +59,7 @@
         <div class="containerSection2-left col-md-6">
             <h4>{{ city }}</h4>
             <div class="containerInformationSection2-today row">
-                <h3 id=hoyx> Hoy</h3>
+                <!-- <h3 id=hoyx> Hoy</h3> -->
                 <div class="informationSection2 col-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
                         alt="">
@@ -76,9 +73,9 @@
                 </div>
             </div>
             <div class="containerInformationSection2 row">
-                <h3 id="mana">
+                <!-- <h3 id="mana">
                     Mañana
-                </h3>
+                </h3> -->
                 <!-- <h3>{{ tomorrow }}</h3> -->
                 {% for i in [0,1,2] %}
                 <div class="informationSection2 col-md-3">
@@ -93,7 +90,7 @@
 
             </div>
             <div class="containerInformationSection2 row">
-                <h3 id=pasmana> Pasado mañana</h3> 
+                <!-- <h3 id=pasmana> Pasado mañana</h3>  -->
                 <!-- <h3>{{ overmorrow }}</h3> -->
                 
                 {% for i in [3,4,5]%}
@@ -232,9 +229,6 @@
                                 'rgb(75, 192, 192)',
                                 'rgb(75, 192, 192)'
                             ],
-                            // borderWidth: 3,
-                            // hoverBorderWidth: 0,
-                            // borderColor: 'rgba(0, 255, 132, 0.6)',
                         }, {
                             label: 'Tarde',
                             data: ['{{temp_city[1]}}', '{{temp_city[4]}}', '{{temp_city[7]}}',
@@ -249,9 +243,6 @@
                                 'rgb(255, 205, 86)',
                                 'rgb(255, 205, 86)'
                             ],
-                            // borderWidth: 3,
-                            // hoverBorderWidth: 0,
-                            // borderColor: 'rgba(180, 255, 132, 0.6)',
                         }, {
                             label: 'Noche',
                             data: ['{{temp_city[2]}}', '{{temp_city[5]}}', '{{temp_city[8]}}',
@@ -266,9 +257,6 @@
                                 'rgb(201, 155, 207)',
                                 'rgb(201, 155, 207)'
                             ],
-                            // borderWidth: 3,
-                            // hoverBorderWidth: 0,
-                            // borderColor: 'rgba(180, 255, 132, 0.6)',
                         }]
                     },
                     options: {
@@ -279,7 +267,7 @@
                             xAxes: [{
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'aaaaaxx'
+                                    labelString: 'Fecha'
                                 }
                             }]
 

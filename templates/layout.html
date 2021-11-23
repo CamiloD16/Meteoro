@@ -18,20 +18,24 @@
     <!--JQuery
             -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!--CHART JS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
     <title>Meteoro</title>
 </head>
 
 <body>
     <div id="google_translate_element" class="google"></div>
 
-    
+
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img
-                    src="https://cdn-icons.flaticon.com/png/512/3562/premium/3562110.png?token=exp=1637429785~hmac=b59f8a85dfd88816189b76651e83188c"
+                    src="https://cdn-icons.flaticon.com/png/512/1734/premium/1734190.png?token=exp=1637680475~hmac=beb6c338d4e5dafabbb5551ce3302ad3"
                     alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,17 +52,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contactanos" id="contactanos">Contáctanos</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Idiomas
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item data-reload" href="#es" data-reload id="Spanish">Español</a>
-                            </li>
-                            <li><a class="dropdown-item data-reload" href="#en" data-reload id="English">Inglés</a></li>
-                        </ul>
-                    </li> -->
                 </ul>
             </div>
         </div>
@@ -68,7 +61,7 @@
     {% block body %}
     {% endblock %}
     <div class="text-center p-3 copyr" style="background-color: rgba(0, 0, 0, 0.97);">
-        © 2021 Copyright:
+        © 2021 Copyright
         <a class="text-white" href="/">Meteoro.com</a>
     </div>
     <!--Scroll-->
@@ -97,10 +90,24 @@
 
     <!--JS-->
     <script src="../static/script/scroll.js"></script>
-    <script src="../static/script/lenguage.js"></script>
+    <script src="../static/script/ajax.js"></script>
 
     <!--GLIDERJS-->
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+
+
+    <!--CHART en tiempo real-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+
+
 </body>
 
 </html>

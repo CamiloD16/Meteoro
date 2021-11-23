@@ -1,11 +1,14 @@
 {% extends 'layout.html' %}
 {% block body %}
+<!--GRAFICAR CHART TIEMPO REAL-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 <section class="section-4" id="section-4">
     <div class="container row">
         <div class="col-md-5"><img class="imgSection4"
                 src="https://cdn.pixabay.com/photo/2019/05/17/04/58/agriculture-4208863_960_720.jpg" alt=""></div>
         <div class="col-md-7 textSection4">
-            <h3>Recolector de temperatura</h3>
+            <h3>Cultivo hidropónico</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quaerat harum dolor ducimus quisquam
                 molestias soluta fuga architecto adipisci laudantium. Quod hic repellat harum sed aliquid recusandae
                 fuga cum nesciunt.</p>
@@ -14,35 +17,196 @@
                 voluptatem?</p>
         </div>
     </div>
-    <div class="row ESP32">
+
+    <!--GRAFICAS EN TIEMPO REAL-->
+
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-md-6 pt-4 pb-4">
+                <h4 class="text-center textMorado">Temperatura</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="numero1" width="500" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pt-4 pb-4">
+                <h4 class="text-center textMorado">Humedad</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="numero2" width="500" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Numero 1 -->
+    <script>
+        Chart.defaults.global.responsive = true;
+        Chart.defaults.global.legend.display = false;
+
+        $(document).ready(function () {
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Numero 1",
+                        backgroundColor: "rgb(132,186,91,0.2)",
+                        borderColor: "rgb(62,150,81,1)",
+                        data: [],
+                        fill: false,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Instante de recolección'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Grados'
+                            }
+                        }]
+                    }
+                }
+            };
+
+            const context = document.getElementById('numero1').getContext('2d');
+
+            const lineChart = new Chart(context, config);
+
+            const source = new EventSource("/datos_monitoreo");
+
+            source.onmessage = function (event) {
+                const data = JSON.parse(event.data);
+
+                if (config.data.labels.length == 10) {
+                    config.data.labels.shift();
+                    config.data.datasets[0].data.shift();
+                }
+
+                config.data.labels.push(data.fecha);
+                config.data.datasets[0].data.push(data.temperatura);
+                lineChart.update();
+            }
+        });
+    </script>
+
+    <!-- Numero 2 -->
+    <script>
+        $(document).ready(function () {
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Numero 2",
+                        backgroundColor: "rgb(211,94,96,0.2)",
+                        borderColor: "rgb(204,37,41,1)",
+                        data: [],
+                        fill: false,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Instante de recolección'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'g/m3'
+                            }
+                        }]
+                    }
+                }
+            };
+
+            const context = document.getElementById('numero2').getContext('2d');
+
+            const lineChart = new Chart(context, config);
+
+            const source = new EventSource("/datos_monitoreo");
+
+            source.onmessage = function (event) {
+                const data = JSON.parse(event.data);
+
+                if (config.data.labels.length == 5) {
+                    config.data.labels.shift();
+                    config.data.datasets[0].data.shift();
+                }
+
+                config.data.labels.push(data.fecha);
+                config.data.datasets[0].data.push(data.temperatura1);
+                lineChart.update();
+            }
+        });
+    </script>
+
+
+
+
+    <!-- <div class="row ESP32">
         <div class="col-md-6 inf-1">
-            <h5>Información 1</h5>
+            <h5>Datos del sector</h5>
             <div class="row">
-                {% for i in temperatura %}
-                <div class="displayTemp col-6" id=temtura>
-                    Temperatura: {{ i }}°C
+                <div class="displayTemp" id=temtura>
+                    Temperatura: {{ temperatura[0] }}°C
                 </div>
-                {% endfor %}
-                {% for i in humedad %}
-                <div class="displayCont col-6">
-                    Humedad: {{ i }}%
+                <div class="displayCont">
+                    Humedad: {{ humedad[0] }}%
                 </div>
-                {% endfor %}
             </div>
         </div>
         <div class="col-md-6 inf-2">
-            <h5>Información 2</h5>
-            {% for i in temperatura1 %}
+            <h5>Datos de cultivo</h5>
             <div class="displayTemp " id=temtura>
-                Temperatura: {{ i }}°C
+                Temperatura: {{ temperatura1[0] }}°C
             </div>
-            {% endfor %}
-            {% for i in humedad1 %}
             <div class="displayCont">
-                Humedad: {{ i }}%
+                Humedad: {{ humedad1[0] }}%
             </div>
-            {% endfor %}
         </div>
-    </div>
+    </div> -->
 </section>
 {% endblock %}

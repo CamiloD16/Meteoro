@@ -1,15 +1,14 @@
 $color-0:rgb(255, 255, 255);
-$color-1:#2193b0;
-$color-2: #36c0ee;
-$color-4:#0083B0;
+$color-1:#4A00E0;
+$color-2: #3a00ad;
+$color-3:#4b1fa5;
+$color-4:#320390;
 $color-5:rgba(0, 0, 0, 0.97);
 // $color-6:rgb(255, 187, 0);
-$color-6:rgb(229, 255, 0);
+$color-6:#c582ff;
 
 //AJUSTE DE CONTAINERS
 @mixin contenedores {
-    // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-    // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
     padding: 25px;
     border-radius: 9px;
     transition: box-shadow 1s;
@@ -27,6 +26,17 @@ $color-6:rgb(229, 255, 0);
     width: 101.5%;
 }
 
+@mixin colorFondo {
+    background: #8E2DE2;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4A00E0, #8E2DE2);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4A00E0, #8E2DE2);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
 body {
     background-color: $color-0;
     // background-image: url(https://image.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg);
@@ -36,7 +46,8 @@ body {
 
 
 nav {
-    background-color: $color-4;
+
+    @include colorFondo();
 
     .container-fluid {
         padding: 0px 5%;
@@ -46,10 +57,9 @@ nav {
             width: 100%;
 
             img {
+
                 width: 50px;
-                border-radius: 50%;
-                background-color: $color-0;
-                padding: 5px;
+                padding: 0px;
                 transition: box-shadow 1s;
 
                 &:hover {
@@ -110,10 +120,15 @@ nav {
 
         h3 {
             padding: 10px;
+            color: $color-1;
+
         }
 
         h5 {
             padding: 10px;
+            color: $color-2;
+            opacity: 0.8;
+
         }
 
 
@@ -124,9 +139,8 @@ nav {
                 border: none;
 
                 .buttonSection1 {
-                    background: #00B4DB;
-                    background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);
-                    background: linear-gradient(to bottom, #0083B0, #00B4DB);
+                    @include colorFondo();
+
                     color: $color-0;
                     width: 30%;
                     transition: background-color 1s, border 1s, box-shadow 1s;
@@ -186,15 +200,12 @@ nav {
                 transition: background-color 1s, opacity 1s;
                 padding: 15% 0 0 0;
 
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
                 h2 {
                     color: $color-0;
                 }
 
                 h3 {
-                    color: $color-2;
+                    color: $color-6;
                 }
             }
         }
@@ -320,40 +331,13 @@ nav {
             }
         }
 
-        .detalles {
-            margin: 30px 0 0 0;
 
-            .detallesButton {
-                // @include contenedores();
-                background-color: transparent;
-                color: $color-0;
-
-                font-weight: 900;
-                padding: 10px 25px;
-                border-radius: 20px;
-                border: none;
-
-                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
-                transition: box-shadow 1s, background-color 1s, color 1s;
-
-                &:hover {
-                    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
-                    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
-                    background-color: $color-0;
-                    color: $color-4;
-                }
-            }
-        }
     }
 
     .containerSection2-right {
         margin: 0 auto;
         padding: 25px;
         height: 100%;
-        // background-color: $color-0;
-        // -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
-        // box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
         border-radius: 9px;
         transition: box-shadow 1s;
 
@@ -487,10 +471,17 @@ nav {
         .textSection4 {
             color: $color-5;
 
+            h3 {
+                color: $color-1;
+            }
+
             padding: 0 50px;
         }
     }
 
+    .textMorado {
+        color: $color-1;
+    }
 
     .ESP32 {
         margin-top: 50px;
@@ -519,7 +510,6 @@ nav {
     padding: 25px 0 100px 0;
 
     .contact-form {
-        // background: #fff;
         width: 70%;
 
 
@@ -537,20 +527,20 @@ nav {
                 margin-bottom: -7%;
 
                 .btnContact {
+                    @include colorFondo();
                     width: 50%;
                     border: 1px solid $color-1;
                     border-radius: 1rem;
                     padding: 15px 40px;
-                    background: $color-1;
                     font-weight: 600;
                     color: $color-0;
                     cursor: pointer;
                     margin: 5% auto 0 auto;
-                    transition: color 1s, background-color 1s;
+                    transition: box-shadow 1s;
 
                     &:hover {
-                        background-color: $color-0;
-                        color: $color-1;
+                        -webkit-box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
+                        box-shadow: 3px 0px 2px 1px rgba(0, 0, 0, 0.25);
                     }
                 }
 
@@ -571,17 +561,11 @@ nav {
         text-align: center;
 
         img {
-            border-radius: 6rem;
+            // border-radius: 6rem;
             width: 11%;
             margin-top: 5%;
-            transform: rotate(29deg);
             transition: box-shadow 2s;
-            padding: 5px;
-
-            &:hover {
-                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
-                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
-            }
+            padding: 0px;
         }
     }
 
@@ -613,13 +597,17 @@ footer {
         color: $color-0;
 
         &::first-letter {
-            color: $color-1;
+            color: $color-3;
         }
     }
 }
 
 .copyr {
-    color: $color-1;
+    color: $color-3;
+
+    a {
+        text-decoration: none;
+    }
 }
 
 
@@ -645,9 +633,7 @@ footer {
                 .navbar-toggler-icon {
                     padding: 0;
                     width: 100%;
-                    background-image: url(http://assets.stickpng.com/thumbs/588a64c6d06f6719692a2d0c.png);
-                    // background-size: 20px;
-
+                    background-image: url(https://toppng.com/uploads/preview/blue-hamburger-menu-icon-mobile-menu-icon-transparent-11563606280vkn41b7qd9.png);
                 }
             }
 
@@ -882,10 +868,8 @@ footer {
                 }
 
                 .informationSection2 {
-                    margin-left: 0;
-                    margin-right: 0;
+                    margin-left: 5%;
                     padding: 10px 0px;
-
 
                     h2 {
                         font-size: 16px;
@@ -1044,14 +1028,6 @@ footer {
             form {
                 padding: 10px;
                 width: 150%;
-
-                // .row {
-
-                //     .btnContact {
-                //         width: 100%;
-                //     }
-
-                // }
             }
         }
     }

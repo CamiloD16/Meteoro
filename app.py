@@ -1,6 +1,15 @@
-from flask import Flask, render_template, request
+from flask import (
+    Flask,
+    render_template,
+    request,
+    Response,
+    stream_with_context,
+    url_for,
+)
 import requests
 import json
+import time
+import threading
 from datetime import date, timedelta
 from flaskext.mysql import MySQL
 from cities4 import temp_bogota, temp_tokyo, temp_paris, temp_miami
@@ -255,28 +264,17 @@ def inicio():
     )
 
 
-@app.route("/proyecto", methods=["GET"])
+@app.route("/proyecto", methods=["GET", "POST"])
 def project():
     cur1 = mysql.connect().cursor()
-
     cur3 = mysql.connect().cursor()
     cur3.execute("SELECT * FROM datos")
 
-    dataProject = [
-        dict(temperatura=row[0], temperatura1=row[1], humedad=row[2], humedad1=row[3])
-        for row in cur3.fetchall()
-    ]
     temperatura = []
     temperatura1 = []
     humedad = []
     humedad1 = []
 
-    for i in range(0, len(dataProject)):
-        temperatura.append(dataProject[i]["temperatura"])
-        temperatura1.append(dataProject[i]["temperatura1"])
-        humedad.append(dataProject[i]["humedad"])
-        humedad1.append(dataProject[i]["humedad1"])
-    
     return render_template(
         "project.html",
         temperatura=temperatura,
@@ -308,6 +306,32 @@ def contactUs():
             server.quit()
         return render_template("contactUs.html")
     return render_template("contactUs.html")
+
+#
+def _datos(cur):
+    cur.execute(
+        "SELECT temperatura, temperatura1, humedad, fecha_adquisicion FROM datos WHERE id = (SELECT MAX(id) FROM datos)"
+    )
+    datos = cur.fetchall()
+    cur2 = mysql.connect().cursor()
+
+    json_data = json.dumps(
+        {
+            "temperatura": datos[0][0],
+            "temperatura1": datos[0][1],
+            "humedad": datos[0][2],
+            "fecha": datos[0][3],
+        }
+    )
+    yield f"data:{json_data}\n\n"
+
+
+
+@app.route("/datos_monitoreo")
+def datos_monitoreo():
+    cur = mysql.get_db().cursor()
+    enviar = _datos(cur)
+    return Response(stream_with_context(enviar), mimetype="text/event-stream")
 
 
 if __name__ == "__main__":
