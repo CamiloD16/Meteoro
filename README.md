@@ -1,2 +1,2 @@
-# Clima
-Pagina Clima desarrollada para la asignatura diseño microelectrónico
+# Meteoro
+Pagina desarrollada para la asignatura diseño microelectrónico
