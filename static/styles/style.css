@@ -52,6 +52,10 @@ nav .container-fluid .collapse ul li .nav-link img {
   width: 20px;
 }
 
+nav .container-fluid .collapse ul li .nav-link:hover {
+  color: #c582ff;
+}
+
 nav .container-fluid .collapse ul li ul li a {
   z-index: 200;
 }
@@ -440,6 +444,22 @@ nav .container-fluid .collapse ul li ul li a {
 
 .section-4 .textMorado {
   color: #4A00E0;
+}
+
+.section-4 .card-body {
+  padding: 10px;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
+  transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
+}
+
+.section-4 .card-body:hover {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+  padding: 25px;
+  border-radius: 9px;
+  padding: 10px;
 }
 
 .section-4 .ESP32 {
