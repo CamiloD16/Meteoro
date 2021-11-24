@@ -86,7 +86,7 @@ nav .container-fluid .collapse ul li ul li a {
 .section-1 .containerSection1 h5 {
   padding: 10px;
   color: #3a00ad;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .section-1 .containerSection1 .form-section-1 .input-group {
@@ -127,7 +127,7 @@ nav .container-fluid .collapse ul li ul li a {
 
 .section-1 .containerImgSection1 .containerText:hover .textImg {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.466);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .section-1 .containerImgSection1 .containerText .imgSection1 {
@@ -145,7 +145,6 @@ nav .container-fluid .collapse ul li ul li a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  color: white;
   opacity: 0;
   z-index: 10;
   width: 100%;
