@@ -456,10 +456,14 @@ nav {
     margin: 80px;
     padding: 0 80px;
 
+
     .container {
+        margin-bottom: -5%;
+
         .imgSection4 {
-            margin-top: 10px;
+            margin: 0 auto;
             width: 100%;
+            height: 80%;
             border-radius: 5%;
             transition: box-shadow 2s;
 
