@@ -3,13 +3,13 @@
 }
 
 body {
-  background-color: #f2f2f21a;
+  background-color: #f2f2f25d;
 }
 
 nav {
-  background: #8E2DE2;
-  background: -webkit-gradient(linear, right top, left top, from(#4A00E0), to(#8E2DE2));
-  background: linear-gradient(to left, #4A00E0, #8E2DE2);
+  background: #2484bf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2484bf), to(#5faad9));
+  background: linear-gradient(180deg, #2484bf 0%, #5faad9 100%);
 }
 
 nav .container-fluid {
@@ -53,7 +53,7 @@ nav .container-fluid .collapse ul li .nav-link img {
 }
 
 nav .container-fluid .collapse ul li .nav-link:hover {
-  color: #c582ff;
+  color: rgba(0, 0, 0, 0.97);
 }
 
 nav .container-fluid .collapse ul li ul li a {
@@ -84,12 +84,12 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-1 .containerSection1 h3::first-letter {
-  color: #4A00E0;
+  color: #2484BF;
 }
 
 .section-1 .containerSection1 h5 {
   padding: 10px;
-  color: #3a00ad;
+  color: #2675A6;
   opacity: 0.9;
 }
 
@@ -98,9 +98,9 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-1 .containerSection1 .form-section-1 .input-group .buttonSection1 {
-  background: #8E2DE2;
-  background: -webkit-gradient(linear, right top, left top, from(#4A00E0), to(#8E2DE2));
-  background: linear-gradient(to left, #4A00E0, #8E2DE2);
+  background: #2484bf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2484bf), to(#5faad9));
+  background: linear-gradient(180deg, #2484bf 0%, #5faad9 100%);
   color: white;
   width: 30%;
   -webkit-transition: background-color 1s, border 1s, -webkit-box-shadow 1s;
@@ -164,7 +164,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-1 .containerImgSection1 .containerText .textImg h3 {
-  color: #c582ff;
+  color: #37a9d6;
 }
 
 .section-2 {
@@ -185,7 +185,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-2 .containerSection2-left h4 {
-  color: #4A00E0;
+  color: #2484BF;
   margin-left: 3%;
   text-transform: uppercase;
 }
@@ -224,7 +224,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-2 .containerSection2-left .containerInformationSection2 .informationSection2 h2 {
-  color: #320390;
+  color: #1C7FA6;
 }
 
 .section-2 .containerSection2-left .containerInformationSection2 .informationSection2 h4,
@@ -272,7 +272,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-2 .containerSection2-left .containerInformationSection2-today .informationSection2 h2 {
-  color: #320390;
+  color: #1C7FA6;
 }
 
 .section-2 .containerSection2-left .containerInformationSection2-today .informationSection2 h3,
@@ -352,7 +352,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-3 h4 {
-  color: #4A00E0;
+  color: #2484BF;
   font-weight: 700;
 }
 
@@ -379,11 +379,11 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-3 th::first-letter {
-  color: #320390;
+  color: #1C7FA6;
 }
 
 .section-3 td {
-  color: #320390;
+  color: #1C7FA6;
   opacity: 0.9;
   text-align: center;
   font-weight: 900;
@@ -410,7 +410,7 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-3 .tableContamination-2 .calidadText {
-  color: #320390;
+  color: #1C7FA6;
 }
 
 .section-4 {
@@ -444,11 +444,11 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-4 .container .textSection4 h3 {
-  color: #4A00E0;
+  color: #2484BF;
 }
 
 .section-4 .textMorado {
-  color: #4A00E0;
+  color: #2484BF;
 }
 
 .section-4 .card-body {
@@ -484,7 +484,7 @@ nav .container-fluid .collapse ul li ul li a {
   margin: 5% auto 0 auto;
   width: 90%;
   text-align: center;
-  border-bottom: 1px solid #320390;
+  border-bottom: 1px solid #1C7FA6;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 50px;
 }
@@ -512,11 +512,11 @@ nav .container-fluid .collapse ul li ul li a {
 }
 
 .section-5 .contact-form form .row .btnContact {
-  background: #8E2DE2;
-  background: -webkit-gradient(linear, right top, left top, from(#4A00E0), to(#8E2DE2));
-  background: linear-gradient(to left, #4A00E0, #8E2DE2);
+  background: #2484bf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2484bf), to(#5faad9));
+  background: linear-gradient(180deg, #2484bf 0%, #5faad9 100%);
   width: 50%;
-  border: 1px solid #4A00E0;
+  border: 1px solid #2484BF;
   border-radius: 1rem;
   padding: 15px 40px;
   font-weight: 600;
@@ -538,7 +538,7 @@ nav .container-fluid .collapse ul li ul li a {
   margin-bottom: 8%;
   margin-top: -10%;
   text-align: center;
-  color: #4A00E0;
+  color: #2484BF;
 }
 
 .section-5 .contact-image {
@@ -580,12 +580,12 @@ footer .textWhite-B {
 }
 
 footer .textWhite-B::first-letter {
-  color: #9759ce;
+  color: #37a9d6;
   font-size: 1.5rem;
 }
 
 .copyr {
-  color: #4b1fa5;
+  color: #5FAAD9;
 }
 
 .copyr a {

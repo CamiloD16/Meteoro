@@ -1,11 +1,10 @@
 $color-0:rgb(255, 255, 255);
-$color-1:#4A00E0;
-$color-2: #3a00ad;
-$color-3:#4b1fa5;
-$color-4:#320390;
+$color-1:#2484BF;
+$color-2: #2675A6;
+$color-3:#5FAAD9;
+$color-4:#1C7FA6;
 $color-5:rgba(0, 0, 0, 0.97);
-// $color-6:rgb(255, 187, 0);
-$color-6:#c582ff;
+$color-6:#37a9d6;
 
 //AJUSTE DE CONTAINERS
 @mixin contenedores {
@@ -23,9 +22,8 @@ $color-6:#c582ff;
 }
 
 @mixin colorFondo {
-    background: #8E2DE2;
-    background: -webkit-linear-gradient(to left, #4A00E0, #8E2DE2);
-    background: linear-gradient(to left, #4A00E0, #8E2DE2);
+    background: rgb(36, 132, 191);
+    background: linear-gradient(180deg, rgba(36, 132, 191, 1) 0%, rgba(95, 170, 217, 1) 100%);
 }
 
 .row {
@@ -33,10 +31,8 @@ $color-6:#c582ff;
 }
 
 body {
-    background-color: #f2f2f21a;
-    // background-image: url(https://image.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg);
-    // background-image: url(https://i.pinimg.com/564x/3a/d3/e8/3ad3e8cfa9a0b87227cf461f5c232f85.jpg);
-    // background-size: 100% 100%;
+    background-color: #f2f2f25d;
+
 }
 
 nav {
@@ -84,7 +80,7 @@ nav {
                         }
 
                         &:hover {
-                            color: $color-6;
+                            color: $color-5;
                         }
                     }
 
@@ -617,7 +613,7 @@ footer {
         color: $color-0;
 
         &::first-letter {
-            color: #9759ce;
+            color: $color-6;
             font-size: 1.5rem;
         }
     }
