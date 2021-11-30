@@ -685,11 +685,8 @@ footer .textWhite-B::first-letter {
     margin: 60px auto 0 auto;
     width: 99%;
   }
-  .section-4 .container {
-    margin: 0 auto;
-  }
   .section-4 .container .imgSection4 {
-    margin: 25px auto 50px auto;
+    margin: 25px auto -5px auto;
   }
   .section-4 .container .textSection4 {
     padding: 10px;
