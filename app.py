@@ -40,7 +40,6 @@ from infSection2 import (
     nh3_init,
 )
 
-##NUEVO CODIGO
 import smtplib
 from decouple import Config
 
@@ -64,11 +63,6 @@ app.config["MYSQL_DATABASE_DB"] = "climas"
 #     database=config("DATABASE"),
 # )
 mysql.init_app(app)
-
-
-@app.route("/project-1", methods=["GET"])
-def layout():
-    return render_template("project-1.html")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -266,22 +260,7 @@ def inicio():
 
 @app.route("/proyecto", methods=["GET", "POST"])
 def project():
-    cur1 = mysql.connect().cursor()
-    cur3 = mysql.connect().cursor()
-    cur3.execute("SELECT * FROM datos")
-
-    temperatura = []
-    temperatura1 = []
-    humedad = []
-    humedad1 = []
-
-    return render_template(
-        "project.html",
-        temperatura=temperatura,
-        temperatura1=temperatura1,
-        humedad=humedad,
-        humedad1=humedad1,
-    )
+    return render_template("project.html")
 
 
 @app.route("/contactanos", methods=["GET", "POST"])
@@ -307,24 +286,25 @@ def contactUs():
         return render_template("contactUs.html")
     return render_template("contactUs.html")
 
+
 #
 def _datos(cur):
     cur.execute(
-        "SELECT temperatura, temperatura1, humedad, fecha_adquisicion FROM datos WHERE id = (SELECT MAX(id) FROM datos)"
+        "SELECT temperatura, temperatura1, humedad, humedad1, fecha_adquisicion FROM datos3 WHERE id = (SELECT MAX(id) FROM datos3)"
     )
-    datos = cur.fetchall()
+    datos3 = cur.fetchall()
     cur2 = mysql.connect().cursor()
 
     json_data = json.dumps(
         {
-            "temperatura": datos[0][0],
-            "temperatura1": datos[0][1],
-            "humedad": datos[0][2],
-            "fecha": datos[0][3],
+            "temperatura": datos3[0][0],
+            "temperatura1": datos3[0][1],
+            "humedad": datos3[0][2],
+            "humedad1": datos3[0][3],
+            "fecha": datos3[0][4],
         }
     )
     yield f"data:{json_data}\n\n"
-
 
 
 @app.route("/datos_monitoreo")
