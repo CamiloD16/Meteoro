@@ -1,4 +1,3 @@
-/////SECTION 2/////
 ScrollReveal().reveal('.containerSection2-left', { 
     duration: 2000,
     origin: 'left',

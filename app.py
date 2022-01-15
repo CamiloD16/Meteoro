@@ -5,13 +5,10 @@ from flask import (
     Response,
     stream_with_context,
     url_for,
+    redirect,
 )
 import requests
-import json
-import time
-import threading
 from datetime import date, timedelta
-from flaskext.mysql import MySQL
 from cities4 import temp_bogota, temp_tokyo, temp_paris, temp_miami
 from infSection2 import (
     main_city_init,
@@ -43,26 +40,7 @@ from infSection2 import (
 import smtplib
 from decouple import Config
 
-
-# from decouple import config
-# import mysql.connector
-
-
 app = Flask(__name__)
-
-mysql = MySQL()
-app.config["MYSQL_DATABASE_HOST"] = "localhost"
-app.config["MYSQL_DATABASE_USER"] = "root"
-app.config["MYSQL_DATABASE_PASSWORD"] = "123"
-app.config["MYSQL_DATABASE_DB"] = "climas"
-
-# mysql.connector.connect(
-#     host=config("HOST_DB"),
-#     user=config("USER_DB"),
-#     password=config("PASSWORD_DB"),
-#     database=config("DATABASE"),
-# )
-mysql.init_app(app)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -80,7 +58,7 @@ def inicio():
             city = request.form["city"]
             # # INFORMACION CLIMATICA HOY
             weather_url_city_today = requests.get(
-                f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
+                f"http://api.openweathermap.org/data/2.5/weather?q={city}&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
             )
             weather_data_city_today = weather_url_city_today.json()
 
@@ -99,7 +77,7 @@ def inicio():
             humidity_city_today = int(
                 (round(weather_data_city_today["main"]["humidity"]))
             )
-            main_city_today = weather_data_city_today["weather"][0]["main"]
+            main_city_today = weather_data_city_today["weather"][0]["description"]
             icon_city_today = weather_data_city_today["weather"][0]["icon"]
 
             # INFORMACION GENERAL SOBRE LA CONTAMINACION DEL AIRE
@@ -120,7 +98,7 @@ def inicio():
             nh3 = inf_city_air["list"][0]["components"]["nh3"]
             # INFORMACION CLIMATICA GENERAL Y GRAFICAS CHART JS
             weather_url_city = requests.get(
-                f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid=f62b4de10d24119e0ef2a24f0cea1158"
+                f"http://api.openweathermap.org/data/2.5/forecast?q={city}&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
             )
             weather_data_city = weather_url_city.json()
 
@@ -132,9 +110,11 @@ def inicio():
             temp_max_day = []
             feels_like_day = []
 
-            for j in range(2, 40, 2):
-                if j != 8 and j != 16 and j != 24 and j != 32:
-                    main_city.append(weather_data_city["list"][j]["weather"][0]["main"])
+            for j in range(5, 40, 2):
+                if j != 11 and j != 19 and j != 27 and j != 35:
+                    main_city.append(
+                        weather_data_city["list"][j]["weather"][0]["description"]
+                    )
                     icon_city.append(weather_data_city["list"][j]["weather"][0]["icon"])
                     day_city.append(weather_data_city["list"][j]["dt_txt"])
                     temp_city.append(
@@ -163,25 +143,6 @@ def inicio():
                             - 273.15
                         )
                     )
-            # cur1 = mysql.connect().cursor()
-            # cur1.execute("DELETE FROM tabla_temp")
-
-            # cur2 = mysql.connect().cursor()
-            # for i in range(len(temp_city)):
-            #     cur2.execute(
-            #         "INSERT INTO tabla_temp"
-            #         "(fecha,temperatura,temperaturaMinima,temperaturaMaxima,sensacionTermica)"
-            #         "VALUES (%s,%s,%s,%s,%s)",
-            #         (
-            #             day_city[i],
-            #             temp_city[i],
-            #             temp_min_day[i],
-            #             temp_max_day[i],
-            #             feels_like_day[i],
-            #         ),
-            #     )
-            # cur3 = mysql.connect().cursor()
-            # cur3.execute("SELECT * FROM tabla_temp")
 
             return render_template(
                 "index.html",
@@ -258,60 +219,16 @@ def inicio():
     )
 
 
-@app.route("/proyecto", methods=["GET", "POST"])
+@app.route("/conocenos", methods=["GET", "POST"])
 def project():
-    return render_template("project.html")
+    return render_template("knowUs.html")
 
 
 @app.route("/contactanos", methods=["GET", "POST"])
 def contactUs():
     if request.method == "POST":
-        if "submit_button_2" in request.form:
-            txtName = request.form["txtName"]
-            txtEmail = request.form["txtEmail"]
-            txtPhone = request.form["txtPhone"]
-            txtMsg = request.form["txtMsg"]
-
-            message = f"Correo: {txtEmail} \nCelular: {txtPhone} \nMensaje: {txtMsg}"
-            subject = "Mensaje de " + txtName
-            message = "Subject: {}\n\n{}".format(subject, message)
-
-            server = smtplib.SMTP("smtp.gmail.com", 587)
-            server.starttls()
-            server.login("meteoroweather@gmail.com", "meteoro123")
-            server.sendmail(
-                "meteoroweather@gmail.com", "meteoroweather@gmail.com", message
-            )
-            server.quit()
-        return render_template("contactUs.html")
+        return redirect("mailto:meteoroweather@gmail.com")
     return render_template("contactUs.html")
-
-
-#
-def _datos(cur):
-    cur.execute(
-        "SELECT temperatura, temperatura1, humedad, humedad1, fecha_adquisicion FROM datos3 WHERE id = (SELECT MAX(id) FROM datos3)"
-    )
-    datos3 = cur.fetchall()
-    cur2 = mysql.connect().cursor()
-
-    json_data = json.dumps(
-        {
-            "temperatura": datos3[0][0],
-            "temperatura1": datos3[0][1],
-            "humedad": datos3[0][2],
-            "humedad1": datos3[0][3],
-            "fecha": datos3[0][4],
-        }
-    )
-    yield f"data:{json_data}\n\n"
-
-
-@app.route("/datos_monitoreo")
-def datos_monitoreo():
-    cur = mysql.get_db().cursor()
-    enviar = _datos(cur)
-    return Response(stream_with_context(enviar), mimetype="text/event-stream")
 
 
 if __name__ == "__main__":

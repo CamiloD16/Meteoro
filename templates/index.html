@@ -8,15 +8,16 @@
             <h3 id="descubre">Buscamos la información meteorológica en la ciudad que elijas.
             </h3>
             <h5 id="conocambi">¡Conoce los cambios climáticos que se aproximan!</h5>
-            <form action="/" method="POST" class="form-section-1 col-md-11">
+            <form method="POST" class="form-section-1 col-md-11">
                 <div class="input-group ">
-                    <input type="search" class="form-control rounded p-3 mt-3" name="city"
-                        placeholder="Santa Marta..." aria-label="Search"
-                        aria-describedby="search-addon" />
-                    <button type="submit" name="submit_button_1" class="buttonSection1 p-3 mt-3" id="Busca">Buscar</button>
+                    <input type="search" class="form-control rounded p-3 mt-3" name="city" placeholder="Ciudad..."
+                        aria-label="Search" aria-describedby="search-addon" required />
+                    <button type="submit" name="submit_button_1" class="buttonSection1 p-3 mt-3"
+                        id="Busca">Buscar</button>
                 </div>
             </form>
         </div>
+
         <div class="containerImgSection1 col-4">
             <div class="containerText">
                 <img class="imgSection1" src="https://cdn.pixabay.com/photo/2014/12/20/18/28/city-574236_960_720.jpg"
@@ -35,22 +36,21 @@
                 </div>
             </div>
             <div class="containerText">
-                <img class="imgSection1" src="https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_960_720.jpg"
-                    alt="">
+                <img class="imgSection1"
+                    src="https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_960_720.jpg" alt="">
                 <div class="textImg">
                     <h2>París</h2>
                     <h3>{{ temp_paris }}°C</h3>
                 </div>
             </div>
             <div class="containerText">
-                <img class="imgSection1" src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg"
+                <img class="imgSection1 tokyo" src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg"
                     alt="">
                 <div class="textImg">
                     <h2>Tokyo</h2>
                     <h3>{{ temp_tokyo }}°C</h3>
                 </div>
             </div>
-
         </div>
     </div>
 </header>
@@ -68,16 +68,14 @@
                     <h2>
                         {{  temp_city_today }}°C
                     </h2>
-                    <h3 id="sensatermica">La sensación térmica actual es de</h3> <h3>{{feelslike_city_today}}°C </h3>
+                    <h3 id="sensatermica">La sensación térmica actual es de</h3>
+                    <h3>{{feelslike_city_today}}°C </h3>
                     <h4>{{ main_city_today }}</h4>
-                    <h5 id=humedad>Humedad:</h5> <h5>{{humidity_city_today}}%</h5>
+                    <h5 id=humedad>Humedad:</h5>
+                    <h5>{{humidity_city_today}}%</h5>
                 </div>
             </div>
             <div class="containerInformationSection2 row">
-                <!-- <h3 id="mana">
-                    Mañana
-                </h3> -->
-                <!-- <h3>{{ tomorrow }}</h3> -->
                 {% for i in [0,1,2] %}
                 <div class="informationSection2 col-md-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
@@ -91,9 +89,6 @@
 
             </div>
             <div class="containerInformationSection2 row">
-                <!-- <h3 id=pasmana> Pasado mañana</h3>  -->
-                <!-- <h3>{{ overmorrow }}</h3> -->
-                
                 {% for i in [3,4,5]%}
                 <div class="informationSection2 col-md-3">
                     <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
@@ -217,7 +212,7 @@
                     data: {
                         labels: ['{{tomorrow}}', '{{overmorrow}}', '{{day3}}', '{{day4}}', '{{day5}}'],
                         datasets: [{
-                            label: 'Mañana',
+                            label: 'Día',
                             data: ['{{temp_city[0]}}', '{{temp_city[3]}}', '{{temp_city[6]}}',
                                 '{{temp_city[9]}}', '{{temp_city[12]}}'
                             ],
@@ -284,7 +279,8 @@
 <!--SECTION 3-->
 <section class="section-3 col-12">
 
-    <h4 id="contaminacion">Contaminación del aire </h4> <p>{{ city }}</p>
+    <h4 id="contaminacion">Contaminación del aire </h4>
+    <p>{{ city }}</p>
     <h5>{{ today }}</h5>
 
     <table class="table tableContamination-1">
@@ -409,5 +405,35 @@
         });
     </script>
 </section>
-
+<footer class="text-center text-light bg-dark text-muted">
+    <section class="footer">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Meteoro
+                    </h6>
+                    <p>
+                        Proyecto web climático
+                    </p>
+                </div>
+                <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-5">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        ¿Qué hacemos?
+                    </h6>
+                    <p>
+                        ¡Brindamos al usuario los datos meteorológicos actuales!
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Cuéntanos tu experiencia
+                    </h6>
+                    <p>Meteoroweather@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
 {% endblock %}
