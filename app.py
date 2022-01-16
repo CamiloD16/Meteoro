@@ -37,9 +37,6 @@ from infSection2 import (
     nh3_init,
 )
 
-import smtplib
-from decouple import Config
-
 app = Flask(__name__)
 
 

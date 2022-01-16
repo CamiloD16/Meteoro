@@ -1,6 +1,6 @@
 import requests
 
-city_init = "miami"
+city_init = "bogota"
 weather_url_city = requests.get(
     f"http://api.openweathermap.org/data/2.5/forecast?q={city_init}&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
 )
