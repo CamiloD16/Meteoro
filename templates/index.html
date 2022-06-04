@@ -16,6 +16,11 @@
                         id="Busca">Buscar</button>
                 </div>
             </form>
+            {% if fail == True %}
+                <script>
+                    alert("Ingrese una ciudad válida")
+                </script>
+            {% endif %}
         </div>
 
         <div class="containerImgSection1 col-4">

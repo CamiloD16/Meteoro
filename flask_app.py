@@ -58,17 +58,6 @@ def inicio():
                 f"http://api.openweathermap.org/data/2.5/weather?q={city}&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
             )
             weather_data_city_today = weather_url_city_today.json()
-            fail = False
-            if weather_data_city_today["cod"] != 200:
-                weather_url_city_today = requests.get(
-                    f"http://api.openweathermap.org/data/2.5/weather?q=bogota&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
-                )
-                weather_data_city_today = weather_url_city_today.json()
-                fail = True
-            if city.upper() in weather_data_city_today["name"].upper():
-                city = weather_data_city_today["name"]
-            else:
-                city = "BOGOTA"
 
             temp_city_today = int(
                 (round(weather_data_city_today["main"]["temp"]) - 273.15)
@@ -109,6 +98,7 @@ def inicio():
                 f"http://api.openweathermap.org/data/2.5/forecast?q={city}&lang=es&appid=f62b4de10d24119e0ef2a24f0cea1158"
             )
             weather_data_city = weather_url_city.json()
+
             main_city = []
             icon_city = []
             day_city = []
@@ -186,7 +176,6 @@ def inicio():
                 day3=day3,
                 day4=day4,
                 day5=day5,
-                fail=fail,
             )
 
     return render_template(
