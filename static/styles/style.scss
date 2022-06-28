@@ -1,10 +1,8 @@
-$color-0:rgb(255, 255, 255);
-$color-1:#2484BF;
-$color-2: #2675A6;
-$color-3:#5FAAD9;
-$color-4:#1C7FA6;
-$color-5:rgba(0, 0, 0, 0.97);
-$color-6:#37a9d6;
+$color-0:#fff;
+$color-1:#1C0D3E;
+$color-2: #783594;
+$color-3: #fbfbfb;
+$color-5:#0D0D0D;
 
 //AJUSTE DE CONTAINERS
 @mixin contenedores {
@@ -18,17 +16,17 @@ $color-6:#37a9d6;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
     padding: 25px;
     border-radius: 9px;
-
 }
 
 @mixin colorFondo {
-    background: rgb(36, 132, 191);
-    background: linear-gradient(180deg, rgba(36, 132, 191, 1) 0%, rgba(95, 170, 217, 1) 100%);
+    background: rgb(28,13,62);
+    background: linear-gradient(90deg, rgba(28,13,62,1) 0%, rgba(120,53,148,1) 100%);
+    // background-color: $color-1;
 }
 
 body {
     background: rgb(255, 255, 255);
-    background: linear-gradient(180deg, rgba(252, 252, 252, 1) 0%, rgba(252, 252, 252, 1) 50%);
+    background: linear-gradient(180deg, rgba(252, 252, 252, 1) 0%, rgba(252, 252, 252, 0.85) 50%);
 }
 
 nav {
@@ -206,7 +204,7 @@ nav {
                 }
 
                 h3 {
-                    color: $color-6;
+                    color: $color-1;
                 }
             }
         }
@@ -219,7 +217,6 @@ nav {
     @include colorFondo();
     margin: 0;
     padding: 5% 0;
-
     .containerSection2-left {
         height: 100%;
         @include contenedores();
@@ -244,7 +241,7 @@ nav {
 
 
             .informationSection2 {
-                background-color: $color-0;
+                background-color: $color-3;
                 -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
                 box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
                 border-radius: 9px;
@@ -257,7 +254,7 @@ nav {
 
 
                 h2 {
-                    color: $color-4;
+                    color: $color-1;
                 }
 
                 h4,
@@ -299,7 +296,8 @@ nav {
             }
 
             .informationSection2 {
-                background-color: $color-0;
+                // background-color: $color-0;
+                background-color: $color-3;
                 -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
                 box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
                 border-radius: 9px;
@@ -312,7 +310,7 @@ nav {
 
 
                 h2 {
-                    color: $color-4;
+                    color: $color-1;
                 }
 
                 h3,
@@ -345,7 +343,7 @@ nav {
         -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.521);
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.37);
         transition: box-shadow 1s;
-        background-color: $color-0;
+        background-color: $color-3;
 
         h4 {
             color: $color-0;
@@ -413,11 +411,11 @@ nav {
     }
 
     th::first-letter {
-        color: $color-4;
+        color: $color-1;
     }
 
     td {
-        color: $color-4;
+        color: $color-1;
         opacity: 0.9;
         text-align: center;
         font-weight: 900;
@@ -443,7 +441,7 @@ nav {
         height: 50%;
 
         .calidadText {
-            color: $color-4;
+            color: $color-1;
         }
     }
 }
@@ -515,7 +513,7 @@ nav {
             margin: 5% auto 0 auto;
             width: 90%;
             text-align: center;
-            border-bottom: 1px solid $color-4;
+            border-bottom: 1px solid $color-1;
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 50px;
         }
@@ -614,7 +612,7 @@ nav {
         color: $color-5;
 
         &::first-letter {
-            color: $color-6;
+            color: $color-1;
             font-size: 1.5rem;
         }
     }
@@ -625,7 +623,8 @@ nav {
 }
 
 footer {
-    padding-top: 1%;
+    padding: 0.5% 15% 1% 15%;
+
     @include colorFondo();
 
     .footer {
@@ -717,7 +716,7 @@ footer {
 
     .section-2 {
         width: 100%;
-        padding: 0 0 0 10px;
+        padding: 5% 0 0 10px;
 
         .containerSection2-left {
             margin: 0 auto 50px auto;
@@ -870,7 +869,7 @@ footer {
             color: $color-5;
 
             &::first-letter {
-                color: $color-6;
+                color: $color-1;
                 font-size: 1.5rem;
             }
         }
@@ -885,11 +884,9 @@ footer {
     }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 616px) {
     nav {
-
         .container-fluid {
-
             .navbarx {
                 width: 40px;
 
@@ -902,30 +899,15 @@ footer {
             min-height: 80vh;
 
             .containerSection1 {
-                padding: 22% 3px 0% 3px;
+                padding: 15% 5% 0% 5%;
+                min-height: 80vh;
+                justify-content: center;
+                text-align: center;
+                font-weight: 500;
             }
 
             .containerImgSection1 {
                 display: none;
-
-                .containerText {
-                    display: inline-block;
-                    width: 40%;
-
-                    .textImg {
-                        padding: 10px 20px 0 20px;
-                        width: 100%;
-
-                        .icon4Cities {
-                            width: 100px;
-                        }
-                    }
-
-                    .imgSection1 {
-                        width: 100%;
-
-                    }
-                }
             }
         }
 
@@ -934,7 +916,7 @@ footer {
     .section-2 {
 
         .containerSection2-left {
-            padding: 20px 5px;
+            padding: 10% 5px 0 5px;
             margin-left: 0;
             margin-right: 0;
             width: 100%;
@@ -987,6 +969,7 @@ footer {
                     width: 90%;
                     margin: 5px auto;
 
+
                     h2 {
                         font-size: 16px;
                     }
@@ -1009,7 +992,7 @@ footer {
 
 
     .section-3 {
-        padding: 50px 0;
+        padding: 5% 0;
 
         h4 {
             padding: 20px 0 0 20px;

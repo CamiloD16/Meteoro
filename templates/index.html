@@ -17,9 +17,9 @@
                 </div>
             </form>
             {% if fail == True %}
-                <script>
-                    alert("Ingrese una ciudad válida")
-                </script>
+            <script>
+                alert("Ingrese una ciudad válida")
+            </script>
             {% endif %}
         </div>
 
@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="containerText">
-                <img class="imgSection1 tokyo" src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg"
-                    alt="">
+                <img class="imgSection1 tokyo"
+                    src="https://cdn.pixabay.com/photo/2019/04/20/11/39/japan-4141578_960_720.jpg" alt="">
                 <div class="textImg">
                     <h2>Tokyo</h2>
                     <h3>{{ temp_tokyo }}°C</h3>
@@ -61,223 +61,223 @@
 </header>
 <!--SECTION 2-->
 <main class="section-2 row" id="section-2">
-        <div class="containerSection2-left col-md-6">
-            <h4>{{ city }}</h4>
-            <div class="containerInformationSection2-today row">
-                <!-- <h3 id=hoyx> Hoy</h3> -->
-                <div class="informationSection2 col-3">
-                    <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png"
-                        alt="">
+    <div class="containerSection2-left col-md-6">
+        <h4>{{ city }}</h4>
+        <div class="containerInformationSection2-today row">
+            <!-- <h3 id=hoyx> Hoy</h3> -->
+            <div class="informationSection2 col-3">
+                <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city_today }}@2x.png" alt="">
 
-                    <h2>
-                        {{  temp_city_today }}°C
-                    </h2>
-                    <h3 id="sensatermica">La sensación térmica actual es de</h3>
-                    <h3>{{feelslike_city_today}}°C </h3>
-                    <h4>{{ main_city_today }}</h4>
-                    <h5 id=humedad>Humedad:</h5>
-                    <h5>{{humidity_city_today}}%</h5>
-                </div>
-            </div>
-            <div class="containerInformationSection2 row">
-                {% for i in [0,1,2] %}
-                <div class="informationSection2 col-md-3">
-                    <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
-                    <h2>
-                        {{ temp_city[i] }}°C
-                    </h2>
-                    <h4>{{ main_city[i] }}</h4>
-                    <h5>{{ day_city[i] }}</h5>
-                </div>
-                {% endfor %}
-
-            </div>
-            <div class="containerInformationSection2 row dayAftertomorrow">
-                {% for i in [3,4,5]%}
-                <div class="informationSection2 col-md-3">
-                    <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
-
-                    <h2>
-                        {{ temp_city[i] }}°C
-                    </h2>
-                    <h4>{{ main_city[i] }}</h4>
-                    <h5>{{ day_city[i] }}</h5>
-                </div>
-                {% endfor %}
+                <h2>
+                    {{  temp_city_today }}°C
+                </h2>
+                <h3 id="sensatermica">La sensación térmica actual es de</h3>
+                <h3>{{feelslike_city_today}}°C </h3>
+                <h4>{{ main_city_today }}</h4>
+                <h5 id=humedad>Humedad:</h5>
+                <h5>{{humidity_city_today}}%</h5>
             </div>
         </div>
+        <div class="containerInformationSection2 row">
+            {% for i in [0,1,2] %}
+            <div class="informationSection2 col-md-3">
+                <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
+                <h2>
+                    {{ temp_city[i] }}°C
+                </h2>
+                <h4>{{ main_city[i] }}</h4>
+                <h5>{{ day_city[i] }}</h5>
+            </div>
+            {% endfor %}
 
-        <div class="containerSection2-right col-md-5">
-            <canvas id="myChart" width="300px" height="300px"></canvas>
-            <canvas id="myChart2" width="300px" height="300px"></canvas>
-            <script>
-                var ctx2 = document.getElementById('myChart2').getContext('2d');
-                const data2 = {
-                    labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
-                    datasets: [{
-                        label: '{{today}}',
-                        data: ['{{temp_city_today}}', '{{temp_max_city_today}}',
-                            '{{feelslike_city_today}}', '{{temp_min_city_today}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(0, 180, 219)',
-                        pointBackgroundColor: 'rgb(0, 180, 219)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(0, 180, 219)'
-                    }, {
-                        label: '{{tomorrow}}',
-                        data: ['{{temp_city[1]}}', '{{temp_max_day[1]}}', '{{feels_like_day[1]}}',
-                            '{{temp_min_day[1]}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(255, 0, 0)',
-                        pointBackgroundColor: 'rgb(255, 0, 0)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(255, 140, 0 )'
-                    }, {
-                        label: '{{overmorrow}}',
-                        data: ['{{temp_city[4]}}', '{{temp_max_day[4]}}', '{{feels_like_day[4]}}',
-                            '{{temp_min_day[4]}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(65, 231, 36)',
-                        pointBackgroundColor: 'rgb(65, 231, 36)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(65, 231, 36)',
-                    }, {
-                        label: '{{day3}}',
-                        data: ['{{temp_city[7]}}', '{{temp_max_day[7]}}', '{{feels_like_day[7]}}',
-                            '{{temp_min_day[7]}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(139, 0, 0)',
-                        pointBackgroundColor: 'rgb(139, 0, 0)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(139, 0, 0)',
-                    }, {
-                        label: '{{day4}}',
-                        data: ['{{temp_city[10]}}', '{{temp_max_day[10]}}', '{{feels_like_day[10]}}',
-                            '{{temp_min_day[10]}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(255, 0, 255)',
-                        pointBackgroundColor: 'rgb(255, 0, 255)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(255, 0, 255)',
-                    }, {
-                        label: '{{day5}}',
-                        data: ['{{temp_city[13]}}', '{{temp_max_day[13]}}', '{{feels_like_day[13]}}',
-                            '{{temp_min_day[13]}}'
-                        ],
-                        fill: true,
-                        backgroundColor: 'rgb(245, 245, 245,0.1)',
-                        borderColor: 'rgb(0, 0, 255)',
-                        pointBackgroundColor: 'rgb(0, 0, 255)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(0, 0, 255)',
-                    }],
-                }
+        </div>
+        <div class="containerInformationSection2 row dayAftertomorrow">
+            {% for i in [3,4,5]%}
+            <div class="informationSection2 col-md-3">
+                <img class="iconSection2" src="http://openweathermap.org/img/wn/{{ icon_city[i] }}@2x.png" alt="">
 
-                var myChart2 = new Chart(ctx2, {
-                    type: 'radar',
-                    data: data2,
+                <h2>
+                    {{ temp_city[i] }}°C
+                </h2>
+                <h4>{{ main_city[i] }}</h4>
+                <h5>{{ day_city[i] }}</h5>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
-                    options: {
-                        scale: {
-                            min: 0,
-                            ticks: {
-                                stepSize: 5
-                            }
+    <div class="containerSection2-right col-md-5">
+        <canvas id="myChart" width="300px" height="300px"></canvas>
+        <canvas id="myChart2" width="300px" height="300px"></canvas>
+        <script>
+            var ctx2 = document.getElementById('myChart2').getContext('2d');
+            const data2 = {
+                labels: ['Temperatura', 'Temperatura máxima', 'Sensación Térmica', 'Temperatura mínima', ],
+                datasets: [{
+                    label: '{{today}}',
+                    data: ['{{temp_city_today}}', '{{temp_max_city_today}}',
+                        '{{feelslike_city_today}}', '{{temp_min_city_today}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(0, 180, 219)',
+                    pointBackgroundColor: 'rgb(0, 180, 219)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(0, 180, 219)'
+                }, {
+                    label: '{{tomorrow}}',
+                    data: ['{{temp_city[1]}}', '{{temp_max_day[1]}}', '{{feels_like_day[1]}}',
+                        '{{temp_min_day[1]}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(255, 0, 0)',
+                    pointBackgroundColor: 'rgb(255, 0, 0)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 140, 0 )'
+                }, {
+                    label: '{{overmorrow}}',
+                    data: ['{{temp_city[4]}}', '{{temp_max_day[4]}}', '{{feels_like_day[4]}}',
+                        '{{temp_min_day[4]}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(65, 231, 36)',
+                    pointBackgroundColor: 'rgb(65, 231, 36)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(65, 231, 36)',
+                }, {
+                    label: '{{day3}}',
+                    data: ['{{temp_city[7]}}', '{{temp_max_day[7]}}', '{{feels_like_day[7]}}',
+                        '{{temp_min_day[7]}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(139, 0, 0)',
+                    pointBackgroundColor: 'rgb(139, 0, 0)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(139, 0, 0)',
+                }, {
+                    label: '{{day4}}',
+                    data: ['{{temp_city[10]}}', '{{temp_max_day[10]}}', '{{feels_like_day[10]}}',
+                        '{{temp_min_day[10]}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(255, 0, 255)',
+                    pointBackgroundColor: 'rgb(255, 0, 255)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 0, 255)',
+                }, {
+                    label: '{{day5}}',
+                    data: ['{{temp_city[13]}}', '{{temp_max_day[13]}}', '{{feels_like_day[13]}}',
+                        '{{temp_min_day[13]}}'
+                    ],
+                    fill: true,
+                    backgroundColor: 'rgb(245, 245, 245,0.1)',
+                    borderColor: 'rgb(0, 0, 255)',
+                    pointBackgroundColor: 'rgb(0, 0, 255)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(0, 0, 255)',
+                }],
+            }
 
-                        },
-                        elements: {
-                            line: {
-                                borderWidth: 3
-                            }
+            var myChart2 = new Chart(ctx2, {
+                type: 'radar',
+                data: data2,
+
+                options: {
+                    scale: {
+                        min: 0,
+                        ticks: {
+                            stepSize: 5
                         }
-                    },
-                });
-            </script>
-            <script>
-                var ctx1 = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx1, {
-                    type: 'bar',
-                    data: {
-                        labels: ['{{tomorrow}}', '{{overmorrow}}', '{{day3}}', '{{day4}}', '{{day5}}'],
-                        datasets: [{
-                            label: 'Día',
-                            data: ['{{temp_city[0]}}', '{{temp_city[3]}}', '{{temp_city[6]}}',
-                                '{{temp_city[9]}}', '{{temp_city[12]}}'
-                            ],
-                            backgroundColor: [
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)',
-                                'rgb(75, 192, 192)'
-                            ],
-                        }, {
-                            label: 'Tarde',
-                            data: ['{{temp_city[1]}}', '{{temp_city[4]}}', '{{temp_city[7]}}',
-                                '{{temp_city[10]}}', '{{temp_city[13]}}'
-                            ],
-                            backgroundColor: [
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)',
-                                'rgb(255, 205, 86)'
-                            ],
-                        }, {
-                            label: 'Noche',
-                            data: ['{{temp_city[2]}}', '{{temp_city[5]}}', '{{temp_city[8]}}',
-                                '{{temp_city[11]}}', '{{temp_city[14]}}'
-                            ],
-                            backgroundColor: [
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)',
-                                'rgb(201, 155, 207)'
-                            ],
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                            xAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Fecha'
-                                }
-                            }]
 
-                        },
-
-                        responsive: true,
+                    },
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        }
                     }
-                });
-            </script>
-        </div>
+                },
+            });
+        </script>
+        <script>
+            var ctx1 = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['{{tomorrow}}', '{{overmorrow}}', '{{day3}}', '{{day4}}', '{{day5}}'],
+                    datasets: [{
+                        label: 'Día',
+                        data: ['{{temp_city[0]}}', '{{temp_city[3]}}', '{{temp_city[6]}}',
+                            '{{temp_city[9]}}', '{{temp_city[12]}}'
+                        ],
+                        backgroundColor: [
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                            'rgb(28, 13, 62)',
+                        ],
+                    }, {
+                        label: 'Tarde',
+                        data: ['{{temp_city[1]}}', '{{temp_city[4]}}', '{{temp_city[7]}}',
+                            '{{temp_city[10]}}', '{{temp_city[13]}}'
+                        ],
+                        backgroundColor: [
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                            'rgb(199, 0, 57)',
+                        ],
+                    }, {
+                        label: 'Noche',
+                        data: ['{{temp_city[2]}}', '{{temp_city[5]}}', '{{temp_city[8]}}',
+                            '{{temp_city[11]}}', '{{temp_city[14]}}'
+                        ],
+                        backgroundColor: [
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                            'rgb(40, 159, 240 )',
+                        ],
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Fecha'
+                            }
+                        }]
+
+                    },
+
+                    responsive: true,
+                }
+            });
+        </script>
+    </div>
 </main>
 <!--SECTION 3-->
 <section class="section-3 col-12">
@@ -392,10 +392,10 @@
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(75, 192, 192)',
-                    'rgb(255, 205, 86)',
+                    'rgb(88, 24, 69 )',
                     'rgb(201, 203, 207)',
-                    'rgb(54, 162, 235)',
-                    'rgb(201, 155, 207)',
+                    'rgb(199, 0, 57)',
+                    'rgb(255, 87, 51 )',
                     'rgb(10, 203, 255)'
                 ]
             }]
@@ -412,23 +412,16 @@
     <section class="footer">
         <div class="container text-center text-md-start mt-5">
             <div class="row mt-3">
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-3">
+                <div class="col-md-7">
                     <h6 class="text-uppercase fw-bold mb-4">
-                        ¿Quienés somos?
+                        ¿Qué es Meteoro?
                     </h6>
                     <p>
-                        Somos un proyecto web enfocado a los datos climáticos.
+                        Es un proyecto web enfocado a brindar datos meteorológicos de las ciudades que los usuarios
+                        ingresen.
                     </p>
                 </div>
-                <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-5">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        ¿Qué hacemos?
-                    </h6>
-                    <p>
-                        ¡Brindamos al usuario los datos meteorológicos actuales!
-                    </p>
-                </div>
-                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                <div class="col-md-4">
                     <h6 class="text-uppercase fw-bold mb-4">
                         Cuéntanos tu experiencia
                     </h6>
