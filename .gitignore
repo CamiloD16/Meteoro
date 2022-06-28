@@ -1,4 +1,6 @@
 __pycache__
 static/Thumbs.db
 static/styles/_mediaqueries.scss
+static/styles/style.css.map
+static/styles/style.scss
 data/
