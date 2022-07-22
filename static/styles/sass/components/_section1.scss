@@ -132,14 +132,15 @@
 
 @media (max-width: 616px) {
     .section-1 {
-        min-height: 80vh;
 
         .containerSection1 {
-            padding: 15% 5% 0% 5%;
-            min-height: 80vh;
+            padding: 10% 5%;
             justify-content: center;
             text-align: center;
             font-weight: 500;
+            h3,h5{
+                display: none;
+            }
         }
 
         .containerImgSection1 {

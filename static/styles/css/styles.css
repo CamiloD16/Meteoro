@@ -220,15 +220,14 @@ nav .container-fluid .collapse ul li ul li a {
   }
 }
 @media (max-width: 616px) {
-  .section-1 {
-    min-height: 80vh;
-  }
   .section-1 .containerSection1 {
-    padding: 15% 5% 0% 5%;
-    min-height: 80vh;
+    padding: 10% 5%;
     justify-content: center;
     text-align: center;
     font-weight: 500;
+  }
+  .section-1 .containerSection1 h3, .section-1 .containerSection1 h5 {
+    display: none;
   }
   .section-1 .containerImgSection1 {
     display: none;
