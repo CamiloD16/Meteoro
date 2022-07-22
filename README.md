@@ -1,4 +1,4 @@
 # Meteoro
-Este proyecto consume los datos de una api (https://openweathermap.org/) en donde se pueden recolectar datos meteorológicos, niveles de contaminación y predicciones climáticas,
+This project consumes data from an API (https://openweathermap.org/) where weather information, pollution levels and climate predictions can be collected.
 
 -- http://camilow.pythonanywhere.com/ --

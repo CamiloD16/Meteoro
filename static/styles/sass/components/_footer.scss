@@ -1,0 +1,12 @@
+footer {
+    padding: 0.5% 15% 1% 15%;
+    @include colorFondo();
+
+    .footer {
+        color: $color-0;
+    }
+
+    .text-light {
+        color: $color-0;
+    }
+}

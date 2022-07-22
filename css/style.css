@@ -513,14 +513,12 @@ footer .text-light {
   nav .container-fluid .collapse .dropdown .dropdown-menu {
     margin-left: 0;
   }
-
   header .section-1 .containerSection1 {
     margin-top: 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
   }
-
   .section-2 {
     width: 100%;
     padding: 5% 0 0 10px;
@@ -533,7 +531,6 @@ footer .text-light {
     margin: 0 auto 50px auto;
     width: 90%;
   }
-
   .section-3 {
     padding: 0;
   }
@@ -557,7 +554,6 @@ footer .text-light {
   .section-3 .tableContamination-1 td {
     font-size: 10px;
   }
-
   .section-4 {
     padding: 0 10px;
     margin: 60px auto 0 auto;
@@ -579,7 +575,6 @@ footer .text-light {
   .section-4 .displayCont {
     margin-bottom: 50px;
   }
-
   .section-5 {
     margin-top: 20%;
   }
@@ -610,14 +605,12 @@ footer .text-light {
   nav .container-fluid .navbar-brand {
     width: 50%;
   }
-
   .section-1 .containerText .tokyo {
     display: none;
   }
   .section-1 .containerSection1 {
     width: 100%;
   }
-
   .knowUs {
     width: 100%;
     margin: 3% 0 0 0;
@@ -644,7 +637,6 @@ footer .text-light {
   nav .container-fluid .navbarx {
     width: 40px;
   }
-
   header .section-1 {
     min-height: 80vh;
   }
@@ -658,7 +650,6 @@ footer .text-light {
   header .section-1 .containerImgSection1 {
     display: none;
   }
-
   .section-2 .containerSection2-left {
     padding: 10% 5px 0 5px;
     margin-left: 0;
@@ -716,7 +707,6 @@ footer .text-light {
   .section-2 .containerSection2-right {
     margin: 0 auto 10% auto;
   }
-
   .section-3 {
     padding: 5% 0;
   }
@@ -753,7 +743,6 @@ footer .text-light {
   .section-3 .tableContamination-2 .table td {
     font-size: 10px;
   }
-
   .section-4 {
     width: 100%;
     margin: 0 auto;
@@ -787,7 +776,6 @@ footer .text-light {
     width: 100%;
     padding: 0;
   }
-
   .section-5 .container {
     margin: 0;
   }

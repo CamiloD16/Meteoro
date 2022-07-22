@@ -1,0 +1,160 @@
+.section-3 {
+    margin: 0;
+    border-radius: 0;
+    padding: 5% 5% 1% 5%;
+    background-color: $color-0;
+
+    h4 {
+        color: $color-1;
+        font-weight: 700;
+    }
+
+    p {
+        color: $color-5;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    h5 {
+        color: $color-5;
+        opacity: 0.8;
+    }
+
+    th {
+        color: $color-5;
+        opacity: 0.9;
+        text-align: center;
+
+
+        .lex {
+            color: $color-5;
+        }
+    }
+
+    th::first-letter {
+        color: $color-1;
+    }
+
+    td {
+        color: $color-1;
+        opacity: 0.9;
+        text-align: center;
+        font-weight: 900;
+    }
+
+    .containerChartContamination {
+        padding: 10px;
+        width: 100%;
+
+        td {
+            color: $color-5;
+        }
+
+        #myChart3 {
+            border-radius: 3px;
+            padding: 10px;
+            opacity: 0.9;
+        }
+    }
+
+    .tableContamination-2 {
+        padding-top: 25px;
+        height: 50%;
+
+        .calidadText {
+            color: $color-1;
+        }
+    }
+}
+
+///////////////////
+// MEDIAQUERIES //
+///////////////////
+
+@media (max-width: 768px) {
+    .section-3 {
+        padding: 0;
+
+        h4 {
+            padding: 20px 0 0 20px;
+        }
+
+        p {
+            padding: 0 0 5px 20px;
+        }
+
+        h5 {
+            padding: 0 0 5px 20px;
+        }
+
+        .tableContamination-1 {
+            width: 20px;
+            padding: 0;
+            margin: 0 auto;
+
+            th {
+                font-size: 12px;
+            }
+
+            td {
+                font-size: 10px;
+            }
+
+        }
+    }
+}
+
+
+@media (max-width: 616px) {
+    .section-3 {
+        padding: 5% 0;
+
+        h4 {
+            padding: 20px 0 0 20px;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        h5 {
+            padding: 0 0 5px 20px;
+            font-size: 8px;
+        }
+
+        .tableContamination-1 {
+            width: 100%;
+            padding: 10px 0;
+            margin: 0;
+
+            .lex-1 {
+                color: red;
+                display: none;
+            }
+
+            th {
+                font-size: 8px;
+            }
+
+            td {
+                font-size: 8px;
+            }
+
+        }
+
+        .tableContamination-2 {
+            .table {
+                th {
+                    font-size: 12px;
+                }
+
+                td {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}

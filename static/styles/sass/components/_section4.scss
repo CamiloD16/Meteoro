@@ -1,0 +1,146 @@
+.section-4 {
+    margin: 80px;
+    padding: 0 80px;
+
+    .container {
+        margin-bottom: -5%;
+
+        .imgSection4 {
+            margin: 0 auto;
+            width: 95%;
+            height: 70%;
+            border-radius: 5%;
+            transition: box-shadow 2s;
+
+            &:hover {
+                -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.212);
+                box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.685);
+            }
+        }
+
+        .textSection4 {
+            color: $color-5;
+
+            h3 {
+                color: $color-1;
+            }
+
+            padding: 0 50px;
+        }
+    }
+
+    .textMorado {
+        color: $color-1;
+    }
+
+    .card-body {
+        padding: 10px;
+        transition: box-shadow 1s;
+
+        &:hover {
+            @include fondoHover();
+            padding: 10px;
+        }
+    }
+
+    .ESP32 {
+        margin-top: 50px;
+
+        h5 {
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+
+        .displayTemp,
+        .displayCont {
+            padding: 10px;
+            color: $color-5;
+            margin: 5% auto 0 auto;
+            width: 90%;
+            text-align: center;
+            border-bottom: 1px solid $color-1;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 50px;
+        }
+    }
+}
+
+///////////////////
+// MEDIAQUERIES //
+///////////////////
+
+@media (max-width: 768px) {
+    .section-4 {
+        padding: 0 10px;
+        margin: 60px auto 0 auto;
+        width: 99%;
+
+        .container {
+            .imgSection4 {
+                margin: 25px auto -5px auto;
+            }
+
+            .textSection4 {
+                padding: 10px;
+            }
+        }
+
+        .inf-1,
+        .inf-2 {
+            margin-bottom: 40px;
+        }
+
+        .displayTemp {
+            margin-bottom: 50px;
+        }
+
+        .displayCont {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+@media (max-width: 616px) {
+    .section-4 {
+        width: 100%;
+        margin: 0 auto;
+        background-color: bluered;
+
+        .container {
+            .imgSection4 {
+                margin: 30px auto;
+                width: 100%;
+            }
+
+            .textSection4 {
+                padding: 5px;
+                margin: 0 auto;
+            }
+        }
+
+        .inf-1,
+        .inf-2 {
+            width: 100%;
+            margin: 0 auto 40px auto;
+        }
+
+        h5 {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .displayTemp {
+            margin-bottom: 50px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .displayCont {
+            margin-bottom: 50px;
+            width: 100%;
+            padding: 0;
+        }
+    }
+}

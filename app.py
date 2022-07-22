@@ -11,7 +11,6 @@ from infSection2 import (
     main_city_init,
     icon_city_init,
     day_city_init,
-    temp_city_init,
     city_init,
     temp_city_today_init,
     temp_max_city_today_init,

@@ -1,0 +1,58 @@
+.knowUs {
+    width: 100%;
+    margin: 3% 0 0 0;
+    min-height: 80vh;
+
+    li {
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .textWhite-B {
+        color: $color-5;
+
+        &::first-letter {
+            color: $color-1;
+            font-size: 1.5rem;
+        }
+    }
+
+    .equipoDesarrollo {
+        margin-top: 5%;
+    }
+}
+
+
+/// MEDIAQUERIES ///
+
+@media (min-width: 767px) and(max-width:1013px) {
+    .knowUs {
+        width: 100%;
+        margin: 3% 0 0 0;
+        min-height: 80vh;
+
+        li {
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .textWhite-B {
+            color: $color-5;
+
+            &::first-letter {
+                color: $color-1;
+                font-size: 1.5rem;
+            }
+        }
+
+        .equipoDesarrollo {
+            margin-top: 5%;
+
+            .team {
+                padding-top: 5%;
+            }
+        }
+    }
+}
